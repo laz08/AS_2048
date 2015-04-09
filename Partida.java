@@ -141,6 +141,33 @@ public class Partida {
 	}
 	
 	private void movEsquerra(){
+		//TODO Bug movent cap a esquerra
+		for (int i = 1; i < 16; ++i){
+			if(i%4 != 0){
+				Casella c = caselles.get(i);
+				//Si té número,el desplacem fins trobar un altre número o la vora
+				int puntC = c.getPuntuacio();
+				if(puntC != 0){
+					int j = i;
+					while(j%4 != 0){
+						--j;
+						Casella tmp = caselles.get(j);
+						int puntTmp = tmp.getPuntuacio();
+						if(puntC == puntTmp && !modificats[j]){
+							tmp.setPuntuacio(puntC + puntTmp);
+							c.setPuntuacio(0);
+							c = tmp;
+							modificats[j] = true;
+						}
+						else if (j  >= 0 && puntTmp == 0){
+							tmp.setPuntuacio(puntC);
+							c.setPuntuacio(0);
+							c = tmp;
+						}
+					}
+				}
+			}
+		}
 		
 	}
 	private void movDreta(){
