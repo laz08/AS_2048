@@ -15,7 +15,6 @@ public class Partida {
 	private boolean estaGuanyada;
 	private String username;
 	private ArrayList<Casella> caselles;
-	private boolean[] modificats;
 	
 	
 	public Partida(int id, String jug){
@@ -25,7 +24,6 @@ public class Partida {
 		estaGuanyada = false;
 		username = jug;
 		caselles = new ArrayList<Casella>();
-		modificats = new boolean[16];
 		
 		//Inicialitzem les caselles
 		for(int i = 0; i < 16; ++i){
@@ -34,11 +32,29 @@ public class Partida {
 		}
 		
 	}
+	public int getIdPartida(){
+		return id_partida;
+	}
+	
+	public String getUsername(){
+		return username;
+	}
+	public int getPuntuacio(){
+		return puntuacio;
+	}
+	public void setPuntuacio(int p){
+		puntuacio = p;
+	}
+	
 	public boolean esGuanyada(){
 		return estaGuanyada;
 	}
-	public boolean esPerduda(){
-		return !(estaAcabada && estaGuanyada);
+	public void setEstaGuanyada(boolean g){
+		estaGuanyada = g;
+	}
+
+	public void setEstaAcabada(boolean a){
+		estaAcabada = a;
 	}
 	public boolean esAcabada(){
 		return estaAcabada;
