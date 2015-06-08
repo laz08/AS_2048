@@ -1,5 +1,7 @@
-package practicaAS;
+package DomainLayer;
 
+import DomainLayer.Partida;
+import DomainLayer.*;
 import java.util.Scanner;
 
 public class main {

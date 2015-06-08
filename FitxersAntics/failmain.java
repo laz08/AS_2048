@@ -1,8 +1,10 @@
-package practicaAS;
+package DomainLayer;
+import DomainLayer.*;
+
 
 import java.util.Scanner;
 
-public class main {
+public class failmain {
 
 	static Scanner arg = new Scanner(System.in);
 	static private Partida p;

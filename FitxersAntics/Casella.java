@@ -1,4 +1,6 @@
-package practicaAS;
+package DomainLayer;
+import DomainLayer.*;
+
 /*
 @Entity
 @Table(name="CASELLA")

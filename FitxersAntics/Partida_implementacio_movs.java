@@ -1,4 +1,4 @@
-package practicaAS;
+package DomainLayer;
 
 import java.util.ArrayList;
 import java.util.Random;
