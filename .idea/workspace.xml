@@ -36,17 +36,17 @@
         <entry file="file://$PROJECT_DIR$/src/PresentationLayer/JugarPartidaController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+              <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JugarPartidaView.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="JugarPartidaView.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/PresentationLayer/JugarPartidaView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.53503186">
+              <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -58,13 +58,19 @@
         <entry file="file://$PROJECT_DIR$/src/PresentationLayer/Autentif.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-              <folding />
+              <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#739#1023#0" expanded="true" />
+                <element signature="e#1022#1023#0" expanded="true" />
+                <element signature="e#1068#1283#0" expanded="true" />
+                <element signature="e#1282#1283#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Autentif.form" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Autentif.form" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PresentationLayer/Autentif.form">
           <provider selected="true" editor-type-id="ui-designer">
             <state />
@@ -98,9 +104,9 @@
         <option value="$PROJECT_DIR$/src/DomainLayer/main_movs.java" />
         <option value="$PROJECT_DIR$/src/PresentationLayer/autentificacio.form" />
         <option value="$PROJECT_DIR$/src/PresentationLayer/Autentificacio.form" />
-        <option value="$PROJECT_DIR$/src/PresentationLayer/JugarPartidaView.java" />
-        <option value="$PROJECT_DIR$/src/PresentationLayer/Autentif.java" />
         <option value="$PROJECT_DIR$/src/PresentationLayer/Autentif.form" />
+        <option value="$PROJECT_DIR$/src/PresentationLayer/Autentif.java" />
+        <option value="$PROJECT_DIR$/src/PresentationLayer/JugarPartidaView.java" />
       </list>
     </option>
   </component>
@@ -487,35 +493,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/PresentationLayer/Autentif.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/PresentationLayer/JugarPartidaController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+          <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PresentationLayer/JugarPartidaView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PresentationLayer/Autentif.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-          <folding />
+          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#739#1023#0" expanded="true" />
+            <element signature="e#1022#1023#0" expanded="true" />
+            <element signature="e#1068#1283#0" expanded="true" />
+            <element signature="e#1282#1283#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PresentationLayer/Autentif.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
+    <entry file="file://$PROJECT_DIR$/src/PresentationLayer/JugarPartidaView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.53503186">
+          <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>
