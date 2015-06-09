@@ -7,23 +7,31 @@ import java.awt.event.ActionListener;
 /**
  * Created by laura on 09/06/15.
  */
-public class Autentif {
+public class Autenticacio {
+    private final JugarPartidaController jpc;
+
     private JButton OKButton;
     private JButton cancelLarButton;
     private JPasswordField passwordField1;
     private JTextField textField1;
     private JPanel PanelAut;
+    private JLabel errorTextField;
 
-    public static void main(JFrame frame) {
+    public void main(JFrame frame) {
         frame.setTitle("2048 - Autentificació");
-        frame.setContentPane(new Autentif().PanelAut);
+        frame.setContentPane(new Autenticacio(jpc).PanelAut);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 200);
         frame.setResizable(false);
         frame.setVisible(true);
     }
 
-    public Autentif(){
+    public JButton getCancelLarButton(){
+        return cancelLarButton;
+    }
+    public Autenticacio(JugarPartidaController jpcn){
+        this.jpc = jpcn;
+
         OKButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -34,9 +42,9 @@ public class Autentif {
         cancelLarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                //Tancar tot. Finaltza execució
-                System.exit(0);
+                jpc.mostraMenuPrincipal();
             }
         });
+
     }
 }
