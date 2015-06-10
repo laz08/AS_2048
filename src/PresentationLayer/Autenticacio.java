@@ -35,7 +35,6 @@ public class Autenticacio {
         OKButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                textField1.setText("Hola");
                 //Avisa al controller que ha d'anar a nova pantalla: Crear nova partida (Mirar cas d'ús)
             }
         });

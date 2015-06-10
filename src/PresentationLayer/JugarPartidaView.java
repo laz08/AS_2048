@@ -15,14 +15,11 @@ public class JugarPartidaView extends JFrame{
         setResizable(false);
         setVisible(true);
         */
-        //prepareAut();
-        //prepareMenuPrincipal();
         autenticacioView = new Autenticacio(jpc);
         menuPrincipal = new MenuPrincipal(jpc);
     }
 
     public void prepareAut() {
-        System.out.println("Entro aquí");
         autenticacioView.main(this);
     }
 
