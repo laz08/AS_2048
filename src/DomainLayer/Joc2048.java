@@ -17,4 +17,8 @@ public class Joc2048 {
     public int getIdPartida(){
         return idPartida;
     }
+
+    public void setIdPartida(int id){
+        idPartida = id;
+    }
 }
