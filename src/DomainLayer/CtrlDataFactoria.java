@@ -5,6 +5,7 @@ package DomainLayer;
  */
 public class CtrlDataFactoria {
     private static CtrlDataFactoria ourInstance = new CtrlDataFactoria();
+    private CtrlUsuari ctrlUsuari;
 
     public static CtrlDataFactoria getInstance() {
         return ourInstance;
@@ -14,7 +15,8 @@ public class CtrlDataFactoria {
     }
 
     public CtrlUsuari getCtrlUsuari(){
-        CtrlUsuari ctrlUsuari = new CtrlUsuari();
+        if(ctrlUsuari == null) //Si encara no l'hem instanciat
+            ctrlUsuari = new CtrlUsuari();
         return ctrlUsuari;
 
     }
