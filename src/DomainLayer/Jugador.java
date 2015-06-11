@@ -3,7 +3,7 @@ package DomainLayer;
 /**
  * Created by Miquel on 10/06/2015.
  */
-public class Jugador extends UsuariRegistrar{
+public class Jugador extends UsuariRegistrat{
     private String email;
     private int millorPuntuacio;
 
