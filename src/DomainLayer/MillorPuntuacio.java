@@ -6,8 +6,7 @@ import java.util.ArrayList;
  * Created by Miquel on 10/06/2015.
  */
 public class MillorPuntuacio implements RankingStrategy {
-    public Ranking obteRanking(ArrayList<Jugador> llistaJugadors){
-        Ranking r = new Ranking();
-        return r;
+    public Ranking obteRanking(ArrayList<Jugador>){
+
     }
 }
