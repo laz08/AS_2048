@@ -3,7 +3,7 @@ package DomainLayer;
 /**
  * Created by Miquel on 10/06/2015.
  */
-public class UsuariRegistrar {
+public class UsuariRegistrat {
     private String nom;
     private String cognom;
     private String username;
