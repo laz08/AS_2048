@@ -11,6 +11,7 @@ public class CtrlCUJugarPartida {
     private Jugador jugador;
 
     public CtrlCUJugarPartida(){
+        //creació dels casos d'ús de Login i Rànking
         cuLogin = new CtrlCULogin();
         cuRanking = new CtrlCURanking();
     }
@@ -38,6 +39,14 @@ public class CtrlCUJugarPartida {
 
     public Result CrearPartida(){
         Result result = new Result();
+        Joc2048 joc2048 = Joc2048.getInstance();
+        int idP = joc2048.getIdPartida();
+        ++idP;
+        joc2048.setIdPartida(idP);
+        Partida p = new Partida(idP);
+        jugador.assignaPartidaActual(p);
+        int millor = jugador.getMillorPuntuacio();
+        ArrayList<Partida.StructCasella> caselles = p.getInfoCaselles();
         //TODO: falta la resta de l'operació
         return result;
 
