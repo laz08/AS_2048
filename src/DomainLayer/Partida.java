@@ -89,7 +89,7 @@ public class Partida {
 
     //Ara s'accedeix com a matriu utlitzant els índexs, correcció del diagrama de seqüència
     public ArrayList<Casella> selCasellesNoPuntuades(){
-        ArrayList<Casella> cas = new ArrayList<>();
+        ArrayList<Casella> cas = new ArrayList<Casella>();
         Casella c;
         int numero;
         for(int i = 0; i < caselles.length; ++i){
@@ -124,7 +124,7 @@ public class Partida {
 
     public ArrayList<StructCasella> getInfoCaselles() {
         //Respecte al diagrama, s'ha canviat el nom de l'atribut caselles per casellesStruct ja que caselles és un atribut que ja tenim definit
-        ArrayList<StructCasella> casellesStruct = new ArrayList<>();
+        ArrayList<StructCasella> casellesStruct = new ArrayList<StructCasella>();
         for(int i = 0; i < caselles.length ;++i){
             for(int j = 0; j < caselles[0].length; ++j){
                 StructCasella cas = caselles[i][j].getInfo(i, j, id_partida);

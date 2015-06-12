@@ -49,6 +49,5 @@ public class CtrlCUJugarPartida {
         ArrayList<Partida.StructCasella> caselles = p.getInfoCaselles();
         //TODO: falta la resta de l'operació
         return result;
-
     }
 }

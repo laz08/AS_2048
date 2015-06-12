@@ -19,11 +19,13 @@ public class CtrlDataFactoria {
         if(ctrlUsuari == null) //Si encara no l'hem instanciat
             ctrlUsuari = new CtrlUsuari();
         return ctrlUsuari;
+
     }
 
     public CtrlJugador getCtrlJugador(){
         if(ctrlJugador == null) //Si encara no l'hem instanciat
             ctrlJugador = new CtrlJugador();
         return ctrlJugador;
+
     }
 }

@@ -40,7 +40,7 @@ public class UsuariRegistrat {
         return username;
     }
 
-    public String getPassword() {
+    public String getPwd() {
         return pwd;
     }
 }

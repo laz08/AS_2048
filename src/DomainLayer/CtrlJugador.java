@@ -1,13 +1,24 @@
 package DomainLayer;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 /**
- * Created by Miquel on 11/06/2015.
+ * Created by Víctor on 12/06/2015.
  */
 public class CtrlJugador {
 
-    public CtrlJugador(){}
+    private LinkedList<Jugador> jugadors;
 
-    public Jugador getJugador(String userN){
-        return null; //TODO: falta accedir a persistencia i tirar l'excepció
+    public CtrlJugador () {
+        jugadors = new LinkedList<Jugador>();
+    }
+
+    public Jugador getJugador(String userN) {
+        return null;
+    }
+
+    public LinkedList<Jugador> tots() {
+        return jugadors;
     }
 }
