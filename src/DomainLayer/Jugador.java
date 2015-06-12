@@ -6,11 +6,7 @@ package DomainLayer;
 public class Jugador extends UsuariRegistrat{
     private String email;
     private int millorPuntuacio;
-
-    public class Struct1 {
-        int x1;
-        int x2;
-    }
+    private Partida partidaActual;
 
     //Getters i Setters
 
@@ -22,17 +18,23 @@ public class Jugador extends UsuariRegistrat{
         this.email = email;
     }
 
+    //En el diagrama l'atribut millorPuntuacio era calculat, ara l'hem fet materialitzat seguint la recomanació de la correcció
     public int getMillorPuntuacio() {
-        return millorPuntuacio;
+        return millorPuntuacio;//:TODO: s'ha de tenir en compte que en algun lloc s'haurà d'actualitzar aquest atribut!!!!
     }
 
     public void setMillorPuntuacio(int millorPuntuacio) {
         this.millorPuntuacio = millorPuntuacio;
     }
 
+    //En el diagrama aquesta funció tenia el nom "assignaJugador"
+    public void assignaPartidaActual(Partida p){
+        partidaActual = p;
+    }
+
     //////////////////////
 
-    public Struct1 obtenirDades(Boolean noPartides) {
+    public GenericPair obtenirDades(Boolean noPartides) {
         return null;
     }
 

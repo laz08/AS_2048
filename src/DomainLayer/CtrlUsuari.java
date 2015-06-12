@@ -10,7 +10,7 @@ public class CtrlUsuari {
     private LinkedList<UsuariRegistrat> usuarisRegs;
 
     public CtrlUsuari() {
-        usuarisRegs = new LinkedList<>();
+        usuarisRegs = new LinkedList<UsuariRegistrat>();
     }
 
     public UsuariRegistrat getUsuari(String userN){

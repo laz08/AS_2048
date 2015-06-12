@@ -18,29 +18,41 @@ public class Partida {
     private boolean estaAcabada;
     private boolean estaGuanyada;
     private String username;
-    private ArrayList<Casella> caselles;
+    private Casella caselles[][];
 
     //Struct per guardar 3 enters d'informació d'una casella
-    public class StructCasella {
-        private int x1;
-        private int x2;
-        private int x3;
+    public static class StructCasella {
+        int i;
+        int j;
+        int numero;
+        StructCasella(int i, int j, int numero){
+            this.i = i;
+            this.j = j;
+            this.numero = numero;
+        }
     }
 
 
-    public Partida(int id, String jug){
-        id_partida = id+1;
+    //Seria l'operació creaPartida del diagrama de seqüència
+    public Partida(int id){
+        id_partida = id;
         puntuacio = 0;
         estaAcabada = false;
         estaGuanyada = false;
-        username = jug;
-        caselles = new ArrayList<Casella>();
+        caselles = new Casella[4][4];
 
         //Inicialitzem les caselles
-        for(int i = 0; i < 16; ++i){
-            Casella c = new Casella(i/4, i%4);
-            caselles.add(i, c);
+        for(int i = 0; i < caselles.length; ++i){
+            for(int j = 0; j < caselles[0].length; ++j) {
+                Casella c = new Casella(i,j);
+                caselles[i][j] = c;
+            }
         }
+
+        ArrayList<Casella> cas = selCasellesNoPuntuades();
+        selCasellaAleatiAssigPunt(2,cas);
+
+
 
     }
 
@@ -74,16 +86,53 @@ public class Partida {
         return estaAcabada;
     }
 
-    ////////////////////////////
 
-    public ArrayList<StructCasella> getInfoCaselles() {
-        return null;
+    //Ara s'accedeix com a matriu utlitzant els índexs, correcció del diagrama de seqüència
+    public ArrayList<Casella> selCasellesNoPuntuades(){
+        ArrayList<Casella> cas = new ArrayList<Casella>();
+        Casella c;
+        int numero;
+        for(int i = 0; i < caselles.length; ++i){
+            for(int j = 0; j < caselles[0].length; ++j){
+                c = caselles[i][j];
+                numero = c.getNumero();
+                if(numero == 0) {
+                    cas.add(c);
+                }
+            }
+        }
+        return cas;
     }
 
-    public void selCasellaAleatiAssigPunt(int numc, ArrayList<Casella> cas) {}
+    public void selCasellaAleatiAssigPunt(int numc, ArrayList<Casella> cas) {
+        int r;
+        int punt;
+        Casella c;
+        while(numc > 0){
+            Random rand = new Random();
+            //Torna un valor entre 0 i cas.size(), cas.size() EXCLUIT
+            r = rand.nextInt(cas.size());
+            //Torna un valor entre 0 i 2, el 2 EXCLUIT
+            punt = 2 * (rand.nextInt(2) + 1);
+            c = cas.get(r);
+            c.setNumero(punt);
+            --numc;
+            //s'elimina la casella que ja té puntució per evitar que se li torni a assignar una puntuació
+            cas.remove(r);
+        }
+    }
 
-    public ArrayList<Casella> selCasellesNoPuntuades() {
-        return null;
+    public ArrayList<StructCasella> getInfoCaselles() {
+        //Respecte al diagrama, s'ha canviat el nom de l'atribut caselles per casellesStruct ja que caselles és un atribut que ja tenim definit
+        ArrayList<StructCasella> casellesStruct = new ArrayList<StructCasella>();
+        for(int i = 0; i < caselles.length ;++i){
+            for(int j = 0; j < caselles[0].length; ++j){
+                StructCasella cas = caselles[i][j].getInfo(i, j, id_partida);
+                //faltava afegir al set
+                casellesStruct.add(cas);
+            }
+        }
+        return casellesStruct;
     }
 
     public boolean buscaValor2048(){

@@ -10,6 +10,6 @@ public class Ranking {
     ArrayList<GenericPair> llistaPuntuacions;
 
     public Ranking(){
-        llistaPuntuacions = new ArrayList<>();
+        llistaPuntuacions = new ArrayList<GenericPair>();
     }
 }

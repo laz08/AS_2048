@@ -18,6 +18,7 @@ public class Casella {
         private int numeroColumna;
         private int numero;
 
+        //Seria l'operació creaCasella del diagrama de seqüència
         public Casella(int numFila, int numCol){
             numeroFila = numFila;
             numeroColumna = numCol;
@@ -31,14 +32,16 @@ public class Casella {
 
         public int getColumna(){ return numeroColumna; }
 
-        public int getPuntuacio(){ return numero; }
+        public int getNumero(){ return numero; }
 
-        public void setPuntuacio(int num){ numero = num; }
+        //S'ha corregit i és un void, en el diagrama retornava la casella i no tenia sentit
+        public void setNumero(int num){ numero = num; }
 
         ////////////////////////////////
 
-        public ArrayList<Partida.StructCasella> getInfo(int x, int y, int z) {
-            return null;
+        public Partida.StructCasella getInfo(int x, int y, int z) {
+            Partida.StructCasella cas = new Partida.StructCasella(numeroFila,numeroColumna,numero);
+            return cas;
         }
 
 }
