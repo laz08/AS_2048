@@ -1,5 +1,6 @@
 package DomainLayer;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -16,11 +17,16 @@ public class CtrlCUJugarPartida {
         cuRanking = new CtrlCURanking();
     }
 
-    public void FerAutenticacio(String userN, String passwd){
-        cuLogin.Login(userN,passwd);
-        CtrlDataFactoria ctrlDataFactoria = CtrlDataFactoria.getInstance();
-        CtrlJugador cj = ctrlDataFactoria.getCtrlJugador();
-        jugador = cj.getJugador(userN);
+    public void FerAutenticacio(String userN, String passwd) throws IOException{
+        try {
+            cuLogin.Login(userN, passwd);
+            CtrlDataFactoria ctrlDataFactoria = CtrlDataFactoria.getInstance();
+            CtrlJugador cj = ctrlDataFactoria.getCtrlJugador();
+            jugador = cj.getJugador(userN);
+        }
+        catch (IOException e){
+            throw e;
+        }
     }
 
     public class Cas {
