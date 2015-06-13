@@ -43,18 +43,20 @@ public class Main {
         }
     }
 
-        private static int menu(){
-            System.out.println("\n\n**********\nMENÚ PRINCIPAL");
-            System.out.println("Selecciona una opció:");
-            System.out.println(MOVIMENT_AVALL+") MOVIMENT AVALL");
-            System.out.println(MOVIMENT_DRETA+") MOVIMENT DRETA");
-            System.out.println(MOVIMENT_ESQUERRE+") MOVIMENT ESQUERRE");
-            System.out.println(MOVIMENT_AMUNT+") MOVIMENT AMUNT");
 
-            int option = Integer.parseInt(sc.nextLine());
-            System.out.println("Opcio seleccionada "+option);
-            return option;
-        }
+    private static int menu(){
+        System.out.println("\n\n**********\nMENÚ PRINCIPAL");
+        System.out.println("Selecciona una opció:");
+        System.out.println(MOVIMENT_AVALL+") MOVIMENT AVALL");
+        System.out.println(MOVIMENT_DRETA+") MOVIMENT DRETA");
+        System.out.println(MOVIMENT_ESQUERRE+") MOVIMENT ESQUERRE");
+        System.out.println(MOVIMENT_AMUNT+") MOVIMENT AMUNT");
+
+        int option = Integer.parseInt(sc.nextLine());
+        System.out.println("Opcio seleccionada "+option);
+        return option;
+    }
+
 
 
     private static void movimentAvall() {
@@ -91,4 +93,3 @@ public class Main {
         }
     }
 }
-

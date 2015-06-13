@@ -24,7 +24,6 @@ public class MenuPrincipal {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 jpc.iniPartida();
-                
             }
         });
     }

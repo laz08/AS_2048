@@ -37,7 +37,7 @@ public class JugarPartidaController {
         jugarPartidaView.prepareAcabaPartida(true);
     }
     public void iniPartida(){
-        Dades dades = ctrlCUJugarPartida.CrearPartida();
+        Dades dades = ctrlCUJugarPartida.crearPartida();
         //TODO: A prepare partida se li han de passar unes dades que rep de domini
         jugarPartidaView.preparePartida(dades.puntActual, dades.millorPunt, dades.caselles);
     }
@@ -49,6 +49,10 @@ public class JugarPartidaController {
         }catch (Exception e){
             throw e;
         }
+    }
+
+    public void ferMoviment(String mov){
+
     }
 
 }

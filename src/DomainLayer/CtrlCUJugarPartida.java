@@ -38,7 +38,7 @@ public class CtrlCUJugarPartida {
         }
     }
 
-    public Dades CrearPartida() {
+    public Dades crearPartida() {
         Joc2048 joc2048 = Joc2048.getInstance();
         int idP = joc2048.getIdPartida();
         ++idP;
@@ -49,6 +49,11 @@ public class CtrlCUJugarPartida {
         ArrayList<Partida.StructCasella> caselles = p.getInfoCaselles();
         Dades result = new Dades(0, millor, caselles);
         return result;
+    }
+
+    public Dades ferMoviment(){
+
+        return null;
     }
 
     public ArrayList<StructRanking> obtenirRanking() throws IOException {
