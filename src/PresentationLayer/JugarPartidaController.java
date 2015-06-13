@@ -10,7 +10,7 @@ public class JugarPartidaController {
 
     public JugarPartidaController() {
         jugarPartidaView = new JugarPartidaView(this);
-        jugarPartidaView.prepareMenuPrincipal();
+        jugarPartidaView.prepareAut();
     }
 
     public void mostraMenuPrincipal(){

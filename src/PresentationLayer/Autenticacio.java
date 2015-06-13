@@ -36,12 +36,14 @@ public class Autenticacio {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 //Avisa al controller que ha d'anar a nova pantalla: Crear nova partida (Mirar cas d'ús)
+                //TODO: Fer el login
+                jpc.mostraMenuPrincipal();
             }
         });
         cancelLarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                jpc.mostraMenuPrincipal();
+                System.exit(0);
             }
         });
 
