@@ -20,7 +20,7 @@ public class Partida {
     private String username;
     private Casella caselles[][];
 
-    //Struct per guardar 3 enters d'informació d'una casella
+    //Struct per guardar 3 enters d'informaciï¿½ d'una casella
     public static class StructCasella {
         int i;
         int j;
@@ -33,7 +33,7 @@ public class Partida {
     }
 
 
-    //Seria l'operació creaPartida del diagrama de seqüència
+    //Seria l'operaciï¿½ creaPartida del diagrama de seqï¿½ï¿½ncia
     public Partida(int id){
         id_partida = id;
         puntuacio = 0;
@@ -84,7 +84,7 @@ public class Partida {
     }
 
 
-    //Ara s'accedeix com a matriu utlitzant els índexs, correcció del diagrama de seqüència
+    //Ara s'accedeix com a matriu utlitzant els ï¿½ndexs, correcciï¿½ del diagrama de seqï¿½ï¿½ncia
     public ArrayList<Casella> selCasellesNoPuntuades(){
         ArrayList<Casella> cas = new ArrayList<Casella>();
         Casella c;
@@ -117,13 +117,13 @@ public class Partida {
             int i = c.getFila();
             int j = c.getColumna();
             caselles[i][j].setNumero(punt);
-            //s'elimina la casella que ja té puntució per evitar que se li torni a assignar una puntuació
+            //s'elimina la casella que ja tï¿½ puntuciï¿½ per evitar que se li torni a assignar una puntuaciï¿½
             cas.remove(r);
         }
     }
 
     public ArrayList<StructCasella> getInfoCaselles() {
-        //Respecte al diagrama, s'ha canviat el nom de l'atribut caselles per casellesStruct ja que caselles és un atribut que ja tenim definit
+        //Respecte al diagrama, s'ha canviat el nom de l'atribut caselles per casellesStruct ja que caselles ï¿½s un atribut que ja tenim definit
         ArrayList<StructCasella> casellesStruct = new ArrayList<StructCasella>();
         for(int i = 0; i < caselles.length; ++i){
             for(int j = 0; j < caselles[0].length; ++j){
@@ -222,10 +222,10 @@ public class Partida {
 
     private void movDreta(){}
 
-    public ArrayList<StructCasella> preparaSegüentMoviment() {
+    public ArrayList<StructCasella> preparaSeguentMoviment() {
         ArrayList<Casella> cas = selCasellesNoPuntuades();
         selCasellaAleatiAssigPunt(1, cas);
-        //esta en el diagrama però crec que és innesecari la següent crida
+        //esta en el diagrama perï¿½ crec que ï¿½s innesecari la segï¿½ent crida
         //ArrayList<Casella> casNP = selCasellesNoPuntuades();
         ArrayList<StructCasella> casPuntuades = new ArrayList<StructCasella>();
         for (int i = 0; i < caselles.length; ++i) {
