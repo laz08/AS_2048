@@ -19,7 +19,7 @@ public class Autenticacio {
 
     public void main(JFrame frame) {
         frame.setTitle("2048 - Autentificació");
-        frame.setContentPane(new Autenticacio(jpc).PanelAut);
+        frame.setContentPane(this.PanelAut);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 200);
         frame.setResizable(false);

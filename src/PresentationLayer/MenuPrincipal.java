@@ -13,7 +13,7 @@ public class MenuPrincipal {
 
     public void main(JFrame frame) {
         frame.setTitle("2048 - Menu Principal");
-        frame.setContentPane(new MenuPrincipal(jpc).panel1);
+        frame.setContentPane(this.panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 400);
         frame.setResizable(false);
@@ -33,6 +33,13 @@ public class MenuPrincipal {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 jpc.mostraAutenticacio();
+            }
+        });
+
+        jugarPartidaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                jpc.iniPartida();
             }
         });
 
