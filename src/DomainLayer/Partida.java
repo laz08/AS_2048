@@ -167,8 +167,8 @@ public class Partida {
 
     private void movAmunt() {
         //Nomes vaig mirant la casella que estic i la de abaix. A les seguents iteracions del for ja mirarem les altres
-        for (int i = 0; i < 3; ++i) { //No arribarem a la ultima fila perque no cal
-            for (int j = 0; j < 4; ++j) {
+        for (int j = 0; j < 4; ++j) { //No arribarem a la ultima fila perque no cal
+            for (int i = 0; i < 3; ++i) {
                 int num = caselles[i][j].getNumero();
 
                 //Cas especial de que 4 caselles es transformen en 2
