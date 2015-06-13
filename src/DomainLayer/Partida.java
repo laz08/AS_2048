@@ -100,7 +100,7 @@ public class Partida {
 
     //Ara s'accedeix com a matriu utlitzant els �ndexs, correcci� del diagrama de seq��ncia
     public ArrayList<Casella> selCasellesNoPuntuades(){
-        ArrayList<Casella> cas = new ArrayList<Casella>();
+        ArrayList<Casella> cas = new ArrayList<>();
         Casella c;
         int numero;
         for(int i = 0; i < caselles.length; ++i){
@@ -160,17 +160,22 @@ public class Partida {
     }
 
     public void comprovaPartidaPerdudaOGuanyada() {
+        boolean trobat = buscaValor2048();
+        if (trobat) {
+            this.estaGuanyada = true;
+            this.estaAcabada = true;
+        }
         ArrayList<Casella> cas = selCasellesNoPuntuades();
         if (cas.size() == 0) {
             this.estaAcabada = true;
-            boolean trobat = buscaValor2048();
-            if (trobat) this.estaGuanyada = true;
-            String Missatge = this.id_partida+" "+this.puntuacio;
-
+        }
+        if(this.estaAcabada){
+            String missatge = this.id_partida+" "+this.puntuacio;
+            //corregit respecte el diagrama to lo referent al servei extern
+            FactoriaAdap factoriaAdap = FactoriaAdap.getInstance();
+            IAdapMissatgeria am = factoriaAdap.getAdMissatgeria();
+            am.enviarCorreu(missatge);
             //TODO:Part del Servei extern per fer!
-            CtrlDataFactoria ctrlDataFactoria = CtrlDataFactoria.getInstance();
-            //ServeiMissatgeria svM = ctrlDataFactoria.getServeiMissatgeria();
-            //svM.enviarMissatge(Missatge);
         }
     }
 
@@ -195,6 +200,7 @@ public class Partida {
                 movDreta();
                 break;
         }
+        comprovaPartidaPerdudaOGuanyada();
         esAcabada(); //Comprovem si acaba
         if(!estaAcabada) {
             //escullCasellaAleatoriaAssignaValor();
@@ -331,7 +337,7 @@ public class Partida {
         selCasellaAleatiAssigPunt(1, cas);
         //esta en el diagrama per� crec que �s innesecari la seg�ent crida
         //ArrayList<Casella> casNP = selCasellesNoPuntuades();
-        ArrayList<StructCasella> casPuntuades = new ArrayList<StructCasella>();
+        ArrayList<StructCasella> casPuntuades = new ArrayList<>();
         for (int i = 0; i < caselles.length; ++i) {
             for (int j = 0; j < caselles.length; ++j) {
                 if (caselles[i][j].getNumero() != 0) {
