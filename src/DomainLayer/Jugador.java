@@ -11,10 +11,6 @@ public class Jugador extends UsuariRegistrat{
     private Partida partidaActual;
     private ArrayList<Partida> partidesJugades;
 
-    public class StructRanking {
-        private int millorP;
-        private String nom;
-    }
 
     //Getters i Setters
 

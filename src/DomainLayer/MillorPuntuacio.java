@@ -2,20 +2,22 @@ package DomainLayer;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by Miquel on 10/06/2015.
  */
 public class MillorPuntuacio implements RankingStrategy {
 
-    public Ranking obteRanking(ArrayList<Jugador> jugadors) throws IOException {
-        Ranking r = new Ranking();
-        boolean noPartides = true;
+    public ArrayList<StructRanking> obteRanking(ArrayList<Jugador> jugadors) throws IOException {
+        ArrayList<StructRanking> r = new ArrayList<>();
+        Boolean noPartides = true;
         for (int i = 0; i < jugadors.size(); ++i) {
-            Jugador.StructRanking sr = jugadors.get(i).obtenirDades(noPartides);
-            r.addJugador(sr);
+            StructRanking sr = jugadors.get(i).obtenirDades(noPartides);
+            r.add(sr);//:TODO: falta ordenar el ranking per millor puntuació
         }
         if (noPartides) throw new IOException("No hi ha partides");
+        Collections.sort(r);
         return r;
     }
 }

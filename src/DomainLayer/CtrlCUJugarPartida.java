@@ -57,14 +57,13 @@ public class CtrlCUJugarPartida {
         jugador.assignaPartidaActual(p);
         int millor = jugador.getMillorPuntuacio();
         ArrayList<Partida.StructCasella> caselles = p.getInfoCaselles();
-        //TODO: falta la resta de l'operació
         Result result = new Result(0, millor, caselles);
         return result;
     }
 
-    public Ranking obtenirRanking() throws IOException {
+    public ArrayList<StructRanking> obtenirRanking() throws IOException {
         try {
-            Ranking r = cuRanking.consultarRanking();
+            ArrayList<StructRanking> r = cuRanking.consultarRanking();
             return r;
         }
         catch (IOException e) {

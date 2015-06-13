@@ -12,13 +12,13 @@ public class CtrlCURanking {
 
     }
 
-    public Ranking consultarRanking() throws IOException {
+    public ArrayList<StructRanking> consultarRanking() throws IOException {
         try {
             CtrlDataFactoria ctrlDataFactoria = CtrlDataFactoria.getInstance();
             CtrlJugador cj = ctrlDataFactoria.getCtrlJugador();
             ArrayList<Jugador> jugadors = cj.tots();
             MillorPuntuacio mp = new MillorPuntuacio();
-            Ranking r = mp.obteRanking(jugadors);
+            ArrayList<StructRanking> r = mp.obteRanking(jugadors);
             return r;
         }
         catch (IOException e){
