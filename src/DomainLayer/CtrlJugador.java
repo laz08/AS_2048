@@ -27,9 +27,11 @@ public class CtrlJugador {
     //--Jugadors dummy--
     public void afegeixJugadors(ArrayList<UsuariRegistrat> users){
         for(int i = 0; i < users.size(); ++i){
-            Jugador j = (Jugador) users.get(i);
+            UsuariRegistrat user = users.get(i);
+            Jugador j = new Jugador(user.getUsername(), user.getPwd(), user.getNom(), user.getCognom());
             j.setEmail("email" + Integer.toString(i) + "@upc.edu");
             j.setMillorPuntuacio(0);
+            jugadors.add(j);
         }
     }
 }

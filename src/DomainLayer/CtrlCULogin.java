@@ -16,8 +16,14 @@ public class CtrlCULogin {
     public void Login(String userN, String passwd) throws Exception{
         CtrlDataFactoria ctrlDataFactoria = CtrlDataFactoria.getInstance();
         CtrlUsuari cu = ctrlDataFactoria.getCtrlUsuari();
-        usuariR = cu.getUsuari(userN);
-        String pwd = usuariR.getPwd();
-        if (!passwd.equals(pwd)) throw new IOException("Password Incorrecte");
+        String pwd;
+        try {
+            usuariR = cu.getUsuari(userN);
+            pwd = usuariR.getPwd();
+        }
+        catch(Exception e){
+            throw e;
+        }
+        if (!passwd.equals(pwd)) throw new Exception("Password Incorrecte");
     }
 }

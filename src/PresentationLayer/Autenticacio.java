@@ -1,12 +1,10 @@
 package PresentationLayer;
 
 import javax.swing.*;
+import javax.swing.tree.ExpandVetoException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * Created by laura on 09/06/15.
- */
 public class Autenticacio {
     private final JugarPartidaController jpc;
 
@@ -26,10 +24,6 @@ public class Autenticacio {
         frame.setVisible(true);
     }
 
-    public JLabel getErrorTextField(){
-        return errorTextField;
-    }
-
     public Autenticacio(JugarPartidaController jpcn){
         this.jpc = jpcn;
 
@@ -47,8 +41,13 @@ public class Autenticacio {
                     errorTextField.setText("Camp password buit");
                 }
                 else {
-                    jpc.ferAutenticacio(textField1.getText(), passwordField1.getText());
-                    jpc.mostraMenuPrincipal();
+                    try{
+                        jpc.ferAutenticacio(textField1.getText(), passwordField1.getText());
+                        jpc.mostraMenuPrincipal();
+                    }
+                    catch (Exception e){
+                        errorTextField.setText(e.getMessage());
+                    }
                 }
             }
         });

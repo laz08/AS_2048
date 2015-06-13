@@ -19,10 +19,11 @@ public class CtrlCUJugarPartida {
 
     public void FerAutenticacio(String userN, String passwd) throws Exception {
         try {
-            cuLogin.Login(userN, passwd);
             CtrlDataFactoria ctrlDataFactoria = CtrlDataFactoria.getInstance();
             CtrlJugador cj = ctrlDataFactoria.getCtrlJugador();
             jugador = cj.getJugador(userN);
+            cuLogin.Login(userN, passwd);
+
         } catch (Exception e) {
             throw e;
         }

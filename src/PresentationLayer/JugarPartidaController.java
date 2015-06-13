@@ -41,11 +41,11 @@ public class JugarPartidaController {
     }
 
     //---AUTENTICACIÓ----
-    public void ferAutenticacio(String txtUser, String txtPass){
+    public void ferAutenticacio(String txtUser, String txtPass) throws Exception{
         try{
             ctrlCUJugarPartida.FerAutenticacio(txtUser, txtPass);
         }catch (Exception e){
-            jugarPartidaView.getAutenticacioView().getErrorTextField().setText(e.getMessage());
+            throw e;
         }
     }
 }
