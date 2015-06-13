@@ -201,9 +201,9 @@ public class Partida {
                 break;
         }
         comprovaPartidaPerdudaOGuanyada();
-        esAcabada(); //Comprovem si acaba
         if(!estaAcabada) {
-            //escullCasellaAleatoriaAssignaValor();
+            ArrayList<Casella> cas = selCasellesNoPuntuades();
+            selCasellaAleatiAssigPunt(1, cas);
         }
     }
 
