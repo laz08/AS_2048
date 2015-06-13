@@ -2,6 +2,7 @@ package PresentationLayer;
 
 
 import DomainLayer.Partida;
+import DomainLayer.StructRanking;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;
@@ -39,9 +40,9 @@ public class JugarPartidaView extends JFrame implements KeyListener{
         menuPrincipal.main(this);
     }
 
-    public void prepareRanking(){
+    public void prepareRanking(ArrayList<StructRanking> rank){
         estemAPartidaEnCurs = false;
-        ranking.main(this);
+        ranking.main(this, rank);
     }
 
     public void prepareAcabaPartida(boolean guanyada){

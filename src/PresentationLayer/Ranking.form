@@ -23,12 +23,7 @@
           </grid>
         </constraints>
         <properties>
-          <model>
-            <item value="Prova1"/>
-            <item value="Prova2"/>
-            <item value="PRova3"/>
-            <item value="Prova4"/>
-          </model>
+          <model/>
         </properties>
       </component>
     </children>

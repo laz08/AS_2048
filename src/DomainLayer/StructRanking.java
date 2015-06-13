@@ -4,8 +4,8 @@ package DomainLayer;
  * Created by Miquel on 13/06/2015.
  */
 public class StructRanking implements Comparable {
-    int millorP;
-    String nom;
+    public int millorP;
+    public String nom;
 
     @Override
     public int compareTo(Object o) {

@@ -4,6 +4,9 @@ package PresentationLayer;
 import DomainLayer.CtrlCUJugarPartida;
 import DomainLayer.CtrlDataFactoria;
 import DomainLayer.Dades;
+import DomainLayer.StructRanking;
+
+import java.util.ArrayList;
 
 public class JugarPartidaController {
     private JugarPartidaView jugarPartidaView;
@@ -29,8 +32,14 @@ public class JugarPartidaController {
     }
     */
 
-    public void mostraRanking(){
-        jugarPartidaView.prepareRanking();
+    public void mostraRanking() throws Exception{
+        try{
+            ArrayList<StructRanking> rank = ctrlCUJugarPartida.obtenirRanking();
+            jugarPartidaView.prepareRanking(rank);
+        }
+        catch (Exception e){
+            throw e;
+        }
     }
     public void mostraPartidaFinalitzada(){
         //TODO: A PrepareAcabaPartidase li passa un boolèa que indica si ha guanyat o no

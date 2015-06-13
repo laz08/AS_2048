@@ -51,7 +51,12 @@ public class PartidaFinalitz {
         mostrarRankingButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                jpc.mostraRanking();
+                try{
+                    jpc.mostraRanking();
+                }
+                catch(Exception e){
+                    error.setText(e.getMessage());
+                }
             }
         });
     }

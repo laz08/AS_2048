@@ -12,7 +12,7 @@ public class CtrlCURanking {
 
     }
 
-    public ArrayList<StructRanking> consultarRanking() throws IOException {
+    public ArrayList<StructRanking> consultarRanking() throws Exception {
         try {
             CtrlDataFactoria ctrlDataFactoria = CtrlDataFactoria.getInstance();
             CtrlJugador cj = ctrlDataFactoria.getCtrlJugador();
@@ -21,7 +21,7 @@ public class CtrlCURanking {
             ArrayList<StructRanking> r = mp.obteRanking(jugadors);
             return r;
         }
-        catch (IOException e){
+        catch (Exception e){
             throw e;
         }
     }

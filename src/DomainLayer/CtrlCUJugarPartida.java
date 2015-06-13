@@ -56,11 +56,11 @@ public class CtrlCUJugarPartida {
         return null;
     }
 
-    public ArrayList<StructRanking> obtenirRanking() throws IOException {
+    public ArrayList<StructRanking> obtenirRanking() throws Exception {
         try {
             ArrayList<StructRanking> r = cuRanking.consultarRanking();
             return r;
-        } catch (IOException e) {
+        } catch (Exception e) {
             throw e;
         }
     }
