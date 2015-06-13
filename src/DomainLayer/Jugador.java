@@ -1,5 +1,7 @@
 package DomainLayer;
 
+import java.util.ArrayList;
+
 /**
  * Created by Miquel on 10/06/2015.
  */
@@ -7,6 +9,7 @@ public class Jugador extends UsuariRegistrat{
     private String email;
     private int millorPuntuacio;
     private Partida partidaActual;
+    private ArrayList<Partida> partidesJugades;
 
     //Getters i Setters
 
@@ -21,6 +24,11 @@ public class Jugador extends UsuariRegistrat{
     //En el diagrama l'atribut millorPuntuacio era calculat, ara l'hem fet materialitzat seguint la recomanació de la correcció
     public int getMillorPuntuacio() {
         return millorPuntuacio;//:TODO: s'ha de tenir en compte que en algun lloc s'haurà d'actualitzar aquest atribut!!!!
+    }
+
+    public void AssociaPartidaJugada(Partida p) {
+        this.partidesJugades.add(p);
+        partidaActual = null;
     }
 
     public void setMillorPuntuacio(int millorPuntuacio) {

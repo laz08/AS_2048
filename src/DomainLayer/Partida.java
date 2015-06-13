@@ -142,7 +142,27 @@ public class Partida {
         return false;
     }
 
-    public void comprovaPartidaPerdudaOGuanyada() {}
+    public void comprovaPartidaPerdudaOGuanyada() {
+        ArrayList<Casella> cas = selCasellesNoPuntuades();
+        if (cas.size() == 0) {
+            this.estaAcabada = true;
+            boolean trobat = buscaValor2048();
+            if (trobat) this.estaGuanyada = true;
+            String Missatge = this.id_partida+" "+this.puntuacio;
+
+            //TODO:Part del Servei extern per fer!
+            CtrlDataFactoria ctrlDataFactoria = CtrlDataFactoria.getInstance();
+            //ServeiMissatgeria svM = ctrlDataFactoria.getServeiMissatgeria();
+            //svM.enviarMissatge(Missatge);
+        }
+    }
+
+    public void eliminarAssoPartidaActual() {
+        CtrlDataFactoria ctrlDataFactoria = CtrlDataFactoria.getInstance();
+        CtrlJugador cj = ctrlDataFactoria.getCtrlJugador();
+        Jugador j = cj.getJugador(username);
+        j.assignaPartidaActual(this);
+    }
 
     public void ferMoviment(String tipusMov){
         //modificats = new boolean[16];
