@@ -51,9 +51,6 @@ public class Partida {
 
         ArrayList<Casella> cas = selCasellesNoPuntuades();
         selCasellaAleatiAssigPunt(2,cas);
-
-
-
     }
 
     //Getters i Setters
@@ -125,7 +122,7 @@ public class Partida {
     public ArrayList<StructCasella> getInfoCaselles() {
         //Respecte al diagrama, s'ha canviat el nom de l'atribut caselles per casellesStruct ja que caselles és un atribut que ja tenim definit
         ArrayList<StructCasella> casellesStruct = new ArrayList<StructCasella>();
-        for(int i = 0; i < caselles.length ;++i){
+        for(int i = 0; i < caselles.length; ++i){
             for(int j = 0; j < caselles[0].length; ++j){
                 StructCasella cas = caselles[i][j].getInfo(i, j, id_partida);
                 //faltava afegir al set
@@ -136,14 +133,56 @@ public class Partida {
     }
 
     public boolean buscaValor2048(){
+        for (int i = 0; i < caselles.length; ++i) {
+            for (int j = 0; j < caselles[0].length; ++j) {
+                int punt = caselles[i][j].getNumero();
+                if (punt == 2048) return true;
+            }
+        }
         return false;
     }
 
     public void comprovaPartidaPerdudaOGuanyada() {}
 
-    public void ferMoviment(String tipusMov){}
+    public void ferMoviment(String tipusMov){
+        //modificats = new boolean[16];
+        switch(tipusMov){
+            case "Amunt":
+                movAmunt();
+                break;
+            case "Avall":
+                movAvall();
+                break;
+            case "Esquerra":
+                movEsquerre();
+                break;
+            case "Dreta":
+                movDreta();
+                break;
+        }
+        esAcabada(); //Comprovem si acaba
+        if(!estaAcabada)
+            //escullCasellaAleatoriaAssignaValor();
+    }
 
-    private void movAmunt(){}
+    private void movAmunt() {
+        //Nomes vaig mirant la casella que estic i la de abaix. A les seguents iteracions del for ja mirarem les altres
+        for (int i = 0; i < 3; ++i) { //No arribarem a la ultima fila perque no cal
+            for (int j = 0; j < 4; ++j) {
+                int num = caselles[i][j].getNumero();
+
+                if (caselles[i + 1][j].getNumero() == num) { //comparem amb la de abaix
+                    caselles[i][j].setNumero(num * 2);
+                    caselles[i + 1][j].setNumero(0); //la posem a 0 i a la seguent irteracio del for ja la omplirem
+                }
+                if (caselles[i][j].getNumero() == 0 && caselles[i + 1][j].getNumero() != 0) { //comparem amb la de abaix
+                    caselles[i][j].setNumero(caselles[i + 1][j].getNumero());
+                }
+
+                //queda el cas que els dos tinguin valor i son diferents pero no ens interesa
+            }
+        }
+    }
 
     private void movAvall(){}
 
