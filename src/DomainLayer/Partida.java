@@ -192,11 +192,13 @@ public class Partida {
     private void movAmunt() {
         //Nomes vaig mirant la casella que estic i la de abaix. A les seguents iteracions del for ja mirarem les altres
         for (int j = 0; j < 4; ++j) { //No arribarem a la ultima fila perque no cal
+            boolean especial = false;
             for (int i = 0; i < 3; ++i) {
                 int num = caselles[i][j].getNumero();
 
                 //Cas especial de que 4 caselles es transformen en 2
-                if (caselles[i + 1][j].getNumero() == num && caselles[i + 2][j].getNumero() == caselles[i + 3][j].getNumero()) {
+                if (caselles[i + 1][j].getNumero() == num && caselles[i + 2][j].getNumero() == caselles[i + 3][j].getNumero() && !especial) {
+                    especial = true;
                     int num2 = caselles[i + 2][j].getNumero();
 
                     caselles[i][j].setNumero(num*2);
@@ -216,11 +218,92 @@ public class Partida {
         }
     }
 
-    private void movAvall(){}
+    private void movAvall(){
+        //Nomes vaig mirant la casella que estic i la de abaix. A les seguents iteracions del for ja mirarem les altres
+        for (int j = 0; j < 4; ++j) { //No arribarem a la ultima fila perque no cal
+            boolean especial = false;
+            for (int i = 3; i > 0 ; --i) {
+                int num = caselles[i][j].getNumero();
 
-    private void movEsquerre(){}
+                //Cas especial de que 4 caselles es transformen en 2
+                if (caselles[i - 1][j].getNumero() == num && caselles[i - 2][j].getNumero() == caselles[i - 3][j].getNumero() && !especial) {
+                    especial = true;
+                    int num2 = caselles[i - 2][j].getNumero();
 
-    private void movDreta(){}
+                    caselles[i][j].setNumero(num*2);
+                    caselles[i-1][j].setNumero(num2*2);
+                    caselles[i-2][j].setNumero(0);
+                    caselles[i-3][j].setNumero(0);
+                }
+                else if (caselles[i - 1][j].getNumero() == num) { //comparem amb la de abaix
+                    caselles[i][j].setNumero(num * 2);
+                    caselles[i - 1][j].setNumero(0); //la posem a 0 i a la seguent irteracio del for ja la omplirem
+                }
+                else if (caselles[i][j].getNumero() == 0 && caselles[i - 1][j].getNumero() != 0) { //comparem amb la de abaix
+                    caselles[i][j].setNumero(caselles[i - 1][j].getNumero());
+                }
+                //queda el cas que els dos tinguin valor i son diferents pero no ens interesa
+            }
+        }
+    }
+
+    private void movEsquerre(){
+        //Nomes vaig mirant la casella que estic i la de abaix. A les seguents iteracions del for ja mirarem les altres
+        for (int i = 0; i < 4; ++i) {
+            boolean especial = false;
+            for (int j = 0; j < 3 ; ++j) {
+                int num = caselles[i][j].getNumero();
+
+                //Cas especial de que 4 caselles es transformen en 2
+                if (caselles[i][j+1].getNumero() == num && caselles[i][j+2].getNumero() == caselles[i][j+3].getNumero() && !especial) {
+                    especial = true;
+                    int num2 = caselles[i][j+2].getNumero();
+
+                    caselles[i][j].setNumero(num*2);
+                    caselles[i][j+1].setNumero(num2*2);
+                    caselles[i][j+2].setNumero(0);
+                    caselles[i][j+3].setNumero(0);
+                }
+                else if (caselles[i][j+1].getNumero() == num) { //comparem amb la de abaix
+                    caselles[i][j].setNumero(num * 2);
+                    caselles[i][j+1].setNumero(0); //la posem a 0 i a la seguent irteracio del for ja la omplirem
+                }
+                else if (caselles[i][j].getNumero() == 0 && caselles[i][j-1].getNumero() != 0) { //comparem amb la de abaix
+                    caselles[i][j].setNumero(caselles[i][j+1].getNumero());
+                }
+                //queda el cas que els dos tinguin valor i son diferents pero no ens interesa
+            }
+        }
+    }
+
+    private void movDreta(){
+        //Nomes vaig mirant la casella que estic i la de abaix. A les seguents iteracions del for ja mirarem les altres
+        for (int i = 0; i < 4; ++i) {
+            boolean especial = false;
+            for (int j = 3; j > 0 ; --j) {
+                int num = caselles[i][j].getNumero();
+
+                //Cas especial de que 4 caselles es transformen en 2
+                if (caselles[i][j-1].getNumero() == num && caselles[i][j-2].getNumero() == caselles[i][j-3].getNumero() && !especial) {
+                    especial = true;
+                    int num2 = caselles[i][j-2].getNumero();
+
+                    caselles[i][j].setNumero(num*2);
+                    caselles[i][j-1].setNumero(num2*2);
+                    caselles[i][j-2].setNumero(0);
+                    caselles[i][j-3].setNumero(0);
+                }
+                else if (caselles[i][j-1].getNumero() == num) { //comparem amb la de abaix
+                    caselles[i][j].setNumero(num * 2);
+                    caselles[i][j-1].setNumero(0); //la posem a 0 i a la seguent irteracio del for ja la omplirem
+                }
+                else if (caselles[i][j].getNumero() == 0 && caselles[i][j-1].getNumero() != 0) { //comparem amb la de abaix
+                    caselles[i][j].setNumero(caselles[i][j-1].getNumero());
+                }
+                //queda el cas que els dos tinguin valor i son diferents pero no ens interesa
+            }
+        }
+    }
 
     public ArrayList<StructCasella> preparaSeguentMoviment() {
         ArrayList<Casella> cas = selCasellesNoPuntuades();
