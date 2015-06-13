@@ -26,29 +26,35 @@ public class Main {
         sc = new Scanner(System.in);
 
         System.out.println("BENVINGUT A L'APLICACIÓ");
+        System.out.println("Matriu primera:");
+
+        Casella[][] resultat = partida.getCaselles();
+        escriureCaselles(resultat);
+
         int option = menu();
+
         while (option != 0) {
             if (option == MOVIMENT_AVALL)  movimentAvall();
             if (option == MOVIMENT_DRETA)  movimentDreta();
             if (option == MOVIMENT_ESQUERRE)  movimentEsquerre();
             if (option == MOVIMENT_AMUNT)  movimentAmunt();
+
+            option=menu();
         }
     }
 
-        private static int menu(){
-            System.out.println("\n\n**********\nMENÚ PRINCIPAL");
-            System.out.println("Selecciona una opció:");
-            System.out.println(MOVIMENT_AVALL+") MOVIMENT AVALL");
-            System.out.println(MOVIMENT_DRETA+") MOVIMENT DRETA");
-            System.out.println(MOVIMENT_ESQUERRE+") MOVIMENT ESQUERRE");
-            System.out.println(MOVIMENT_AMUNT+") MOVIMENT AMUNT");
+    private static int menu(){
+        System.out.println("\n\n**********\nMENÚ PRINCIPAL");
+        System.out.println("Selecciona una opció:");
+        System.out.println(MOVIMENT_AVALL+") MOVIMENT AVALL");
+        System.out.println(MOVIMENT_DRETA+") MOVIMENT DRETA");
+        System.out.println(MOVIMENT_ESQUERRE+") MOVIMENT ESQUERRE");
+        System.out.println(MOVIMENT_AMUNT+") MOVIMENT AMUNT");
 
-
-
-            int option = Integer.parseInt(sc.nextLine());
-            System.out.println("Opcio seleccionada "+option);
-            return option;
-        }
+        int option = Integer.parseInt(sc.nextLine());
+        System.out.println("Opcio seleccionada "+option);
+        return option;
+    }
 
 
     private static void movimentAvall() {
@@ -78,11 +84,10 @@ public class Main {
     private static void escriureCaselles(Casella[][] caselles) {
         for (int i = 0; i < caselles.length; ++i) {
             for (int j = 0; j < caselles[0].length; ++j) {
-                System.out.print(caselles[i][j]);
-                System.out.println(' ');
+                int num = caselles[i][j].getNumero();
+                System.out.print(num);
             }
             System.out.println(' ');
         }
     }
 }
-
