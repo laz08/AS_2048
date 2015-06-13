@@ -212,12 +212,16 @@ public class Partida {
         for (int j = 0; j < 4; ++j) { //No arribarem a la ultima fila perque no cal
             boolean especial = false;
             boolean primerCop = true;
-            for (int i = 3; i > 0; --i) { //arrossegar en cas de 0's
-                if (caselles[i-1][j].getNumero() == 0 && caselles[i][j].getNumero() != 0) {
-                    int num = caselles[i][j].getNumero();
-                    caselles[i-1][j].setNumero(num);
-                    caselles[i][j].setNumero(0);
+            int voltes = 0;
+            while (voltes < 2) {  //Ja que en el cas de que hagin numeros junts primer puja un i despres el altre
+                for (int i = 3; i > 0; --i) { //arrossegar en cas de 0's
+                    if (caselles[i - 1][j].getNumero() == 0 && caselles[i][j].getNumero() != 0) {
+                        int num = caselles[i][j].getNumero();
+                        caselles[i - 1][j].setNumero(num);
+                        caselles[i][j].setNumero(0);
+                    }
                 }
+                ++voltes;
             }
             for (int i = 0; i < 3; ++i) {
                 int num = caselles[i][j].getNumero();
@@ -251,12 +255,16 @@ public class Partida {
         for (int j = 0; j < 4; ++j) { //No arribarem a la ultima fila perque no cal
             boolean especial = false;
             boolean primerCop = true;
-            for (int i = 0; i > 3; ++i) { //arrossegar en cas de 0's
-                if (caselles[i+1][j].getNumero() == 0 && caselles[i][j].getNumero() != 0) {
-                    int num = caselles[i][j].getNumero();
-                    caselles[i+1][j].setNumero(num);
-                    caselles[i][j].setNumero(0);
+            int voltes = 0;
+            while (voltes < 2) { //Ja que en el cas de que hagin numeros junts primer baixa un i despres el altre
+                for (int i = 0; i < 3; ++i) { //arrossegar en cas de 0's
+                    if (caselles[i + 1][j].getNumero() == 0 && caselles[i][j].getNumero() != 0) {
+                        int num = caselles[i][j].getNumero();
+                        caselles[i + 1][j].setNumero(num);
+                        caselles[i][j].setNumero(0);
+                    }
                 }
+                ++voltes;
             }
             for (int i = 3; i > 0 ; --i) {
                 int num = caselles[i][j].getNumero();
@@ -288,12 +296,16 @@ public class Partida {
         for (int i = 0; i < 4; ++i) {
             boolean especial = false;
             boolean primerCop = true;
-            for (int j = 3; j > 0; --j) { //arrossegar en cas de 0's
-                if (caselles[i][j-1].getNumero() == 0 && caselles[i][j].getNumero() != 0) {
-                    int num = caselles[i][j].getNumero();
-                    caselles[i][j-1].setNumero(num);
-                    caselles[i][j].setNumero(0);
+            int voltes = 0;
+            while (voltes < 2) { //Ja que en el cas de que hagin numeros junts primer mou un i despres el altre
+                for (int j = 3; j > 0; --j) { //arrossegar en cas de 0's
+                    if (caselles[i][j - 1].getNumero() == 0 && caselles[i][j].getNumero() != 0) {
+                        int num = caselles[i][j].getNumero();
+                        caselles[i][j - 1].setNumero(num);
+                        caselles[i][j].setNumero(0);
+                    }
                 }
+                ++voltes;
             }
             for (int j = 0; j < 3 ; ++j) {
                 int num = caselles[i][j].getNumero();
@@ -327,12 +339,16 @@ public class Partida {
         for (int i = 0; i < 4; ++i) {
             boolean especial = false;
             boolean primerCop = true;
-            for (int j = 0; j < 3; ++j) { //arrossegar en cas de 0's
-                if (caselles[i][j+1].getNumero() == 0 && caselles[i][j].getNumero() != 0) {
-                    int num = caselles[i][j].getNumero();
-                    caselles[i][j+1].setNumero(num);
-                    caselles[i][j].setNumero(0);
+            int voltes = 0;
+            while (voltes < 2) { //Ja que en el cas de que hagin numeros junts primer mou un i despres el altre
+                for (int j = 0; j < 3; ++j) { //arrossegar en cas de 0's
+                    if (caselles[i][j + 1].getNumero() == 0 && caselles[i][j].getNumero() != 0) {
+                        int num = caselles[i][j].getNumero();
+                        caselles[i][j + 1].setNumero(num);
+                        caselles[i][j].setNumero(0);
+                    }
                 }
+                ++voltes;
             }
             for (int j = 3; j > 0 ; --j) {
                 int num = caselles[i][j].getNumero();
@@ -360,6 +376,7 @@ public class Partida {
             }
         }
     }
+
 
 
     public ArrayList<StructCasella> preparaSeguentMoviment() {
