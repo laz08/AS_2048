@@ -11,6 +11,11 @@ public class Jugador extends UsuariRegistrat{
     private Partida partidaActual;
     private ArrayList<Partida> partidesJugades;
 
+    public class StructRanking {
+        private int millorP;
+        private String nom;
+    }
+
     //Getters i Setters
 
     public String getEmail() {
@@ -42,8 +47,12 @@ public class Jugador extends UsuariRegistrat{
 
     //////////////////////
 
-    public GenericPair obtenirDades(Boolean noPartides) {
-        return null;
+    public StructRanking obtenirDades(Boolean noPartides) {
+        if (partidesJugades.size() == 0) noPartides = false;
+        StructRanking sr = new StructRanking();
+        sr.millorP = this.millorPuntuacio;
+        sr.nom = this.getNom();
+        return sr;
     }
 
 }

@@ -62,8 +62,13 @@ public class CtrlCUJugarPartida {
         return result;
     }
 
-    public Ranking obtenirRanking() {
-        Ranking r = cuRanking.consultarRanking();
-        return r;
+    public Ranking obtenirRanking() throws IOException {
+        try {
+            Ranking r = cuRanking.consultarRanking();
+            return r;
+        }
+        catch (IOException e) {
+            throw e;
+        }
     }
 }
