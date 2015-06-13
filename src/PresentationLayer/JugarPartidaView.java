@@ -15,8 +15,10 @@ public class JugarPartidaView extends JFrame implements KeyListener{
     private PartidaFinalitz partidaFinalitzada;
     private PartidaEnCurs partidaEnCurs;
     private boolean estemAPartidaEnCurs;
+    private JugarPartidaController jpc;
 
     public JugarPartidaView(JugarPartidaController jpc){
+        this.jpc = jpc;
         autenticacioView = new Autenticacio(jpc);
         menuPrincipal = new MenuPrincipal(jpc);
         ranking = new Ranking(jpc);
@@ -61,15 +63,19 @@ public class JugarPartidaView extends JFrame implements KeyListener{
                 case KeyEvent.VK_UP:
                     // up arrow
                     //TODO: A cada moviment, fer partidaEnCurs.ferMoviment(); etc
+                    jpc.ferMoviment("Up");
                     break;
                 case KeyEvent.VK_DOWN:
                     // down arrow
+                    jpc.ferMoviment("Down");
                     break;
                 case KeyEvent.VK_RIGHT:
                     // right arrow
+                    jpc.ferMoviment("Right");
                     break;
                 case KeyEvent.VK_LEFT:
                     // left arrow
+                    jpc.ferMoviment("Left");
                     break;
             }
         }
