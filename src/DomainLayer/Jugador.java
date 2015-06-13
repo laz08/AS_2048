@@ -33,7 +33,7 @@ public class Jugador extends UsuariRegistrat{
         return millorPuntuacio;//:TODO: s'ha de tenir en compte que en algun lloc s'haur� d'actualitzar aquest atribut!!!!
     }
 
-    public void AssociaPartidaJugada(Partida p) {
+    public void associaPartidaJugada(Partida p) {
         this.partidesJugades.add(p);
         partidaActual = null;
     }
