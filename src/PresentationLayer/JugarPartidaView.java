@@ -52,7 +52,12 @@ public class JugarPartidaView extends JFrame implements KeyListener{
 
     public void preparePartida(int puntActual, int millorPunt, ArrayList<Partida.StructCasella> caselles){
         estemAPartidaEnCurs = true;
-        partidaEnCurs.main(this, puntActual, millorPunt, caselles);
+        partidaEnCurs.preparePartida(puntActual, millorPunt, caselles);
+        partidaEnCurs.main(this);
+    }
+    public void actualitzaPartida(int puntActual, int millorPunt, ArrayList<Partida.StructCasella> caselles){
+        //TODO: ActualitzaPartida reb dades per la capçalera
+        preparePartida(puntActual, millorPunt, caselles);
     }
 
 
@@ -64,19 +69,19 @@ public class JugarPartidaView extends JFrame implements KeyListener{
                 case KeyEvent.VK_UP:
                     // up arrow
                     //TODO: A cada moviment, fer partidaEnCurs.ferMoviment(); etc
-                    jpc.ferMoviment("Up");
+                    jpc.ferMoviment("Amunt");
                     break;
                 case KeyEvent.VK_DOWN:
                     // down arrow
-                    jpc.ferMoviment("Down");
+                    jpc.ferMoviment("Avall");
                     break;
                 case KeyEvent.VK_RIGHT:
                     // right arrow
-                    jpc.ferMoviment("Right");
+                    jpc.ferMoviment("Dreta");
                     break;
                 case KeyEvent.VK_LEFT:
                     // left arrow
-                    jpc.ferMoviment("Left");
+                    jpc.ferMoviment("Esquerra");
                     break;
             }
         }

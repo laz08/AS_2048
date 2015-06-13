@@ -46,6 +46,10 @@ public class Jugador extends UsuariRegistrat{
     public void assignaPartidaActual(Partida p){
         partidaActual = p;
     }
+    public Partida getPartidaActual() {
+        return partidaActual;
+    }
+
 
     //////////////////////
 

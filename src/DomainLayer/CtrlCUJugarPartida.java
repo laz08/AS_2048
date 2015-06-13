@@ -51,9 +51,13 @@ public class CtrlCUJugarPartida {
         return result;
     }
 
-    public Dades ferMoviment(){
-
-        return null;
+    public Dades ferMoviment(String mov){
+        Dades dades;
+        Partida p = jugador.getPartidaActual();
+        p.ferMoviment(mov);
+        ArrayList<Partida.StructCasella> caselles = p.getInfoCaselles();
+        dades = new Dades(p.getPuntuacio(), jugador.getMillorPuntuacio(), caselles);
+        return dades;
     }
 
     public ArrayList<StructRanking> obtenirRanking() throws Exception {

@@ -26,12 +26,6 @@ public class JugarPartidaController {
         jugarPartidaView.prepareMenuPrincipal();
     }
 
-    /*
-    public void mostraAutenticacio(){
-        jugarPartidaView.prepareAut();
-    }
-    */
-
     public void mostraRanking() throws Exception{
         try{
             ArrayList<StructRanking> rank = ctrlCUJugarPartida.obtenirRanking();
@@ -61,7 +55,8 @@ public class JugarPartidaController {
     }
 
     public void ferMoviment(String mov){
-
+        Dades dades = ctrlCUJugarPartida.ferMoviment(mov);
+        jugarPartidaView.actualitzaPartida(dades.puntActual, dades.millorPunt, dades.caselles);
     }
 
 }
