@@ -205,11 +205,12 @@ public class Partida {
         //Nomes vaig mirant la casella que estic i la de abaix. A les seguents iteracions del for ja mirarem les altres
         for (int j = 0; j < 4; ++j) { //No arribarem a la ultima fila perque no cal
             boolean especial = false;
+            boolean primerCop = true;
             for (int i = 0; i < 3; ++i) {
                 int num = caselles[i][j].getNumero();
 
                 //Cas especial de que 4 caselles es transformen en 2
-                if (!especial  &&  caselles[i + 1][j].getNumero() == num && caselles[i + 2][j].getNumero() == caselles[i + 3][j].getNumero()) {
+                if (!especial  && primerCop &&  caselles[i + 1][j].getNumero() == num && caselles[i + 2][j].getNumero() == caselles[i + 3][j].getNumero()) {
                     especial = true;
                     int num2 = caselles[i + 2][j].getNumero();
 
@@ -225,6 +226,7 @@ public class Partida {
                 else if (caselles[i][j].getNumero() == 0 && caselles[i + 1][j].getNumero() != 0) { //comparem amb la de abaix
                     caselles[i][j].setNumero(caselles[i + 1][j].getNumero());
                 }
+                primerCop = false;
                 //queda el cas que els dos tinguin valor i son diferents pero no ens interesa
             }
         }
@@ -265,11 +267,12 @@ public class Partida {
         //Nomes vaig mirant la casella que estic i la de abaix. A les seguents iteracions del for ja mirarem les altres
         for (int i = 0; i < 4; ++i) {
             boolean especial = false;
+            boolean primerCop = true;
             for (int j = 0; j < 3 ; ++j) {
                 int num = caselles[i][j].getNumero();
 
                 //Cas especial de que 4 caselles es transformen en 2
-                if (!especial  && caselles[i][j+1].getNumero() == num && caselles[i][j+2].getNumero() == caselles[i][j+3].getNumero()) {
+                if (!especial && primerCop  && caselles[i][j+1].getNumero() == num && caselles[i][j+2].getNumero() == caselles[i][j+3].getNumero()) {
                     especial = true;
                     int num2 = caselles[i][j+2].getNumero();
 
@@ -285,6 +288,7 @@ public class Partida {
                 else if (caselles[i][j].getNumero() == 0 && caselles[i][j+1].getNumero() != 0) { //comparem amb la de abaix
                     caselles[i][j].setNumero(caselles[i][j+1].getNumero());
                 }
+                primerCop = false;
                 //queda el cas que els dos tinguin valor i son diferents pero no ens interesa
             }
         }
@@ -294,11 +298,12 @@ public class Partida {
         //Nomes vaig mirant la casella que estic i la de abaix. A les seguents iteracions del for ja mirarem les altres
         for (int i = 0; i < 4; ++i) {
             boolean especial = false;
+            boolean primerCop = true;
             for (int j = 3; j > 0 ; --j) {
                 int num = caselles[i][j].getNumero();
 
                 //Cas especial de que 4 caselles es transformen en 2
-                if (!especial  && caselles[i][j-1].getNumero() == num && caselles[i][j-2].getNumero() == caselles[i][j-3].getNumero()) {
+                if (!especial && primerCop  && caselles[i][j-1].getNumero() == num && caselles[i][j-2].getNumero() == caselles[i][j-3].getNumero()) {
                     especial = true;
                     int num2 = caselles[i][j-2].getNumero();
 
@@ -314,10 +319,12 @@ public class Partida {
                 else if (caselles[i][j].getNumero() == 0 && caselles[i][j-1].getNumero() != 0) { //comparem amb la de abaix
                     caselles[i][j].setNumero(caselles[i][j-1].getNumero());
                 }
+                primerCop = false;
                 //queda el cas que els dos tinguin valor i son diferents pero no ens interesa
             }
         }
     }
+
 
     public ArrayList<StructCasella> preparaSeguentMoviment() {
         ArrayList<Casella> cas = selCasellesNoPuntuades();
