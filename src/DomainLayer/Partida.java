@@ -181,8 +181,9 @@ public class Partida {
                 break;
         }
         esAcabada(); //Comprovem si acaba
-        if(!estaAcabada)
+        if(!estaAcabada) {
             //escullCasellaAleatoriaAssignaValor();
+        }
     }
 
     private void movAmunt() {

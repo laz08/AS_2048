@@ -7,7 +7,7 @@ import java.util.Random;
 @Entity
 @Table(name="PARTIDA")
 */
-public class Partida {
+public class Partida2 {
 	//@Id 
 	private int id_partida;
 	private int puntuacio;
@@ -18,7 +18,7 @@ public class Partida {
 	private boolean[] modificats;
 	
 	
-	public Partida(int id, String jug){
+	public Partida2(int id, String jug){
 		id_partida = id+1;
 		puntuacio = 0;
 		estaAcabada = false;
@@ -45,11 +45,11 @@ public class Partida {
 		
 		//DUMMY
 		Casella c = caselles.get(5);
-		c.setPuntuacio(2);
+		c.setNumero(2);
 		c = caselles.get(1);
-		c.setPuntuacio(4);
+		c.setNumero(4);
 		c = caselles.get(13);
-		c.setPuntuacio(2);
+		c.setNumero(2);
 		
 	}
 	/**
@@ -88,23 +88,23 @@ public class Partida {
 		for(int i = 4; i < 16; ++i){
 			Casella c = caselles.get(i);
 			//Si té número,el desplacem fins trobar un altre número o la vora
-			int puntC = c.getPuntuacio();
+			int puntC = c.getNumero();
 			if(puntC != 0){
 				//System.out.println("He trobat la casella " + i + " amb puntuacio " + puntC);
 				int j = i-4;
 				while(j>=0){
 					Casella tmp = caselles.get(j);
-					int puntTmp = tmp.getPuntuacio();
+					int puntTmp = tmp.getNumero();
 					if(puntC == puntTmp && !modificats[j]){
 						//System.out.println("He trobat la casella " + i + " amb puntuacio " + puntC + " sense modificar");
-						tmp.setPuntuacio(puntC + puntTmp);
-						c.setPuntuacio(0);
+						tmp.setNumero(puntC + puntTmp);
+						c.setNumero(0);
 						c = tmp;
 						modificats[j] = true;
 					}
 					else if (puntTmp == 0){
-						tmp.setPuntuacio(puntC);
-						c.setPuntuacio(0);
+						tmp.setNumero(puntC);
+						c.setNumero(0);
 						c = tmp;
 					}
 					j-=4;
@@ -117,21 +117,21 @@ public class Partida {
 		for(int i = 11; i >= 0 ; --i){
 			Casella c = caselles.get(i);
 			//Si té número,el desplacem fins trobar un altre número o la vora
-			int puntC = c.getPuntuacio();
+			int puntC = c.getNumero();
 			if(puntC != 0){
 				int j = i+4;
 				while(j<16){
 					Casella tmp = caselles.get(j);
-					int puntTmp = tmp.getPuntuacio();
+					int puntTmp = tmp.getNumero();
 					if(puntC == puntTmp && !modificats[j]){
-						tmp.setPuntuacio(puntC + puntTmp);
-						c.setPuntuacio(0);
+						tmp.setNumero(puntC + puntTmp);
+						c.setNumero(0);
 						c = tmp;
 						modificats[j] = true;
 					}
 					else if (j > 12 && puntTmp == 0){
-						tmp.setPuntuacio(puntC);
-						c.setPuntuacio(0);
+						tmp.setNumero(puntC);
+						c.setNumero(0);
 						c = tmp;
 					}
 					j+=4;
@@ -146,22 +146,22 @@ public class Partida {
 			if(i%4 != 0){
 				Casella c = caselles.get(i);
 				//Si té número,el desplacem fins trobar un altre número o la vora
-				int puntC = c.getPuntuacio();
+				int puntC = c.getNumero();
 				if(puntC != 0){
 					int j = i;
 					while(j%4 != 0){
 						--j;
 						Casella tmp = caselles.get(j);
-						int puntTmp = tmp.getPuntuacio();
+						int puntTmp = tmp.getNumero();
 						if(puntC == puntTmp && !modificats[j]){
-							tmp.setPuntuacio(puntC + puntTmp);
-							c.setPuntuacio(0);
+							tmp.setNumero(puntC + puntTmp);
+							c.setNumero(0);
 							c = tmp;
 							modificats[j] = true;
 						}
 						else if (j  >= 0 && puntTmp == 0){
-							tmp.setPuntuacio(puntC);
-							c.setPuntuacio(0);
+							tmp.setNumero(puntC);
+							c.setNumero(0);
 							c = tmp;
 						}
 					}
@@ -178,7 +178,7 @@ public class Partida {
 		boolean guanyada = false;
 		for(int i = 0; i < 16 && !guanyada; ++i){
 			Casella c = caselles.get(i);
-			if(c.getPuntuacio() == 2048){
+			if(c.getNumero() == 2048){
 				guanyada = true;
 			}
 		}
@@ -192,7 +192,7 @@ public class Partida {
 		boolean perduda = true;
 		for(int i = 0; i < 16 && perduda; ++i){
 			Casella c = caselles.get(i);
-			int punt = c.getPuntuacio();
+			int punt = c.getNumero();
 			if(pucFerMoviment() || punt == 2048) perduda = false;
 		}
 	}
@@ -202,7 +202,7 @@ public class Partida {
 		int i = 0;
 		while (!existeixMovPossible && i < 16){
 			Casella c = caselles.get(i);
-			int puntC = c.getPuntuacio();
+			int puntC = c.getNumero();
 			if(puntC == 0)  existeixMovPossible = true;
 			else{
 				//Comprovem adjacents
@@ -212,27 +212,27 @@ public class Partida {
 				pos = i-4;
 				if(i >= 0){
 					tmp = caselles.get(pos);
-					existeixMovPossible = (tmp.getPuntuacio() == puntC);
+					existeixMovPossible = (tmp.getNumero() == puntC);
 				}
 				//Esquerre
 				pos = i-1;
 				if(i >= 0){
 					tmp = caselles.get(pos);
-					existeixMovPossible = (tmp.getPuntuacio() == puntC);
+					existeixMovPossible = (tmp.getNumero() == puntC);
 				}
 				
 				//Dreta
 				pos = i+1;
 				if(i < 16){
 					tmp = caselles.get(pos);
-					existeixMovPossible = (tmp.getPuntuacio() == puntC);
+					existeixMovPossible = (tmp.getNumero() == puntC);
 				}
 				
 				//Avall
 				pos = i+4;
 				if(i < 16){
 					tmp = caselles.get(pos);
-					existeixMovPossible = (tmp.getPuntuacio() == puntC);
+					existeixMovPossible = (tmp.getNumero() == puntC);
 				}
 			}
 			++i;
@@ -242,7 +242,7 @@ public class Partida {
 	
 	public int consultaPuntuacioCasella(int i){
 		Casella c = caselles.get(i);
-		return c.getPuntuacio();
+		return c.getNumero();
 	}
 	public boolean esGuanyada(){
 		return estaGuanyada;
@@ -259,7 +259,7 @@ public class Partida {
 		ArrayList<Casella> casellesBuides = new ArrayList<Casella>();
 		for(int i = 0; i < caselles.size(); ++i){
 			Casella c = caselles.get(i);
-			if(c.getPuntuacio() == 0)
+			if(c.getNumero() == 0)
 				casellesBuides.add(c);
 		}
 		if(casellesBuides.size() != 0){;
@@ -269,7 +269,7 @@ public class Partida {
 			int valor = r.nextInt(2);
 			valor = (valor+1)*2;
 			Casella c2 = caselles.get(num);
-			c2.setPuntuacio(valor);
+			c2.setNumero(valor);
 		}
 		else estaAcabada = true;
 	}
