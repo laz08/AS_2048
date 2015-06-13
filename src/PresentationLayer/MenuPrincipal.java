@@ -23,8 +23,8 @@ public class MenuPrincipal {
         jugarPartidaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                //jpc.iniPartida();
-                jpc.mostraRanking();
+                jpc.iniPartida();
+                
             }
         });
     }

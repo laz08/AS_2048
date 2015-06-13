@@ -1,9 +1,12 @@
 package PresentationLayer;
 
 
+import DomainLayer.Partida;
+
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
 public class JugarPartidaView extends JFrame implements KeyListener{
     private Autenticacio autenticacioView;
@@ -44,9 +47,9 @@ public class JugarPartidaView extends JFrame implements KeyListener{
         partidaFinalitzada.main(this, guanyada);
     }
 
-    public void preparePartida(){
+    public void preparePartida(int puntActual, int millorPunt, ArrayList<Partida.StructCasella> caselles){
         estemAPartidaEnCurs = true;
-        partidaEnCurs.main(this);
+        partidaEnCurs.main(this, puntActual, millorPunt, caselles);
     }
 
 

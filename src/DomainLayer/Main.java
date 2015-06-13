@@ -43,6 +43,7 @@ public class Main {
         }
     }
 
+
     private static int menu(){
         System.out.println("\n\n**********\nMENÚ PRINCIPAL");
         System.out.println("Selecciona una opció:");
@@ -55,6 +56,7 @@ public class Main {
         System.out.println("Opcio seleccionada "+option);
         return option;
     }
+
 
 
     private static void movimentAvall() {
