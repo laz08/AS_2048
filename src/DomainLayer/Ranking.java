@@ -7,9 +7,13 @@ import java.util.ArrayList;
  */
 
 public class Ranking {
-    ArrayList<GenericPair> llistaPuntuacions;
+    ArrayList<Jugador.StructRanking> llistaPuntuacions;
 
     public Ranking(){
-        llistaPuntuacions = new ArrayList<GenericPair>();
+        llistaPuntuacions = new ArrayList<Jugador.StructRanking>();
+    }
+
+    public void addJugador(Jugador.StructRanking gs) {
+        this.llistaPuntuacions.add(gs);
     }
 }
