@@ -37,9 +37,9 @@ public class JugarPartidaController {
         jugarPartidaView.prepareAcabaPartida(true);
     }
     public void iniPartida(){
-        //TODO: A prepare partida se li han de passar unes dades que rep de domini
         Dades dades = ctrlCUJugarPartida.CrearPartida();
-        jugarPartidaView.preparePartida();
+        //TODO: A prepare partida se li han de passar unes dades que rep de domini
+        jugarPartidaView.preparePartida(dades.puntActual, dades.millorPunt, dades.caselles);
     }
 
     //---AUTENTICACIÓ----

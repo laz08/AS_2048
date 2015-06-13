@@ -22,14 +22,27 @@ public class Partida {
 
     //Struct per guardar 3 enters d'informaci� d'una casella
     public static class StructCasella {
-        int i;
-        int j;
-        int numero;
+        private int i;
+        private int j;
+        private int numero;
         StructCasella(int i, int j, int numero){
             this.i = i;
             this.j = j;
             this.numero = numero;
         }
+
+        public int getI() {
+            return i;
+        }
+
+        public int getJ() {
+            return j;
+        }
+
+        public int getNumero() {
+            return numero;
+        }
+
     }
 
 
