@@ -61,4 +61,9 @@ public class CtrlCUJugarPartida {
         Result result = new Result(0, millor, caselles);
         return result;
     }
+
+    public Ranking obtenirRanking() {
+        Ranking r = cuRanking.consultarRanking();
+        return r;
+    }
 }
