@@ -80,6 +80,10 @@ public class Partida {
         return estaAcabada;
     }
 
+    public Casella[][] getCaselles() {
+        return caselles;
+    }
+
 
     //Ara s'accedeix com a matriu utlitzant els �ndexs, correcci� del diagrama de seq��ncia
     public ArrayList<Casella> selCasellesNoPuntuades(){
