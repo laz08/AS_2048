@@ -11,20 +11,19 @@ public class CtrlCUJugarPartida {
     private CtrlCULogin cuLogin;
     private Jugador jugador;
 
-    public CtrlCUJugarPartida(){
-        //creació dels casos d'ús de Login i Rànking
+    public CtrlCUJugarPartida() {
+        //creaciï¿½ dels casos d'ï¿½s de Login i Rï¿½nking
         cuLogin = new CtrlCULogin();
         cuRanking = new CtrlCURanking();
     }
 
-    public void FerAutenticacio(String userN, String passwd) throws IOException{
+    public void FerAutenticacio(String userN, String passwd) throws Exception {
         try {
             cuLogin.Login(userN, passwd);
             CtrlDataFactoria ctrlDataFactoria = CtrlDataFactoria.getInstance();
             CtrlJugador cj = ctrlDataFactoria.getCtrlJugador();
             jugador = cj.getJugador(userN);
-        }
-        catch (IOException e){
+        } catch (Exception e) {
             throw e;
         }
     }
@@ -33,22 +32,24 @@ public class CtrlCUJugarPartida {
         int i;
         int j;
         int numero;
-        Cas(){}
+
+        Cas() {
+        }
     }
 
-    public class Result{
+    public class Result {
         int puntActual;
         int millorPunt;
         ArrayList<Partida.StructCasella> caselles;
 
-        Result(int  p, int m, ArrayList<Partida.StructCasella> cas){
+        Result(int p, int m, ArrayList<Partida.StructCasella> cas) {
             this.puntActual = p;
             this.millorPunt = m;
             this.caselles = cas;
         }
     }
 
-    public Result CrearPartida(){
+    public Result CrearPartida() {
         Joc2048 joc2048 = Joc2048.getInstance();
         int idP = joc2048.getIdPartida();
         ++idP;
@@ -65,9 +66,9 @@ public class CtrlCUJugarPartida {
         try {
             ArrayList<StructRanking> r = cuRanking.consultarRanking();
             return r;
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             throw e;
         }
     }
+
 }

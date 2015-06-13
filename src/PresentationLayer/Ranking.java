@@ -12,7 +12,7 @@ public class Ranking {
 
     private JPanel PanelRank;
     private JButton OKButton;
-    private JList list1;
+    private JList llistaRank;
 
     public void main(JFrame frame) {
         frame.setTitle("Ranking");

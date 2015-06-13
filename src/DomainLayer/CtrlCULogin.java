@@ -13,7 +13,7 @@ public class CtrlCULogin {
 
     }
 
-    public void Login(String userN, String passwd) throws IOException{
+    public void Login(String userN, String passwd) throws Exception{
         CtrlDataFactoria ctrlDataFactoria = CtrlDataFactoria.getInstance();
         CtrlUsuari cu = ctrlDataFactoria.getCtrlUsuari();
         usuariR = cu.getUsuari(userN);

@@ -9,7 +9,6 @@ public class MenuPrincipal {
     private JPanel panel1;
     private JButton jugarPartidaButton;
 
-
     public void main(JFrame frame) {
         frame.setTitle("2048 - Menu Principal");
         frame.setContentPane(this.panel1);
@@ -21,13 +20,12 @@ public class MenuPrincipal {
 
     public MenuPrincipal(final JugarPartidaController jpcn) {
         jpc = jpcn;
-
         jugarPartidaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                jpc.iniPartida();
+                //jpc.iniPartida();
+                jpc.mostraRanking();
             }
         });
-
     }
 }

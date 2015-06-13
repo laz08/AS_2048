@@ -26,9 +26,10 @@ public class Autenticacio {
         frame.setVisible(true);
     }
 
-    public JButton getCancelLarButton(){
-        return cancelLarButton;
+    public JLabel getErrorTextField(){
+        return errorTextField;
     }
+
     public Autenticacio(JugarPartidaController jpcn){
         this.jpc = jpcn;
 
@@ -37,7 +38,18 @@ public class Autenticacio {
             public void actionPerformed(ActionEvent actionEvent) {
                 //Avisa al controller que ha d'anar a nova pantalla: Crear nova partida (Mirar cas d'ús)
                 //TODO: Fer el login
-                jpc.mostraMenuPrincipal();
+                String txtUser = textField1.getText();
+                String txtPass = passwordField1.getText();
+                if(txtUser.isEmpty()){
+                    errorTextField.setText("Camp username buit");
+                }
+                else if(txtPass.isEmpty()){
+                    errorTextField.setText("Camp password buit");
+                }
+                else {
+                    jpc.ferAutenticacio(textField1.getText(), passwordField1.getText());
+                    jpc.mostraMenuPrincipal();
+                }
             }
         });
         cancelLarButton.addActionListener(new ActionListener() {

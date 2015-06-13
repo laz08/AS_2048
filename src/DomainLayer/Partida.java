@@ -160,7 +160,7 @@ public class Partida {
         }
     }
 
-    public void eliminarAssoPartidaActual() {
+    public void eliminarAssoPartidaActual() throws Exception{
         CtrlDataFactoria ctrlDataFactoria = CtrlDataFactoria.getInstance();
         CtrlJugador cj = ctrlDataFactoria.getCtrlJugador();
         Jugador j = cj.getJugador(username);

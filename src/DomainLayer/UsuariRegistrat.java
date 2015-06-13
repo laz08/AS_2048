@@ -9,7 +9,17 @@ public class UsuariRegistrat {
     private String username;
     private String pwd;
 
+    public UsuariRegistrat(String username, String pwd) {
+        this.username = username;
+        this.pwd = pwd;
+    }
 
+    public UsuariRegistrat(String username, String pwd, String nom, String cognom) {
+        this.username = username;
+        this.pwd = pwd;
+        this.nom = nom;
+        this.cognom = cognom;
+    }
 
     public void setNom(String nom) {
         this.nom = nom;

@@ -11,7 +11,13 @@ public class Jugador extends UsuariRegistrat{
     private Partida partidaActual;
     private ArrayList<Partida> partidesJugades;
 
+    public Jugador(String username, String pwd) {
+        super(username, pwd);
+    }
 
+    public Jugador(String username, String pwd, String nom, String cognom) {
+        super(username, pwd, nom, cognom);
+    }
     //Getters i Setters
 
     public String getEmail() {
@@ -22,9 +28,9 @@ public class Jugador extends UsuariRegistrat{
         this.email = email;
     }
 
-    //En el diagrama l'atribut millorPuntuacio era calculat, ara l'hem fet materialitzat seguint la recomanació de la correcció
+    //En el diagrama l'atribut millorPuntuacio era calculat, ara l'hem fet materialitzat seguint la recomanaciï¿½ de la correcciï¿½
     public int getMillorPuntuacio() {
-        return millorPuntuacio;//:TODO: s'ha de tenir en compte que en algun lloc s'haurà d'actualitzar aquest atribut!!!!
+        return millorPuntuacio;//:TODO: s'ha de tenir en compte que en algun lloc s'haurï¿½ d'actualitzar aquest atribut!!!!
     }
 
     public void AssociaPartidaJugada(Partida p) {
@@ -36,7 +42,7 @@ public class Jugador extends UsuariRegistrat{
         this.millorPuntuacio = millorPuntuacio;
     }
 
-    //En el diagrama aquesta funció tenia el nom "assignaJugador"
+    //En el diagrama aquesta funciï¿½ tenia el nom "assignaJugador"
     public void assignaPartidaActual(Partida p){
         partidaActual = p;
     }

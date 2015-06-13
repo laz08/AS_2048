@@ -78,7 +78,7 @@
       </vspacer>
       <component id="5e5d5" class="javax.swing.JLabel" binding="errorTextField">
         <constraints>
-          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="9" fill="0" indent="2" use-parent-layout="false"/>
+          <grid row="5" column="0" row-span="1" col-span="4" vsize-policy="1" hsize-policy="6" anchor="9" fill="0" indent="2" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value=" "/>

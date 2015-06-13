@@ -1,14 +1,19 @@
 package PresentationLayer;
 
 
+import DomainLayer.CtrlCUJugarPartida;
+import DomainLayer.CtrlDataFactoria;
+
 public class JugarPartidaController {
     private JugarPartidaView jugarPartidaView;
+    private CtrlCUJugarPartida ctrlCUJugarPartida;
 
     public static void main(String[] args) {
         new JugarPartidaController();
     }
 
     public JugarPartidaController() {
+        ctrlCUJugarPartida = CtrlDataFactoria.getInstance().getCtrlCUJugarPartida();
         jugarPartidaView = new JugarPartidaView(this);
         jugarPartidaView.prepareAut();
     }
@@ -17,9 +22,12 @@ public class JugarPartidaController {
         jugarPartidaView.prepareMenuPrincipal();
     }
 
+    /*
     public void mostraAutenticacio(){
         jugarPartidaView.prepareAut();
     }
+    */
+
     public void mostraRanking(){
         jugarPartidaView.prepareRanking();
     }
@@ -30,5 +38,14 @@ public class JugarPartidaController {
     public void iniPartida(){
         //TODO: A prepare partida se li han de passar unes dades que rep de domini
         jugarPartidaView.preparePartida();
+    }
+
+    //---AUTENTICACIÓ----
+    public void ferAutenticacio(String txtUser, String txtPass){
+        try{
+            ctrlCUJugarPartida.FerAutenticacio(txtUser, txtPass);
+        }catch (Exception e){
+            jugarPartidaView.getAutenticacioView().getErrorTextField().setText(e.getMessage());
+        }
     }
 }

@@ -1,5 +1,6 @@
 package DomainLayer;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
@@ -13,7 +14,15 @@ public class CtrlUsuari {
         usuarisRegs = new LinkedList<UsuariRegistrat>();
     }
 
-    public UsuariRegistrat getUsuari(String userN){
-        return  null; //TODO: Laura: Do sth. No es pot deixar amb null, vaja xD
+    public UsuariRegistrat getUsuari(String userN) throws  Exception{
+        for(int i = 0; i < usuarisRegs.size(); ++i){
+            if(usuarisRegs.get(i).getUsername().equals(userN)){
+                return usuarisRegs.get(i);
+            }
+        }
+        throw new Exception("Username incorrecte");
+    }
+    public void afegeixUsuaris(ArrayList<UsuariRegistrat> users){
+        usuarisRegs.addAll(users);
     }
 }
