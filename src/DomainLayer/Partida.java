@@ -17,7 +17,7 @@ public class Partida {
     private int puntuacio;
     private boolean estaAcabada;
     private boolean estaGuanyada;
-    private String username;
+    private Jugador jugadorPartidaActual;
     private Casella caselles[][];
 
     //Struct per guardar 3 enters d'informaci� d'una casella
@@ -59,9 +59,6 @@ public class Partida {
         return id_partida;
     }
 
-    public String getUsername(){
-        return username;
-    }
     public int getPuntuacio(){
         return puntuacio;
     }
@@ -81,6 +78,10 @@ public class Partida {
     }
     public boolean esAcabada(){
         return estaAcabada;
+    }
+
+    public Casella[][] getCaselles() {
+        return caselles;
     }
 
 
@@ -161,10 +162,8 @@ public class Partida {
     }
 
     public void eliminarAssoPartidaActual() throws Exception{
-        CtrlDataFactoria ctrlDataFactoria = CtrlDataFactoria.getInstance();
-        CtrlJugador cj = ctrlDataFactoria.getCtrlJugador();
-        Jugador j = cj.getJugador(username);
-        j.assignaPartidaActual(this);
+        jugadorPartidaActual.associaPartidaJugada(this);
+        jugadorPartidaActual = null;
     }
 
     public void ferMoviment(String tipusMov){
