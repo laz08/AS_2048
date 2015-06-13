@@ -114,6 +114,9 @@ public class Partida {
             c = cas.get(r);
             c.setNumero(punt);
             --numc;
+            int i = c.getFila();
+            int j = c.getColumna();
+            caselles[i][j].setNumero(punt);
             //s'elimina la casella que ja té puntució per evitar que se li torni a assignar una puntuació
             cas.remove(r);
         }
@@ -220,7 +223,20 @@ public class Partida {
     private void movDreta(){}
 
     public ArrayList<StructCasella> preparaSegüentMoviment() {
-        return null;
+        ArrayList<Casella> cas = selCasellesNoPuntuades();
+        selCasellaAleatiAssigPunt(1, cas);
+        //esta en el diagrama però crec que és innesecari la següent crida
+        //ArrayList<Casella> casNP = selCasellesNoPuntuades();
+        ArrayList<StructCasella> casPuntuades = new ArrayList<StructCasella>();
+        for (int i = 0; i < caselles.length; ++i) {
+            for (int j = 0; j < caselles.length; ++j) {
+                if (caselles[i][j].getNumero() != 0) {
+                    StructCasella s = caselles[i][j].getInfo(i, j, id_partida);
+                    casPuntuades.add(s);
+                }
+            }
+        }
+        return casPuntuades;
     }
 
 }
