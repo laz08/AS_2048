@@ -38,19 +38,7 @@ public class CtrlCUJugarPartida {
         }
     }
 
-    public class Result {
-        int puntActual;
-        int millorPunt;
-        ArrayList<Partida.StructCasella> caselles;
-
-        Result(int p, int m, ArrayList<Partida.StructCasella> cas) {
-            this.puntActual = p;
-            this.millorPunt = m;
-            this.caselles = cas;
-        }
-    }
-
-    public Result CrearPartida() {
+    public Dades CrearPartida() {
         Joc2048 joc2048 = Joc2048.getInstance();
         int idP = joc2048.getIdPartida();
         ++idP;
@@ -59,7 +47,7 @@ public class CtrlCUJugarPartida {
         jugador.assignaPartidaActual(p);
         int millor = jugador.getMillorPuntuacio();
         ArrayList<Partida.StructCasella> caselles = p.getInfoCaselles();
-        Result result = new Result(0, millor, caselles);
+        Dades result = new Dades(0, millor, caselles);
         return result;
     }
 

@@ -3,6 +3,7 @@ package PresentationLayer;
 
 import DomainLayer.CtrlCUJugarPartida;
 import DomainLayer.CtrlDataFactoria;
+import DomainLayer.Dades;
 
 public class JugarPartidaController {
     private JugarPartidaView jugarPartidaView;
@@ -37,6 +38,7 @@ public class JugarPartidaController {
     }
     public void iniPartida(){
         //TODO: A prepare partida se li han de passar unes dades que rep de domini
+        Dades dades = ctrlCUJugarPartida.CrearPartida();
         jugarPartidaView.preparePartida();
     }
 
@@ -48,4 +50,5 @@ public class JugarPartidaController {
             throw e;
         }
     }
+
 }
