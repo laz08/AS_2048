@@ -1,6 +1,7 @@
 package PresentationLayer;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -26,6 +27,7 @@ public class PartidaFinalitz {
             estat.setText("Has guanyat!");
         else
             estat.setText("Has perdut!");
+        error.setText(" ");
         frame.setContentPane(this.PanelFin);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 400);
@@ -35,6 +37,7 @@ public class PartidaFinalitz {
 
     public PartidaFinalitz(JugarPartidaController jpcn) {
         jpc = jpcn;
+        error.setForeground(Color.red);
         sortirButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {

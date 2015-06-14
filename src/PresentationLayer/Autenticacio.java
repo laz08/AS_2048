@@ -2,6 +2,7 @@ package PresentationLayer;
 
 import javax.swing.*;
 import javax.swing.tree.ExpandVetoException;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -26,7 +27,7 @@ public class Autenticacio {
 
     public Autenticacio(JugarPartidaController jpcn){
         this.jpc = jpcn;
-
+        errorTextField.setForeground(Color.red);
         OKButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {

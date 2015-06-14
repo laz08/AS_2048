@@ -99,26 +99,4 @@ public class JugarPartidaView extends JFrame implements KeyListener{
     public void keyReleased(KeyEvent e) { }
     public void keyTyped(KeyEvent e) { }
 
-
-    // GETTERS
-
-    public Autenticacio getAutenticacioView() {
-        return autenticacioView;
-    }
-
-    public MenuPrincipal getMenuPrincipal() {
-        return menuPrincipal;
-    }
-
-    public Ranking getRanking() {
-        return ranking;
-    }
-
-    public PartidaFinalitz getPartidaFinalitzada() {
-        return partidaFinalitzada;
-    }
-
-    public PartidaEnCurs getPartidaEnCurs() {
-        return partidaEnCurs;
-    }
 }
