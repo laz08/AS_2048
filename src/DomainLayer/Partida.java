@@ -411,7 +411,7 @@ public class Partida {
 
     public ArrayList<StructCasella> preparaSeguentMoviment() {
         ArrayList<Casella> cas = selCasellesNoPuntuades();
-        selCasellaAleatiAssigPunt(1, cas);
+        if (cas.size() != 0) selCasellaAleatiAssigPunt(1, cas);
         //esta en el diagrama per� crec que �s innesecari la seg�ent crida
         //ArrayList<Casella> casNP = selCasellesNoPuntuades();
         ArrayList<StructCasella> casPuntuades = new ArrayList<>();
