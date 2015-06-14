@@ -33,6 +33,9 @@ public class CtrlJugador {
             if(j.getUsername().equals("Goku")){
                 j.setEmail("miquel_x9@hotmail.com");
             }
+            else if(j.getUsername().equals("LoveLinux")){
+                j.setEmail("lazeru08@gmail.com");
+            }
             else {
                 //j.setEmail("email" + Integer.toString(i) + "@upc.edu");
             }

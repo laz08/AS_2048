@@ -12,7 +12,7 @@ public class CtrlCUJugarPartida {
     private Jugador jugador;
 
     public CtrlCUJugarPartida() {
-        //creaci� dels casos d'�s de Login i R�nking
+        //creacio dels casos d'us de Login i Ranking
         cuLogin = new CtrlCULogin();
         cuRanking = new CtrlCURanking();
     }
@@ -26,15 +26,6 @@ public class CtrlCUJugarPartida {
 
         } catch (Exception e) {
             throw e;
-        }
-    }
-
-    public class Cas {
-        int i;
-        int j;
-        int numero;
-
-        Cas() {
         }
     }
 
