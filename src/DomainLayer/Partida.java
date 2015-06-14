@@ -167,7 +167,7 @@ public class Partida {
         }
         ArrayList<Casella> cas = selCasellesNoPuntuades();
         if (cas.size() == 0) {
-            this.estaAcabada = true;
+            if (!esPotFerMoviment()) this.estaAcabada = true;
         }
         if(this.estaAcabada){
             String missatge = this.id_partida+" "+this.puntuacio;
@@ -177,6 +177,23 @@ public class Partida {
             am.enviarCorreu(missatge);
             //TODO:Part del Servei extern per fer!
         }
+    }
+
+    private boolean esPotFerMoviment() {
+        boolean mov = false;
+        for (int i = 0; i < caselles.length; ++i) {
+            for (int j = 0; j < caselles.length-1; ++j) {
+                if (caselles[i][j].getNumero() == caselles[i][j+1].getNumero()) mov = true;
+            }
+        }
+        if (!mov) {
+            for (int j = 0; j < caselles.length; ++j) {
+                for (int i = 0; i < caselles.length-1; ++i) {
+                    if (caselles[i][j].getNumero() == caselles[i+1][j].getNumero()) mov = true;
+                }
+            }
+        }
+        return mov;
     }
 
     public void eliminarAssoPartidaActual() throws Exception{
