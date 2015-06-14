@@ -1,7 +1,6 @@
 *.class
 .idea/*.xml
 .idea/workspace.xml
-.idea/misc.xml
 .idea/*
 out/
 *.iml
