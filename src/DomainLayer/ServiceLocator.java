@@ -1,5 +1,7 @@
 package DomainLayer;
 
+import ExternalService.SvMissatgeria;
+
 /**
  * Created by Miquel on 13/06/2015.
  */

@@ -1,4 +1,4 @@
-package DomainLayer;
+package ExternalService;
 
 /**
  * Created by Miquel on 13/06/2015.
