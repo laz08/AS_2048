@@ -246,7 +246,7 @@ public class Partida {
             }
             cas = preparaSeguentMoviment(mogut);
         }
-        else {
+        if (estaAcabada) {
             eliminarAssoPartidaActual();
         }
         DadesPartidaEnCurs dades = new DadesPartidaEnCurs(estaGuanyada,estaAcabada,puntuacio,cas);
