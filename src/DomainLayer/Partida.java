@@ -174,7 +174,8 @@ public class Partida {
             //corregit respecte el diagrama to lo referent al servei extern
             FactoriaAdap factoriaAdap = FactoriaAdap.getInstance();
             IAdapMissatgeria am = factoriaAdap.getAdMissatgeria();
-            am.enviarCorreu(missatge);
+            String destinatari = jugadorPartidaActual.getEmail();
+            am.enviarCorreu(missatge,destinatari);
             //TODO:Part del Servei extern per fer!
         }
     }
