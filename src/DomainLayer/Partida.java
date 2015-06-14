@@ -201,7 +201,7 @@ public class Partida {
         jugadorPartidaActual = null;
     }
 
-    public void ferMoviment(String tipusMov){
+    public DadesPartidaEnCurs ferMoviment(String tipusMov){
         //modificats = new boolean[16];
         switch(tipusMov){
             case "Amunt":
@@ -218,10 +218,15 @@ public class Partida {
                 break;
         }
         comprovaPartidaPerdudaOGuanyada();
+        ArrayList<StructCasella> cas = new ArrayList<>();
         if(!estaAcabada) {
-            ArrayList<Casella> cas = selCasellesNoPuntuades();
-            selCasellaAleatiAssigPunt(1, cas);
+            //ArrayList<Casella> cas = selCasellesNoPuntuades();
+            //selCasellaAleatiAssigPunt(1, cas);
+            cas = preparaSeguentMoviment();
         }
+        DadesPartidaEnCurs dades = new DadesPartidaEnCurs(estaGuanyada,estaAcabada,puntuacio,cas);
+        return dades;
+
     }
 
     private void movAmunt() {

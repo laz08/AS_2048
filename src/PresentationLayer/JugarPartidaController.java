@@ -1,10 +1,7 @@
 package PresentationLayer;
 
 
-import DomainLayer.CtrlCUJugarPartida;
-import DomainLayer.CtrlDataFactoria;
-import DomainLayer.Dades;
-import DomainLayer.StructRanking;
+import DomainLayer.*;
 
 import java.util.ArrayList;
 
@@ -55,8 +52,8 @@ public class JugarPartidaController {
     }
 
     public void ferMoviment(String mov){
-        Dades dades = ctrlCUJugarPartida.ferMoviment(mov);
-        jugarPartidaView.actualitzaPartida(dades.puntActual, dades.millorPunt, dades.caselles);
+        DadesPartidaEnCurs dades = ctrlCUJugarPartida.ferMoviment(mov);
+        jugarPartidaView.actualitzaPartida(dades.guanyada,dades.acabada,dades.puntuacio,dades.casell);
     }
 
 }
