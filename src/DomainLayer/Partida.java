@@ -257,10 +257,12 @@ public class Partida {
                     caselles[i+1][j].setNumero(num2*2);
                     caselles[i+2][j].setNumero(0);
                     caselles[i+3][j].setNumero(0);
+                    puntuacio += (num*2 + num2*2);
                 }
                 else if (caselles[i + 1][j].getNumero() == num) { //comparem amb la de abaix
                     caselles[i][j].setNumero(num * 2);
                     caselles[i + 1][j].setNumero(0); //la posem a 0 i a la seguent irteracio del for ja la omplirem
+                    puntuacio += num*2;
                 }
                 else if (caselles[i][j].getNumero() == 0 && caselles[i + 1][j].getNumero() != 0) {
                     caselles[i][j].setNumero(caselles[i + 1][j].getNumero());
@@ -300,9 +302,11 @@ public class Partida {
                     caselles[i - 1][j].setNumero(num2 * 2);
                     caselles[i - 2][j].setNumero(0);
                     caselles[i - 3][j].setNumero(0);
+                    puntuacio += (num*2 + num2*2);
                 } else if (caselles[i - 1][j].getNumero() == num) { //comparem amb la de abaix
                     caselles[i][j].setNumero(num * 2);
                     caselles[i - 1][j].setNumero(0); //la posem a 0 i a la seguent irteracio del for ja la omplirem
+                    puntuacio += num*2;
                 } else if (caselles[i][j].getNumero() == 0 && caselles[i - 1][j].getNumero() != 0) { //comparem amb la de abaix
                     caselles[i][j].setNumero(caselles[i - 1][j].getNumero());
                     caselles[i - 1][j].setNumero(0);
@@ -341,10 +345,12 @@ public class Partida {
                     caselles[i][j+1].setNumero(num2*2);
                     caselles[i][j+2].setNumero(0);
                     caselles[i][j+3].setNumero(0);
+                    puntuacio += (num*2 + num2*2);
                 }
                 else if (caselles[i][j+1].getNumero() == num) { //comparem amb la de abaix
                     caselles[i][j].setNumero(num * 2);
                     caselles[i][j+1].setNumero(0); //la posem a 0 i a la seguent irteracio del for ja la omplirem
+                    puntuacio += num*2;
                 }
                 else if (caselles[i][j].getNumero() == 0 && caselles[i][j+1].getNumero() != 0) {
                     caselles[i][j].setNumero(caselles[i][j+1].getNumero());
@@ -384,10 +390,12 @@ public class Partida {
                     caselles[i][j-1].setNumero(num2*2);
                     caselles[i][j-2].setNumero(0);
                     caselles[i][j-3].setNumero(0);
+                    puntuacio += (num*2 + num2*2);
                 }
                 else if (caselles[i][j-1].getNumero() == num) { //comparem amb la de abaix
                     caselles[i][j].setNumero(num * 2);
                     caselles[i][j-1].setNumero(0); //la posem a 0 i a la seguent irteracio del for ja la omplirem
+                    puntuacio += num*2;
                 }
                 else if (caselles[i][j].getNumero() == 0 && caselles[i][j-1].getNumero() != 0) {
                     caselles[i][j].setNumero(caselles[i][j-1].getNumero());
