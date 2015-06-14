@@ -1,6 +1,7 @@
 package DomainLayer;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -204,6 +205,12 @@ public class Partida {
 
     public DadesPartidaEnCurs ferMoviment(String tipusMov){
         //modificats = new boolean[16];
+        int caselles2[][] = new int[4][4];
+        for (int i = 0; i < caselles.length; ++i) {
+            for (int j = 0; j < caselles.length; ++j) {
+                caselles2[i][j] = caselles[i][j].getNumero();
+            }
+        }
         switch(tipusMov){
             case "Amunt":
                 movAmunt();
@@ -221,9 +228,13 @@ public class Partida {
         comprovaPartidaPerdudaOGuanyada();
         ArrayList<StructCasella> cas = new ArrayList<>();
         if(!estaAcabada) {
-            //ArrayList<Casella> cas = selCasellesNoPuntuades();
-            //selCasellaAleatiAssigPunt(1, cas);
-            cas = preparaSeguentMoviment();
+            boolean mogut = false;
+            for (int i = 0; i < caselles.length; ++i) {
+                for (int j = 0; j < caselles.length; ++j) {
+                    if (caselles[i][j].getNumero() != caselles2[i][j]) mogut = true;
+                }
+            }
+            cas = preparaSeguentMoviment(mogut);
         }
         DadesPartidaEnCurs dades = new DadesPartidaEnCurs(estaGuanyada,estaAcabada,puntuacio,cas);
         return dades;
@@ -410,9 +421,11 @@ public class Partida {
 
 
 
-    public ArrayList<StructCasella> preparaSeguentMoviment() {
+    public ArrayList<StructCasella> preparaSeguentMoviment(boolean mogut) {
         ArrayList<Casella> cas = selCasellesNoPuntuades();
-        if (cas.size() != 0) selCasellaAleatiAssigPunt(1, cas);
+        if (mogut) {
+            if (cas.size() != 0) selCasellaAleatiAssigPunt(1, cas);
+        }
         //esta en el diagrama per� crec que �s innesecari la seg�ent crida
         //ArrayList<Casella> casNP = selCasellesNoPuntuades();
         ArrayList<StructCasella> casPuntuades = new ArrayList<>();
