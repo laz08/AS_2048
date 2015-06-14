@@ -226,6 +226,7 @@ public class Partida {
             cas = preparaSeguentMoviment();
         }
         else {
+            System.out.println("acabaaaaaaaaaaaaaaaaaaaaaaaaaadddaaaa");
             eliminarAssoPartidaActual();
         }
         DadesPartidaEnCurs dades = new DadesPartidaEnCurs(estaGuanyada,estaAcabada,puntuacio,cas);

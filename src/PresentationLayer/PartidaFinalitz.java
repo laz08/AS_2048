@@ -19,8 +19,9 @@ public class PartidaFinalitz {
     private JLabel estat;
 
 
-    public void main(JFrame frame, boolean guanyada) {
+    public void main(JFrame frame, boolean guanyada, int puntFinal) {
         frame.setTitle("2048 - Fi Partida");
+        puntsPartida.setText(Integer.toString(puntFinal));
         if(guanyada)
             estat.setText("Has guanyat!");
         else
