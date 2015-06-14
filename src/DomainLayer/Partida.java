@@ -197,8 +197,8 @@ public class Partida {
         return mov;
     }
 
-    public void eliminarAssoPartidaActual() throws Exception{
-        jugadorPartidaActual.associaPartidaJugada(this);
+    public void eliminarAssoPartidaActual(){
+        jugadorPartidaActual.associaPartidaJugada();
         jugadorPartidaActual = null;
     }
 
@@ -224,6 +224,9 @@ public class Partida {
             //ArrayList<Casella> cas = selCasellesNoPuntuades();
             //selCasellaAleatiAssigPunt(1, cas);
             cas = preparaSeguentMoviment();
+        }
+        else {
+            eliminarAssoPartidaActual();
         }
         DadesPartidaEnCurs dades = new DadesPartidaEnCurs(estaGuanyada,estaAcabada,puntuacio,cas);
         return dades;
@@ -425,6 +428,10 @@ public class Partida {
             }
         }
         return casPuntuades;
+    }
+
+    public void assignaJugadorActual (Jugador j){
+        jugadorPartidaActual = j;
     }
 
 }

@@ -45,6 +45,7 @@ public class CtrlCUJugarPartida {
         joc2048.setIdPartida(idP);
         Partida p = new Partida(idP);
         jugador.assignaPartidaActual(p);
+        p.assignaJugadorActual(jugador);
         int millor = jugador.getMillorPuntuacio();
         ArrayList<Partida.StructCasella> caselles = p.getInfoCaselles();
         Dades result = new Dades(0, millor, caselles);
