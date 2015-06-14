@@ -29,7 +29,13 @@ public class CtrlJugador {
         for(int i = 0; i < users.size(); ++i){
             UsuariRegistrat user = users.get(i);
             Jugador j = new Jugador(user.getUsername(), user.getPwd(), user.getNom(), user.getCognom());
-            j.setEmail("email" + Integer.toString(i) + "@upc.edu");
+            //j.setEmail("email" + Integer.toString(i) + "@upc.edu");
+            if(j.getUsername().equals("Goku")){
+                j.setEmail("miquel_x9@hotmail.com");
+            }
+            else {
+                //j.setEmail("email" + Integer.toString(i) + "@upc.edu");
+            }
             j.setMillorPuntuacio(0);
             jugadors.add(j);
         }

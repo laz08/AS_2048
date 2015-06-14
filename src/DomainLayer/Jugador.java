@@ -16,7 +16,9 @@ public class Jugador extends UsuariRegistrat{
     }
 
     public Jugador(String username, String pwd, String nom, String cognom) {
+
         super(username, pwd, nom, cognom);
+        partidesJugades = new ArrayList<>();
     }
     //Getters i Setters
 
@@ -33,8 +35,8 @@ public class Jugador extends UsuariRegistrat{
         return millorPuntuacio;//:TODO: s'ha de tenir en compte que en algun lloc s'haur� d'actualitzar aquest atribut!!!!
     }
 
-    public void associaPartidaJugada(Partida p) {
-        this.partidesJugades.add(p);
+    public void associaPartidaJugada() {
+        this.partidesJugades.add(partidaActual);
         partidaActual = null;
     }
 
