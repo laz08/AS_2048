@@ -30,8 +30,6 @@ public class Autenticacio {
         OKButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                //Avisa al controller que ha d'anar a nova pantalla: Crear nova partida (Mirar cas d'ús)
-                //TODO: Fer el login
                 String txtUser = textField1.getText();
                 String txtPass = passwordField1.getText();
                 if(txtUser.isEmpty()){

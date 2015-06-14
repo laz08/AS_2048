@@ -55,8 +55,17 @@ public class JugarPartidaView extends JFrame implements KeyListener{
         partidaEnCurs.preparePartida(puntActual, millorPunt, caselles);
         partidaEnCurs.main(this);
     }
-    public void actualitzaPartida(boolean guanyada,boolean acabda,int puntActual,ArrayList<Partida.StructCasella> caselles){
+    public void actualitzaPartida(boolean guanyada,boolean acabada,int puntActual, ArrayList<Partida.StructCasella> caselles){
         //TODO: ActualitzaPartida reb dades per la capçalera
+        if(acabada){
+            prepareAcabaPartida(guanyada);
+        }
+        else{
+            estemAPartidaEnCurs = true;
+            partidaEnCurs.actualitzaPartida(puntActual, caselles);
+            partidaEnCurs.main(this);
+        }
+
 
     }
 
