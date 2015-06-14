@@ -1,7 +1,6 @@
 package DomainLayer;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -160,6 +159,21 @@ public class Partida {
         return false;
     }
 
+    private void enviaMissatge(String missatge, String destinatari){
+            class enviaMissatgeAsync implements Runnable {
+                String msg;
+                String dest;
+                enviaMissatgeAsync(String s, String d) { msg = s; dest = d; }
+                public void run() {
+                    FactoriaAdap factoriaAdap = FactoriaAdap.getInstance();
+                    IAdapMissatgeria am = factoriaAdap.getAdMissatgeria();
+                    am.enviarCorreu(msg, dest);
+                }
+            }
+            Thread t = new Thread(new enviaMissatgeAsync(missatge, destinatari));
+            t.start();
+    }
+
     public void comprovaPartidaPerdudaOGuanyada() {
         boolean trobat = buscaValor2048();
         if (trobat) {
@@ -171,13 +185,9 @@ public class Partida {
             if (!esPotFerMoviment()) this.estaAcabada = true;
         }
         if(this.estaAcabada){
-            String missatge = this.id_partida+" "+this.puntuacio;
-            //corregit respecte el diagrama to lo referent al servei extern
-            FactoriaAdap factoriaAdap = FactoriaAdap.getInstance();
-            IAdapMissatgeria am = factoriaAdap.getAdMissatgeria();
+             String missatge = id_partida+" "+puntuacio;
             String destinatari = jugadorPartidaActual.getEmail();
-            am.enviarCorreu(missatge,destinatari);
-            //TODO:Part del Servei extern per fer!
+            enviaMissatge(missatge, destinatari);
         }
     }
 
@@ -237,7 +247,6 @@ public class Partida {
             cas = preparaSeguentMoviment(mogut);
         }
         else {
-            System.out.println("acabaaaaaaaaaaaaaaaaaaaaaaaaaadddaaaa");
             eliminarAssoPartidaActual();
         }
         DadesPartidaEnCurs dades = new DadesPartidaEnCurs(estaGuanyada,estaAcabada,puntuacio,cas);
