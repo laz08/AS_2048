@@ -6,7 +6,7 @@ import DomainLayer.DomainModel.Partida;
 import java.util.Scanner;
 
 /**
- * Created by Víctor on 13/06/2015.
+ * Created by Vï¿½ctor on 13/06/2015.
  */
 public class Main {
     private static int count_o=1;
@@ -28,7 +28,7 @@ public class Main {
         partida = new Partida(1);
         sc = new Scanner(System.in);
 
-        System.out.println("BENVINGUT A L'APLICACIÓ");
+        System.out.println("BENVINGUT A L'APLICACIï¿½");
         System.out.println("Matriu primera:");
 
         Casella[][] resultat = partida.getCaselles();
@@ -48,8 +48,8 @@ public class Main {
 
 
     private static int menu(){
-        System.out.println("\n\n**********\nMENÚ PRINCIPAL");
-        System.out.println("Selecciona una opció:");
+        System.out.println("\n\n**********\nMENï¿½ PRINCIPAL");
+        System.out.println("Selecciona una opciï¿½:");
         System.out.println(MOVIMENT_AVALL+") MOVIMENT AVALL");
         System.out.println(MOVIMENT_DRETA+") MOVIMENT DRETA");
         System.out.println(MOVIMENT_ESQUERRE+") MOVIMENT ESQUERRE");

@@ -1,45 +1,97 @@
 package DomainLayer.DomainModel;
 
+import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
+
 /**
- * Created by SERGI on 10/06/2015.
+ * Created by laura on 15/06/15.
  */
-
-/*
 @Entity
-@Table(name="CASELLA")
-*/
+@IdClass(CasellaPK.class)
 public class Casella {
-
-        //@Id
-        private int numeroFila;
-        //@Id
-        private int numeroColumna;
-        private int numero;
-
-        //Seria l'operació creaCasella del diagrama de seqüència
-        public Casella(int numFila, int numCol){
-            numeroFila = numFila;
-            numeroColumna = numCol;
-            numero = 0;
-        }
+    private int idpartida;
+    private int numeroFila;
+    private int numeroColumna;
+    private Integer numero;
 
 
-        //Getters i Setters
+    public Casella(){
 
-        public int getFila(){ return numeroFila; }
+    }
+    //Seria l'operaciÃ³ creaCasella del diagrama de seqÃ¼Ã¨ncia
+    public Casella(int numFila, int numCol){
+        numeroFila = numFila;
+        numeroColumna = numCol;
+        numero = 0;
+    }
 
-        public int getColumna(){ return numeroColumna; }
+    public Partida.StructCasella getInfo(int x, int y, int z) {
+        Partida.StructCasella cas = new Partida.StructCasella(numeroFila,numeroColumna,numero);
+        return cas;
+    }
 
-        public int getNumero(){ return numero; }
+    // ## ------------- HIBERNATE ------------- ##
+    @Id
+    @Column(name = "idpartida")
+    public int getIdpartida() {
+        return idpartida;
+    }
 
-        //S'ha corregit i és un void, en el diagrama retornava la casella i no tenia sentit
-        public void setNumero(int num){ numero = num; }
+    public void setIdpartida(int idpartida) {
+        this.idpartida = idpartida;
+    }
 
-        ////////////////////////////////
+    @Id
+    @Column(name = "numerofila")
+    public int getNumerofila() {
+        return numeroFila;
+    }
 
-        public Partida.StructCasella getInfo(int x, int y, int z) {
-            Partida.StructCasella cas = new Partida.StructCasella(numeroFila,numeroColumna,numero);
-            return cas;
-        }
+    public void setNumerofila(int numerofila) {
+        this.numeroFila = numerofila;
+    }
 
+    @Id
+    @Column(name = "numerocolumna")
+    public int getNumerocolumna() {
+        return numeroColumna;
+    }
+
+    public void setNumerocolumna(int numerocolumna) {
+        this.numeroColumna = numerocolumna;
+    }
+
+    @Basic
+    @Column(name = "numero")
+    public Integer getNumero() {
+        return numero;
+    }
+
+    public void setNumero(Integer numero) {
+        this.numero = numero;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Casella casella = (Casella) o;
+
+        if (idpartida != casella.idpartida) return false;
+        if (numeroFila != casella.numeroFila) return false;
+        if (numeroColumna != casella.numeroColumna) return false;
+        if (numero != null ? !numero.equals(casella.numero) : casella.numero != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = idpartida;
+        result = 31 * result + numeroFila;
+        result = 31 * result + numeroColumna;
+        result = 31 * result + (numero != null ? numero.hashCode() : 0);
+        return result;
+    }
 }
