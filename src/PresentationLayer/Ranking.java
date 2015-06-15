@@ -35,7 +35,7 @@ public class Ranking {
     public Ranking(JugarPartidaController jpcn) {
         jpc = jpcn;
         llistat = new DefaultListModel();
-        llistaRank = new JList(llistat);
+        llistaRank.setModel(llistat);
         OKButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
