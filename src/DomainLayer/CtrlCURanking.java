@@ -17,8 +17,8 @@ public class CtrlCURanking {
             CtrlDataFactoria ctrlDataFactoria = CtrlDataFactoria.getInstance();
             CtrlJugador cj = ctrlDataFactoria.getCtrlJugador();
             ArrayList<Jugador> jugadors = cj.tots();
-            MillorPuntuacio mp = new MillorPuntuacio();
-            ArrayList<StructRanking> r = mp.obteRanking(jugadors);
+            RankingStrategy rs = new MillorPuntuacio();
+            ArrayList<StructRanking> r = rs.obteRanking(jugadors);
             return r;
         }
         catch (Exception e){
