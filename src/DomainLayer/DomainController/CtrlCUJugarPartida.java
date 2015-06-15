@@ -8,16 +8,12 @@ import DomainLayer.DataInterface.CtrlJugador;
 import DomainLayer.DomainModel.*;
 import DomainLayer.Factories.CtrlDataFactoria;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.Session;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.tool.hbm2ddl.SchemaExport;
+
 
 import java.util.ArrayList;
 
-/**
- * Created by Miquel on 11/06/2015.
- */
 public class CtrlCUJugarPartida {
     private CtrlCURanking cuRanking;
     private CtrlCULogin cuLogin;
@@ -51,21 +47,19 @@ public class CtrlCUJugarPartida {
     }
 
     public Dades crearPartida() {
-
+        session.beginTransaction();
         Joc2048 joc2048 = Joc2048.getInstance();
         int idP = joc2048.getIdpartida();
         ++idP;
         joc2048.setIdpartida(idP);
-        session.beginTransaction();
         Partida p = new Partida(idP);
-        session.getTransaction().commit();
-        jugador.assignaPartidaActual(p);
         //s'emmagatzema a domini la partida
         partida = p;
         p.assignaJugadorActual(jugador);
         int millor = jugador.getMillorpuntuacio();
         ArrayList<Partida.StructCasella> caselles = p.getInfoCaselles();
         Dades result = new Dades(0, millor, caselles);
+        session.getTransaction().commit();
         return result;
     }
 

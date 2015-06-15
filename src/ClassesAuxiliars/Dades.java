@@ -4,9 +4,6 @@ import DomainLayer.DomainModel.Partida;
 
 import java.util.ArrayList;
 
-/**
- * Created by laura on 13/06/15.
- */
 public class Dades {
     public int puntActual;
     public int millorPunt;

@@ -5,7 +5,11 @@ import DomainLayer.DataInterface.CtrlUsuari;
 import DomainLayer.DomainController.CtrlCUJugarPartida;
 import DomainLayer.DomainController.CtrlCULogin;
 import DomainLayer.DomainController.CtrlCURanking;
+import DomainLayer.DomainModel.Jugador;
 import DomainLayer.DomainModel.Usuariregistrat;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 import java.util.ArrayList;
 
@@ -44,7 +48,7 @@ public class CtrlDataFactoria {
 
     public CtrlJugador getCtrlJugador(){
         if(ctrlJugador == null) {
-            ctrlJugador = new CtrlJugador();
+            //ctrlJugador =
             usuarisIJugadorsDeProva();
         }
         return ctrlJugador;
@@ -58,33 +62,38 @@ public class CtrlDataFactoria {
 
     }
 
-    public void usuarisIJugadorsDeProva(){
-        ArrayList<Usuariregistrat> usuarisNous = new ArrayList<>();
+    public void usuarisIJugadorsDeProva() {
+        SessionFactory sf = new Configuration().configure().buildSessionFactory();
+        Session session = sf.openSession();
+        session.beginTransaction();
         Usuariregistrat u = new Usuariregistrat();
+        Jugador j = new Jugador();
         u.setUsername("Goku");
         u.setPwd("Goku");
         u.setNom("Miquel");
         u.setCognom("Xamani");
-        usuarisNous.add(u);
+        j.setUsername("Goku");
+        j.setMillorpuntuacio(0);
+        j.setEmail("miquel_x9@hotmail.com");
         u = new Usuariregistrat();
         u.setUsername("ThePenguin");
         u.setPwd("ThePenguin");
         u.setNom("Victor");
         u.setCognom("Jaria");
-        usuarisNous.add(u);
         u = new Usuariregistrat();
         u.setUsername("OclIsUnique");
         u.setPwd("OclIsUnique");
         u.setNom("Sergi");
         u.setCognom("Orra");
-        usuarisNous.add(u);
         u = new Usuariregistrat();
+        j = new Jugador();
+        j.setEmail("lazeru08@gmail.com");
+        j.setUsername("LoveLinux");
+        j.setMillorpuntuacio(0);
         u.setUsername("LoveLinux");
         u.setPwd("LoveLinux");
         u.setNom("Laura");
         u.setCognom("Cebollero");
-        usuarisNous.add(u);
-        getCtrlUsuari().afegeixUsuaris(usuarisNous);
-        getCtrlJugador().afegeixJugadors(usuarisNous);
     }
+
 }

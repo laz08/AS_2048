@@ -5,9 +5,7 @@ import DomainLayer.DomainModel.Partida;
 
 import java.util.Scanner;
 
-/**
- * Created by V�ctor on 13/06/2015.
- */
+
 public class Main {
     private static int count_o=1;
     private static final int MOVIMENT_AVALL=count_o++;//1

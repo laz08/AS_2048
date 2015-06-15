@@ -16,7 +16,6 @@ public class Jugador {
     private String username;
     private String email;
     private Integer millorpuntuacio;
-    private Partida partidaActual;
     private ArrayList<Partida> partidesJugades;
 
     public Jugador(){
@@ -39,17 +38,11 @@ public class Jugador {
         return sr;
     }
 
-    public void associaPartidaJugada() {
+    public void associaPartidaJugada(Partida partidaActual) {
         this.partidesJugades.add(partidaActual);
-        partidaActual = null;
     }
     //En el diagrama aquesta funci� tenia el nom "assignaJugador"
-    public void assignaPartidaActual(Partida p){
-        partidaActual = p;
-    }
-    public Partida getPartidaActual() {
-        return partidaActual;
-    }
+
 
     // ## ------------- HIBERNATE ------------- ##
     @Id
