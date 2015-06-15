@@ -19,6 +19,7 @@ public class Ranking {
     private DefaultListModel llistat;
 
     private void afegirLiniesRanking(ArrayList<StructRanking> rank){
+        llistat.clear();
             for(int i = 0; i < rank.size(); ++i){
                 llistat.addElement(rank.get(i).nom + ": " + rank.get(i).millorP);
             }

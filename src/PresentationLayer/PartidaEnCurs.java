@@ -67,7 +67,6 @@ public class PartidaEnCurs {
 
     public void actualitzaPartida(int puntAct, ArrayList<Partida.StructCasella> caselles){
         this.puntActual.setText(Integer.toString(puntAct));
-        //TODO: cal actualitzar la millor puntuació si la puntuació actual és superior? diria que no
         if(puntAct > millorPuntuacio){
             puntMillor.setText(Integer.toString(puntAct));
             millorPuntuacio = puntAct;

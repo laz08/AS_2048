@@ -13,6 +13,9 @@ public class JugarPartidaController {
     private JugarPartidaView jugarPartidaView;
     private CtrlCUJugarPartida ctrlCUJugarPartida;
 
+    private boolean guanyadaGuard;
+    private int puntuacioGuard;
+
     public static void main(String[] args) {
         new JugarPartidaController();
     }
@@ -37,13 +40,10 @@ public class JugarPartidaController {
         }
     }
     public void mostraPartidaFinalitzada(){
-        //TODO: A PrepareAcabaPartidase li passa un boolèa que indica si ha guanyat o no
-        //TODO: aquest prepare acaba ranking hauria de passar les dades de la partida que s'estava jugant
-        jugarPartidaView.prepareAcabaPartida(true,600);
+        jugarPartidaView.prepareAcabaPartida(guanyadaGuard,puntuacioGuard);
     }
     public void iniPartida(){
         Dades dades = ctrlCUJugarPartida.crearPartida();
-        //TODO: A prepare partida se li han de passar unes dades que rep de domini
         jugarPartidaView.preparePartida(dades.puntActual, dades.millorPunt, dades.caselles);
     }
 
@@ -58,6 +58,8 @@ public class JugarPartidaController {
 
     public void ferMoviment(String mov){
         DadesPartidaEnCurs dades = ctrlCUJugarPartida.ferMoviment(mov);
+        guanyadaGuard = dades.guanyada;
+        puntuacioGuard = dades.puntuacio;
         jugarPartidaView.actualitzaPartida(dades.guanyada,dades.acabada,dades.puntuacio,dades.casell);
     }
 
