@@ -1,5 +1,7 @@
 package DomainLayer.DataInterface;
 
+import DomainLayer.DomainModel.Usuariregistrat;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -14,7 +16,7 @@ public class CtrlUsuari {
         usuarisRegs = new LinkedList<UsuariRegistrat>();
     }
 
-    public UsuariRegistrat getUsuari(String userN) throws  Exception{
+    public Usuariregistrat getUsuari(String userN) throws  Exception{
         for(int i = 0; i < usuarisRegs.size(); ++i){
             if(usuarisRegs.get(i).getUsername().equals(userN)){
                 return usuarisRegs.get(i);

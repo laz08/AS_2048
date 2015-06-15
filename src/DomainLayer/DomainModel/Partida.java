@@ -235,7 +235,7 @@ public class Partida {
             cas = preparaSeguentMoviment(mogut);
         }
         if (estaAcabada) {
-            if(puntuacio > jugadorPartidaActual.getMillorPuntuacio()) jugadorPartidaActual.setMillorPuntuacio(puntuacio);
+            if(puntuacio > jugadorPartidaActual.getMillorpuntuacio()) jugadorPartidaActual.setMillorpuntuacio(puntuacio);
             eliminarAssoPartidaActual();
         }
         DadesPartidaEnCurs dades = new DadesPartidaEnCurs(estaGuanyada,estaAcabada,puntuacio, cas);

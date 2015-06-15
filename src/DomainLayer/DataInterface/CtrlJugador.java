@@ -1,5 +1,7 @@
 package DomainLayer.DataInterface;
 
+import DomainLayer.DomainModel.Jugador;
+
 import java.util.ArrayList;
 
 
