@@ -25,7 +25,7 @@ public class Ranking {
             }
     }
     public void main(JFrame frame, ArrayList<StructRanking> rank) {
-        frame.setTitle("Ranking");
+        frame.setTitle("2048 - Ranking");
         frame.setContentPane(this.PanelRank);
         afegirLiniesRanking(rank);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
