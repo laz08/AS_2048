@@ -1,8 +1,8 @@
 package PresentationLayer;
 
 
-import DomainLayer.DomainModel.Partida;
 import ClassesAuxiliars.StructRanking;
+import DomainLayer.DomainModel.Partida;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;

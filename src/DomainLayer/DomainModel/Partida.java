@@ -1,28 +1,31 @@
 package DomainLayer.DomainModel;
 
-import DomainLayer.Adapters.IAdapMissatgeria;
 import ClassesAuxiliars.DadesPartidaEnCurs;
+import DomainLayer.Adapters.IAdapMissatgeria;
 import DomainLayer.Factories.FactoriaAdap;
 
+
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.Random;
 
-/**
- * Created by SERGI on 10/06/2015.
- */
 
-/*
 @Entity
-@Table(name="PARTIDA")
-*/
 public class Partida {
-    //@Id
-    private int id_partida;
-    private int puntuacio;
-    private boolean estaAcabada;
-    private boolean estaGuanyada;
+    private int idpartida;
+    private Boolean estaAcabada;
+    private Boolean estaGuanyada;
+    private Integer puntuacio;
+
     private Jugador jugadorPartidaActual;
     private Casella caselles[][];
+
+    public Partida(){
+
+    }
 
     //Struct per guardar 3 enters d'informaci� d'una casella
     public static class StructCasella {
@@ -52,7 +55,7 @@ public class Partida {
 
     //Seria l'operaci� creaPartida del diagrama de seq��ncia
     public Partida(int id){
-        id_partida = id;
+        idpartida = id;
         puntuacio = 0;
         estaAcabada = false;
         estaGuanyada = false;
@@ -68,33 +71,6 @@ public class Partida {
 
         ArrayList<Casella> cas = selCasellesNoPuntuades();
         selCasellaAleatiAssigPunt(2,cas);
-    }
-
-    //Getters i Setters
-
-    public int getIdPartida(){
-        return id_partida;
-    }
-
-    public int getPuntuacio(){
-        return puntuacio;
-    }
-    public void setPuntuacio(int p){
-        puntuacio = p;
-    }
-
-    public boolean esGuanyada(){
-        return estaGuanyada;
-    }
-    public void setEstaGuanyada(boolean g){
-        estaGuanyada = g;
-    }
-
-    public void setEstaAcabada(boolean a){
-        estaAcabada = a;
-    }
-    public boolean esAcabada(){
-        return estaAcabada;
     }
 
     public Casella[][] getCaselles() {
@@ -132,8 +108,8 @@ public class Partida {
             c = cas.get(r);
             c.setNumero(punt);
             --numc;
-            int i = c.getFila();
-            int j = c.getColumna();
+            int i = c.getNumerofila();
+            int j = c.getNumerocolumna();
             caselles[i][j].setNumero(punt);
             //s'elimina la casella que ja t� puntuci� per evitar que se li torni a assignar una puntuaci�
             cas.remove(r);
@@ -145,7 +121,7 @@ public class Partida {
         ArrayList<StructCasella> casellesStruct = new ArrayList<StructCasella>();
         for(int i = 0; i < caselles.length; ++i){
             for(int j = 0; j < caselles[0].length; ++j){
-                StructCasella cas = caselles[i][j].getInfo(i, j, id_partida);
+                StructCasella cas = caselles[i][j].getInfo(i, j, idpartida);
                 //faltava afegir al set
                 casellesStruct.add(cas);
             }
@@ -164,18 +140,18 @@ public class Partida {
     }
 
     private void enviaMissatge(String missatge, String destinatari){
-            class enviaMissatgeAsync implements Runnable {
-                String msg;
-                String dest;
-                enviaMissatgeAsync(String s, String d) { msg = s; dest = d; }
-                public void run() {
-                    FactoriaAdap factoriaAdap = FactoriaAdap.getInstance();
-                    IAdapMissatgeria am = factoriaAdap.getAdMissatgeria();
-                    am.enviarCorreu(msg, dest);
-                }
+        class enviaMissatgeAsync implements Runnable {
+            String msg;
+            String dest;
+            enviaMissatgeAsync(String s, String d) { msg = s; dest = d; }
+            public void run() {
+                FactoriaAdap factoriaAdap = FactoriaAdap.getInstance();
+                IAdapMissatgeria am = factoriaAdap.getAdMissatgeria();
+                am.enviarCorreu(msg, dest);
             }
-            Thread t = new Thread(new enviaMissatgeAsync(missatge, destinatari));
-            t.start();
+        }
+        Thread t = new Thread(new enviaMissatgeAsync(missatge, destinatari));
+        t.start();
     }
 
     public void comprovaPartidaPerdudaOGuanyada() {
@@ -189,7 +165,7 @@ public class Partida {
             if (!esPotFerMoviment()) this.estaAcabada = true;
         }
         if(this.estaAcabada){
-             String missatge = id_partida+" "+puntuacio;
+            String missatge = idpartida+" "+puntuacio;
             String destinatari = jugadorPartidaActual.getEmail();
             enviaMissatge(missatge, destinatari);
         }
@@ -254,7 +230,7 @@ public class Partida {
             if(puntuacio > jugadorPartidaActual.getMillorPuntuacio()) jugadorPartidaActual.setMillorPuntuacio(puntuacio);
             eliminarAssoPartidaActual();
         }
-        DadesPartidaEnCurs dades = new DadesPartidaEnCurs(estaGuanyada,estaAcabada,puntuacio,cas);
+        DadesPartidaEnCurs dades = new DadesPartidaEnCurs(estaGuanyada,estaAcabada,puntuacio, cas);
         return dades;
 
     }
@@ -450,7 +426,7 @@ public class Partida {
         for (int i = 0; i < caselles.length; ++i) {
             for (int j = 0; j < caselles.length; ++j) {
                 if (caselles[i][j].getNumero() != 0) {
-                    StructCasella s = caselles[i][j].getInfo(i, j, id_partida);
+                    StructCasella s = caselles[i][j].getInfo(i, j, idpartida);
                     casPuntuades.add(s);
                 }
             }
@@ -462,4 +438,71 @@ public class Partida {
         jugadorPartidaActual = j;
     }
 
+
+    // ## ------------- HIBERNATE ------------- ##
+
+    @Id
+    @Column(name = "idpartida")
+    public int getIdpartida() {
+        return idpartida;
+    }
+
+    public void setIdpartida(int idpartida) {
+        this.idpartida = idpartida;
+    }
+
+    @Basic
+    @Column(name = "estaacabada")
+    public Boolean getEstaacabada() {
+        return estaAcabada;
+    }
+
+    public void setEstaacabada(Boolean estaacabada) {
+        this.estaAcabada = estaacabada;
+    }
+
+    @Basic
+    @Column(name = "estaguanyada")
+    public Boolean getEstaguanyada() {
+        return estaGuanyada;
+    }
+
+    public void setEstaguanyada(Boolean estaguanyada) {
+        this.estaGuanyada = estaguanyada;
+    }
+
+    @Basic
+    @Column(name = "puntuacio")
+    public Integer getPuntuacio() {
+        return puntuacio;
+    }
+
+    public void setPuntuacio(Integer puntuacio) {
+        this.puntuacio = puntuacio;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Partida partida = (Partida) o;
+
+        if (idpartida != partida.idpartida) return false;
+        if (estaAcabada != null ? !estaAcabada.equals(partida.estaAcabada) : partida.estaAcabada != null) return false;
+        if (estaGuanyada != null ? !estaGuanyada.equals(partida.estaGuanyada) : partida.estaGuanyada != null)
+            return false;
+        if (puntuacio != null ? !puntuacio.equals(partida.puntuacio) : partida.puntuacio != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = idpartida;
+        result = 31 * result + (estaAcabada != null ? estaAcabada.hashCode() : 0);
+        result = 31 * result + (estaGuanyada != null ? estaGuanyada.hashCode() : 0);
+        result = 31 * result + (puntuacio != null ? puntuacio.hashCode() : 0);
+        return result;
+    }
 }
