@@ -40,7 +40,7 @@
                   <text value="Millor puntuació:"/>
                 </properties>
               </component>
-              <component id="beeff" class="javax.swing.JLabel" binding="puntActual">
+              <component id="beeff" class="javax.swing.JLabel" binding="puntMillor">
                 <constraints>
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -66,7 +66,7 @@
                   <text value="Puntuació actual:"/>
                 </properties>
               </component>
-              <component id="22da8" class="javax.swing.JLabel" binding="puntMillor">
+              <component id="22da8" class="javax.swing.JLabel" binding="puntActual">
                 <constraints>
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
