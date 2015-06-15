@@ -76,8 +76,16 @@ public class Partida {
     public Casella[][] getCaselles() {
         return caselles;
     }
+    public void setCaselles(Casella[][] caselles){
+        this.caselles = caselles;
+    }
+    public Jugador getJugadorPartidaActual() {
+        return jugadorPartidaActual;
+    }
 
-
+    public void setJugadorPartidaActual(Jugador jugadorPartidaActual) {
+        this.jugadorPartidaActual = jugadorPartidaActual;
+    }
     //Ara s'accedeix com a matriu utlitzant els �ndexs, correcci� del diagrama de seq��ncia
     public ArrayList<Casella> selCasellesNoPuntuades(){
         ArrayList<Casella> cas = new ArrayList<>();
