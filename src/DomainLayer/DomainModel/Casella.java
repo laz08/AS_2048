@@ -30,6 +30,7 @@ public class Casella {
         return cas;
     }
 
+
     // ## ------------- HIBERNATE ------------- ##
     @Id
     @Column(name = "idpartida")
