@@ -5,7 +5,6 @@ import DomainLayer.DataInterface.CtrlUsuari;
 import DomainLayer.DomainController.CtrlCUJugarPartida;
 import DomainLayer.DomainController.CtrlCULogin;
 import DomainLayer.DomainController.CtrlCURanking;
-import DomainLayer.DomainModel.UsuariRegistrat;
 
 import java.util.ArrayList;
 

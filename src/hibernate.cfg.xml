@@ -4,16 +4,17 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432</property>
         <property name="connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.username">postgres</property>
-        <property name="hibernate.connection.password">postgres</property>
         <property name="hibernate.default_schema">public</property>
         <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
         <property name="hibernate.show_sql">true</property>
         <mapping class="DomainLayer.DomainModel.Casella"/>
         <mapping class="DomainLayer.DomainModel.Partida"/>
         <mapping class="DomainLayer.DomainModel.CasellaPK"/>
+        <mapping class="DomainLayer.DomainModel.Joc2048"/>
+        <mapping class="DomainLayer.DomainModel.Jugador"/>
+        <mapping class="DomainLayer.DomainModel.Usuariregistrat"/>
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hbm2ddl.auto">update</property> -->
     </session-factory>

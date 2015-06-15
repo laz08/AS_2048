@@ -1,7 +1,5 @@
 package DomainLayer.DataInterface;
 
-import DomainLayer.DomainModel.UsuariRegistrat;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 
