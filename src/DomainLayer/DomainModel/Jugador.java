@@ -23,6 +23,12 @@ public class Jugador {
 
     }
 
+    public Jugador(String username, String email, Integer millorpuntuacio){
+        setUsername(username);
+        setEmail(email);
+        setMillorpuntuacio(millorpuntuacio);
+    }
+
     public StructRanking obtenirDades() {
         StructRanking sr = null;
         if (partidesJugades.size() != 0) {

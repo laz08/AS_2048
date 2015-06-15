@@ -2,6 +2,7 @@ package DomainLayer.DomainController;
 
 import ClassesAuxiliars.StructRanking;
 import DomainLayer.DataInterface.CtrlJugador;
+import DomainLayer.DomainModel.Jugador;
 import DomainLayer.Factories.CtrlDataFactoria;
 import DomainLayer.DomainModel.MillorPuntuacio;
 import DomainLayer.DomainModel.RankingStrategy;

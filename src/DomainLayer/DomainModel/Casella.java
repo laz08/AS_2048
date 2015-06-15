@@ -20,9 +20,9 @@ public class Casella {
     }
     //Seria l'operació creaCasella del diagrama de seqüència
     public Casella(int numFila, int numCol){
-        numeroFila = numFila;
-        numeroColumna = numCol;
-        numero = 0;
+        setNumerocolumna(numCol);
+        setNumerofila(numFila);
+        setNumero(0);
     }
 
     public Partida.StructCasella getInfo(int x, int y, int z) {
