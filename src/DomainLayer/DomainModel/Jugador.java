@@ -57,11 +57,13 @@ public class Jugador extends UsuariRegistrat {
 
     //////////////////////
 
-    public StructRanking obtenirDades(Boolean noPartides) {
-        if (partidesJugades.size() == 0) noPartides = false;
-        StructRanking sr = new StructRanking();
-        sr.millorP = this.millorPuntuacio;
-        sr.nom = this.getNom();
+    public StructRanking obtenirDades() {
+        StructRanking sr = null;
+        if (partidesJugades.size() != 0) {
+            sr = new StructRanking();
+            sr.millorP = this.millorPuntuacio;
+            sr.nom = this.getNom();
+        }
         return sr;
     }
 
