@@ -10,6 +10,7 @@ public class CtrlCUJugarPartida {
     private CtrlCURanking cuRanking;
     private CtrlCULogin cuLogin;
     private Jugador jugador;
+    private Partida partida;
 
     public CtrlCUJugarPartida() {
         //creacio dels casos d'us de Login i Ranking
@@ -36,6 +37,8 @@ public class CtrlCUJugarPartida {
         joc2048.setIdPartida(idP);
         Partida p = new Partida(idP);
         jugador.assignaPartidaActual(p);
+        //s'emmagatzema a domini la partida
+        partida = p;
         p.assignaJugadorActual(jugador);
         int millor = jugador.getMillorPuntuacio();
         ArrayList<Partida.StructCasella> caselles = p.getInfoCaselles();
@@ -44,7 +47,7 @@ public class CtrlCUJugarPartida {
     }
 
     public DadesPartidaEnCurs ferMoviment(String mov){
-        Partida p = jugador.getPartidaActual();
+        Partida p = partida;
         DadesPartidaEnCurs dades = p.ferMoviment(mov);
         return dades;
     }
