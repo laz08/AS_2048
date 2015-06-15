@@ -38,6 +38,7 @@ public class JugarPartidaController {
     }
     public void mostraPartidaFinalitzada(){
         //TODO: A PrepareAcabaPartidase li passa un boolèa que indica si ha guanyat o no
+        //TODO: aquest prepare acaba ranking hauria de passar les dades de la partida que s'estava jugant
         jugarPartidaView.prepareAcabaPartida(true,600);
     }
     public void iniPartida(){
