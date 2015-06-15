@@ -1,4 +1,6 @@
-package DomainLayer;
+package DomainLayer.DomainModel;
+
+import ClassesAuxiliars.StructRanking;
 
 import java.util.ArrayList;
 

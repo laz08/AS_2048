@@ -1,7 +1,11 @@
 package PresentationLayer;
 
 
-import DomainLayer.*;
+import ClassesAuxiliars.Dades;
+import ClassesAuxiliars.DadesPartidaEnCurs;
+import ClassesAuxiliars.StructRanking;
+import DomainLayer.DomainController.CtrlCUJugarPartida;
+import DomainLayer.Factories.CtrlDataFactoria;
 
 import java.util.ArrayList;
 

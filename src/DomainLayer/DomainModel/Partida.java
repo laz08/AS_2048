@@ -1,4 +1,8 @@
-package DomainLayer;
+package DomainLayer.DomainModel;
+
+import DomainLayer.Adapters.IAdapMissatgeria;
+import ClassesAuxiliars.DadesPartidaEnCurs;
+import DomainLayer.Factories.FactoriaAdap;
 
 import java.util.ArrayList;
 import java.util.Random;

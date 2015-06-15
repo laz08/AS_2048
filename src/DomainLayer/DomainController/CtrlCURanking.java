@@ -1,6 +1,12 @@
-package DomainLayer;
+package DomainLayer.DomainController;
 
-import java.io.IOException;
+import ClassesAuxiliars.StructRanking;
+import DomainLayer.DataInterface.CtrlJugador;
+import DomainLayer.Factories.CtrlDataFactoria;
+import DomainLayer.DomainModel.Jugador;
+import DomainLayer.DomainModel.MillorPuntuacio;
+import DomainLayer.DomainModel.RankingStrategy;
+
 import java.util.ArrayList;
 
 /**

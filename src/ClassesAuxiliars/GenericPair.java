@@ -1,4 +1,4 @@
-package DomainLayer;
+package ClassesAuxiliars;
 
 /**
  * Created by Miquel on 10/06/2015.

@@ -1,6 +1,6 @@
 package PresentationLayer;
 
-import DomainLayer.StructRanking;
+import ClassesAuxiliars.StructRanking;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

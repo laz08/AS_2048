@@ -1,11 +1,13 @@
-package DomainLayer;
+package DomainLayer.DomainModel;
+
+import ClassesAuxiliars.StructRanking;
 
 import java.util.ArrayList;
 
 /**
  * Created by Miquel on 10/06/2015.
  */
-public class Jugador extends UsuariRegistrat{
+public class Jugador extends UsuariRegistrat {
     private String email;
     private int millorPuntuacio;
     private Partida partidaActual;

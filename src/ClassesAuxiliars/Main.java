@@ -1,4 +1,7 @@
-package DomainLayer;
+package ClassesAuxiliars;
+
+import DomainLayer.DomainModel.Casella;
+import DomainLayer.DomainModel.Partida;
 
 import java.util.Scanner;
 

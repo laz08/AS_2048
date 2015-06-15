@@ -1,13 +1,10 @@
 package PresentationLayer;
 
-import DomainLayer.Casella;
-import DomainLayer.Partida;
+import DomainLayer.DomainModel.Partida;
 
 import javax.swing.*;
 import javax.swing.border.MatteBorder;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
 public class PartidaEnCurs {

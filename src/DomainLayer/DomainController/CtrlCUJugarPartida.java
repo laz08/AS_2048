@@ -1,6 +1,14 @@
-package DomainLayer;
+package DomainLayer.DomainController;
 
-import java.io.IOException;
+import ClassesAuxiliars.Dades;
+import ClassesAuxiliars.DadesPartidaEnCurs;
+import ClassesAuxiliars.StructRanking;
+import DomainLayer.DataInterface.CtrlJugador;
+import DomainLayer.DomainModel.Joc2048;
+import DomainLayer.DomainModel.Jugador;
+import DomainLayer.DomainModel.Partida;
+import DomainLayer.Factories.CtrlDataFactoria;
+
 import java.util.ArrayList;
 
 /**

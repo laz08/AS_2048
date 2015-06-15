@@ -1,4 +1,7 @@
-package DomainLayer;
+package DomainLayer.DataInterface;
+
+import DomainLayer.DomainModel.Jugador;
+import DomainLayer.DomainModel.UsuariRegistrat;
 
 import java.util.ArrayList;
 

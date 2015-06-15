@@ -1,4 +1,7 @@
-package DomainLayer;
+package DomainLayer.Factories;
+
+import DomainLayer.Adapters.AdapMissatgeria;
+import DomainLayer.Adapters.IAdapMissatgeria;
 
 /**
  * Created by Miquel on 13/06/2015.

@@ -1,6 +1,8 @@
-package DomainLayer;
+package DomainLayer.DomainController;
 
-import java.io.IOException;
+import DomainLayer.DataInterface.CtrlUsuari;
+import DomainLayer.Factories.CtrlDataFactoria;
+import DomainLayer.DomainModel.UsuariRegistrat;
 
 /**
  * Created by Miquel on 11/06/2015.

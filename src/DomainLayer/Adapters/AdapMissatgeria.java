@@ -1,5 +1,6 @@
-package DomainLayer;
+package DomainLayer.Adapters;
 
+import DomainLayer.ServiceLocator;
 import ExternalService.SvMissatgeria;
 
 /**

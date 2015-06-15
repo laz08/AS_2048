@@ -1,6 +1,4 @@
-package DomainLayer;
-
-import java.util.ArrayList;
+package DomainLayer.DomainModel;
 
 /**
  * Created by SERGI on 10/06/2015.
