@@ -45,5 +45,6 @@
     </orderEntry>
     <orderEntry type="library" name="lib" level="project" />
     <orderEntry type="library" name="postgresql:postgresql:9.2-1002.jdbc4" level="project" />
+    <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
   </component>
 </module>

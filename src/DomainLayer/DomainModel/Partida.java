@@ -245,12 +245,12 @@ public class Partida {
 
     private void movAmunt() {
         //Nomes vaig mirant la casella que estic i la de abaix. A les seguents iteracions del for ja mirarem les altres
-        for (int j = 0; j < 4; ++j) { //No arribarem a la ultima fila perque no cal
+        for (int j = 0; j < caselles.length; ++j) { //No arribarem a la ultima fila perque no cal
             boolean especial = false;
             boolean primerCop = true;
             int voltes = 0;
-            while (voltes < 2) {  //Ja que en el cas de que hagin numeros junts primer puja un i despres el altre
-                for (int i = 3; i > 0; --i) { //arrossegar en cas de 0's
+            while (voltes < caselles.length - 2) {  //Ja que en el cas de que hagin numeros junts primer puja un i despres el altre
+                for (int i = caselles.length - 1; i > 0; --i) { //arrossegar en cas de 0's
                     if (caselles[i - 1][j].getNumero() == 0 && caselles[i][j].getNumero() != 0) {
                         int num = caselles[i][j].getNumero();
                         caselles[i - 1][j].setNumero(num);
@@ -259,7 +259,7 @@ public class Partida {
                 }
                 ++voltes;
             }
-            for (int i = 0; i < 3; ++i) {
+            for (int i = 0; i < caselles.length - 1; ++i) {
                 int num = caselles[i][j].getNumero();
 
                 //Cas especial de que 4 caselles es transformen en 2
@@ -290,12 +290,12 @@ public class Partida {
 
     private void movAvall(){
         //Nomes vaig mirant la casella que estic i la de abaix. A les seguents iteracions del for ja mirarem les altres
-        for (int j = 0; j < 4; ++j) { //No arribarem a la ultima fila perque no cal
+        for (int j = 0; j < caselles.length; ++j) { //No arribarem a la ultima fila perque no cal
             boolean especial = false;
             boolean primerCop = true;
             int voltes = 0;
-            while (voltes < 2) { //Ja que en el cas de que hagin numeros junts primer baixa un i despres el altre
-                for (int i = 0; i < 3; ++i) { //arrossegar en cas de 0's
+            while (voltes < caselles.length - 2) { //Ja que en el cas de que hagin numeros junts primer baixa un i despres el altre
+                for (int i = 0; i < caselles.length - 1; ++i) { //arrossegar en cas de 0's
                     if (caselles[i + 1][j].getNumero() == 0 && caselles[i][j].getNumero() != 0) {
                         int num = caselles[i][j].getNumero();
                         caselles[i + 1][j].setNumero(num);
@@ -304,7 +304,7 @@ public class Partida {
                 }
                 ++voltes;
             }
-            for (int i = 3; i > 0 ; --i) {
+            for (int i = caselles.length - 1; i > 0 ; --i) {
                 int num = caselles[i][j].getNumero();
 
                 //Cas especial de que 4 caselles es transformen en 2
@@ -333,12 +333,12 @@ public class Partida {
 
     private void movEsquerre(){
         //Nomes vaig mirant la casella que estic i la de abaix. A les seguents iteracions del for ja mirarem les altres
-        for (int i = 0; i < 4; ++i) {
+        for (int i = 0; i < caselles.length; ++i) {
             boolean especial = false;
             boolean primerCop = true;
             int voltes = 0;
-            while (voltes < 2) { //Ja que en el cas de que hagin numeros junts primer mou un i despres el altre
-                for (int j = 3; j > 0; --j) { //arrossegar en cas de 0's
+            while (voltes < caselles.length - 2) { //Ja que en el cas de que hagin numeros junts primer mou un i despres el altre
+                for (int j = caselles.length - 1; j > 0; --j) { //arrossegar en cas de 0's
                     if (caselles[i][j - 1].getNumero() == 0 && caselles[i][j].getNumero() != 0) {
                         int num = caselles[i][j].getNumero();
                         caselles[i][j - 1].setNumero(num);
@@ -347,7 +347,7 @@ public class Partida {
                 }
                 ++voltes;
             }
-            for (int j = 0; j < 3 ; ++j) {
+            for (int j = 0; j < caselles.length - 1; ++j) {
                 int num = caselles[i][j].getNumero();
 
                 //Cas especial de que 4 caselles es transformen en 2
@@ -382,8 +382,8 @@ public class Partida {
             boolean especial = false;
             boolean primerCop = true;
             int voltes = 0;
-            while (voltes < 2) { //Ja que en el cas de que hagin numeros junts primer mou un i despres el altre
-                for (int j = 0; j < 3; ++j) { //arrossegar en cas de 0's
+            while (voltes < caselles.length - 2) { //Ja que en el cas de que hagin numeros junts primer mou un i despres el altre
+                for (int j = 0; j < caselles.length - 1; ++j) { //arrossegar en cas de 0's
                     if (caselles[i][j + 1].getNumero() == 0 && caselles[i][j].getNumero() != 0) {
                         int num = caselles[i][j].getNumero();
                         caselles[i][j + 1].setNumero(num);
@@ -392,7 +392,7 @@ public class Partida {
                 }
                 ++voltes;
             }
-            for (int j = 3; j > 0 ; --j) {
+            for (int j = caselles.length - 1; j > 0 ; --j) {
                 int num = caselles[i][j].getNumero();
 
                 //Cas especial de que 4 caselles es transformen en 2
