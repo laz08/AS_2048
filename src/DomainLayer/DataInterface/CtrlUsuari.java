@@ -10,10 +10,10 @@ import java.util.LinkedList;
  */
 public class CtrlUsuari {
     // Estructura de dades on guardem els usuaris
-    private LinkedList<UsuariRegistrat> usuarisRegs;
+    private LinkedList<Usuariregistrat> usuarisRegs;
 
     public CtrlUsuari() {
-        usuarisRegs = new LinkedList<UsuariRegistrat>();
+        usuarisRegs = new LinkedList<Usuariregistrat>();
     }
 
     public Usuariregistrat getUsuari(String userN) throws  Exception{
@@ -24,7 +24,7 @@ public class CtrlUsuari {
         }
         throw new Exception("Username incorrecte");
     }
-    public void afegeixUsuaris(ArrayList<UsuariRegistrat> users){
+    public void afegeixUsuaris(ArrayList<Usuariregistrat> users){
         usuarisRegs.addAll(users);
     }
 }
