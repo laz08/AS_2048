@@ -33,6 +33,18 @@ public class Jugador {
         return sr;
     }
 
+    public void associaPartidaJugada() {
+        this.partidesJugades.add(partidaActual);
+        partidaActual = null;
+    }
+    //En el diagrama aquesta funci� tenia el nom "assignaJugador"
+    public void assignaPartidaActual(Partida p){
+        partidaActual = p;
+    }
+    public Partida getPartidaActual() {
+        return partidaActual;
+    }
+
     // ## ------------- HIBERNATE ------------- ##
     @Id
     @Column(name = "username")

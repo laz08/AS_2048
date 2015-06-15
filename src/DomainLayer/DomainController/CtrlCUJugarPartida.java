@@ -1,5 +1,6 @@
 package DomainLayer.DomainController;
 
+
 import ClassesAuxiliars.Dades;
 import ClassesAuxiliars.DadesPartidaEnCurs;
 import ClassesAuxiliars.StructRanking;
@@ -52,9 +53,9 @@ public class CtrlCUJugarPartida {
     public Dades crearPartida() {
 
         Joc2048 joc2048 = Joc2048.getInstance();
-        int idP = joc2048.getIdPartida();
+        int idP = joc2048.getIdpartida();
         ++idP;
-        joc2048.setIdPartida(idP);
+        joc2048.setIdpartida(idP);
         session.beginTransaction();
         Partida p = new Partida(idP);
         session.getTransaction().commit();
@@ -62,7 +63,7 @@ public class CtrlCUJugarPartida {
         //s'emmagatzema a domini la partida
         partida = p;
         p.assignaJugadorActual(jugador);
-        int millor = jugador.getMillorPuntuacio();
+        int millor = jugador.getMillorpuntuacio();
         ArrayList<Partida.StructCasella> caselles = p.getInfoCaselles();
         Dades result = new Dades(0, millor, caselles);
         return result;

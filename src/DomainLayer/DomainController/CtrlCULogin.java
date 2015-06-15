@@ -1,6 +1,8 @@
 package DomainLayer.DomainController;
 
+
 import DomainLayer.DataInterface.CtrlUsuari;
+import DomainLayer.DomainModel.Usuariregistrat;
 import DomainLayer.Factories.CtrlDataFactoria;
 
 /**
@@ -8,7 +10,7 @@ import DomainLayer.Factories.CtrlDataFactoria;
  */
 public class CtrlCULogin {
 
-    private UsuariRegistrat usuariR;
+    private Usuariregistrat usuariR;
 
     public CtrlCULogin(){
 
