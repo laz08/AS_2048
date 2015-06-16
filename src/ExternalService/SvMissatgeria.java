@@ -11,6 +11,8 @@ import java.util.Properties;
 public class SvMissatgeria {
     private Properties p;
     public SvMissatgeria(){}
+
+    //cal passar el destinatari, que és el mail del jugador actual, ja que el servei necessita aquesta informació. En els diagrames no estava
     public void enviarCorreu(String missatge,String destinatari){
         final String compte = "as2048grup10@gmail.com";
         final String password = "linuxrulez";
@@ -33,13 +35,13 @@ public class SvMissatgeria {
         }
 
         contingut = contingut + id + "ha estat de " + puntuacio;
-        Properties props = new Properties();
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.port", "587");
+        p = new Properties();
+        p.put("mail.smtp.auth", "true");
+        p.put("mail.smtp.starttls.enable", "true");
+        p.put("mail.smtp.host", "smtp.gmail.com");
+        p.put("mail.smtp.port", "587");
 
-        Session session = Session.getInstance(props,
+        Session session = Session.getInstance(p,
                 new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
                         return new PasswordAuthentication(compte, password);
