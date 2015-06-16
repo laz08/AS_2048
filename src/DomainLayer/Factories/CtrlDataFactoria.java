@@ -15,9 +15,7 @@ import org.hibernate.cfg.Configuration;
 
 import java.util.ArrayList;
 
-/**
- * Created by Miquel on 11/06/2015.
- */
+
 public class CtrlDataFactoria {
     private static CtrlDataFactoria ourInstance = new CtrlDataFactoria();
     private CtrlCUJugarPartida ctrlCUJugarPartida;
