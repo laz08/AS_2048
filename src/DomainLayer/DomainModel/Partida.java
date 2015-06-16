@@ -154,7 +154,7 @@ public class Partida {
         if (cas.size() == 0) {
             if (!esPotFerMoviment()) this.estaAcabada = true;
         }
-        if(this.estaAcabada){
+        if(this.estaGuanyada){
             String missatge = idpartida+" "+puntuacio;
             Jugador j = new Jugador();
             try{
