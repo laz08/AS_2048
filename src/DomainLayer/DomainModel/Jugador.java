@@ -19,7 +19,7 @@ public class Jugador {
     private ArrayList<Partida> partidesJugades;
 
     public Jugador(){
-
+        partidesJugades = new ArrayList<>();
     }
 
     public Jugador(String username, String email, Integer millorpuntuacio){
