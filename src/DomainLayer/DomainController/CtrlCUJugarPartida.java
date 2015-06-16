@@ -56,6 +56,7 @@ public class CtrlCUJugarPartida {
         //s'emmagatzema a domini la partida
         partida = p;
         try{
+            //al tornar a jugar partida, l'atribut millorpuntuacio pot haver estat actualitzat i es necessita carga de memòria l'objecte nou
             jugador = CtrlDataFactoria.getInstance().getCtrlJugador().get(jugador.getUsername());
         }
         catch (Exception e){}
