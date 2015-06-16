@@ -194,7 +194,7 @@ public class Partida {
     }
 
     public DadesPartidaEnCurs ferMoviment(String tipusMov){
-        //fem una copia de la matriu caselles abans de fer moviment
+        //fem una copia dels valors que contenen les caselles de la matriu abans de fer moviment
         int caselles2[][] = new int[4][4];
         for (int i = 0; i < caselles.length; ++i) {
             for (int j = 0; j < caselles.length; ++j) {
@@ -225,6 +225,7 @@ public class Partida {
                     if (caselles[i][j].getNumero() != caselles2[i][j]) mogut = true;
                 }
             }
+            //afegit parametre bolea per saber si hi ha hagut cambies en les caselles
             cas = preparaSeguentMoviment(mogut);
         }
         if (estaAcabada) {
@@ -246,6 +247,7 @@ public class Partida {
             }
             eliminarAssoPartidaActual(this);
         }
+        //preparem dades per enviar a capa de presentacio
         DadesPartidaEnCurs dades = new DadesPartidaEnCurs(estaGuanyada, estaAcabada, puntuacio, cas);
         return dades;
 
@@ -426,6 +428,7 @@ public class Partida {
 
     public ArrayList<StructCasella> preparaSeguentMoviment(boolean mogut) {
         ArrayList<Casella> cas = selCasellesNoPuntuades();
+        //afegim una casella aleatoria si amb el moviment anterior les caselles s'han mogut i queden caselles no puntuades
         if (mogut) {
             if (cas.size() != 0) selCasellaAleatiAssigPunt(1, cas);
         }
