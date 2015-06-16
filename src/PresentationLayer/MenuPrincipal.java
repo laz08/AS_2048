@@ -12,15 +12,11 @@ public class MenuPrincipal {
     private JButton mostrarRankingButton;
     private JLabel error;
 
-    public void main(JFrame frame) {
-        frame.setTitle("2048 - Menu Principal");
-        frame.setContentPane(this.panel1);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 400);
-        frame.setResizable(false);
-        frame.setVisible(true);
-    }
 
+    /**
+     * Aquest és el menú principal de l'aplicatiu.
+     * @param jpcn
+     */
     public MenuPrincipal(final JugarPartidaController jpcn) {
         jpc = jpcn;
         error.setForeground(Color.red);
@@ -42,4 +38,19 @@ public class MenuPrincipal {
             }
         });
     }
+
+    /**
+     * A la segona entrega no vam contemplar tenir una pantalla principal. Per tant, aquesta funció (i classe)
+     * és totalment nova.
+     * @param frame
+     */
+    public void main(JFrame frame) {
+        frame.setTitle("2048 - Menu Principal");
+        frame.setContentPane(this.panel1);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 400);
+        frame.setResizable(false);
+        frame.setVisible(true);
+    }
+
 }

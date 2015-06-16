@@ -49,7 +49,7 @@ public class CtrlDataFactoria {
     public CtrlJugador getCtrlJugador(){
         if(ctrlJugador == null) {
             ctrlJugador = new CtrlJugadorDB();
-            //usuarisIJugadorsDeProva();
+            usuarisIJugadorsDeProva();
         }
         return ctrlJugador;
 
@@ -68,6 +68,7 @@ public class CtrlDataFactoria {
         session.beginTransaction();
         Usuariregistrat u = new Usuariregistrat();
         Jugador j = new Jugador();
+
         u.setUsername("Goku");
         u.setPwd("Goku");
         u.setNom("Miquel");
@@ -100,7 +101,17 @@ public class CtrlDataFactoria {
         u.setCognom("Cebollero");
         session.save(u);
         session.save(j);
+        j.setEmail("cristina@essi.upc.edu");
+        j.setUsername("AS");
+        j.setMillorpuntuacio(0);
+        u.setUsername("AS");
+        u.setPwd("AS");
+        u.setNom("AS");
+        u.setCognom("Grup10");
+        session.save(u);
+        session.save(j);
         session.getTransaction().commit();
+
     }
 
 }

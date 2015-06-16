@@ -19,6 +19,10 @@ public class JugarPartidaView extends JFrame implements KeyListener{
     private JugarPartidaController jpc;
 ;
 
+    /**
+     * Finestra (vista) que es transforma segons la pantalla que ha de mostrar.
+     * @param jpc
+     */
     public JugarPartidaView(JugarPartidaController jpc){
         this.jpc = jpc;
         autenticacioView = new Autenticacio(jpc);
@@ -31,31 +35,62 @@ public class JugarPartidaView extends JFrame implements KeyListener{
         estemAPartidaEnCurs = false;
     }
 
+    /**
+     * Permet transormar-se en la vista d'autenticació
+     */
     public void prepareAut() {
         estemAPartidaEnCurs = false;
         autenticacioView.main(this);
     }
 
+    /**
+     * Permet transformar-se en la vista de menú principal
+     */
     public void prepareMenuPrincipal(){
         estemAPartidaEnCurs = false;
         menuPrincipal.main(this);
     }
 
+    /**
+     * Permet transformar-se en la vista que mostra el Ranking
+     * @param rank
+     * @param srcIsMainMenu
+     */
     public void prepareRanking(ArrayList<StructRanking> rank, boolean srcIsMainMenu){
         estemAPartidaEnCurs = false;
         ranking.main(this, rank, srcIsMainMenu);
     }
 
+    /**
+     * Permet transformar-se en la vista que es mostra un cop ha finalitzat la partida
+     * @param guanyada
+     * @param puntActual
+     */
     public void prepareAcabaPartida(boolean guanyada,int puntActual){
         estemAPartidaEnCurs = false;
         partidaFinalitzada.main(this, guanyada, puntActual);
     }
 
+
+    /**
+     * Permet crear la vista d'una partida nova
+     * @param puntActual
+     * @param millorPunt
+     * @param caselles
+     */
     public void preparePartida(int puntActual, int millorPunt, ArrayList<Partida.StructCasella> caselles){
         estemAPartidaEnCurs = true;
         partidaEnCurs.preparePartida(puntActual, millorPunt, caselles);
         partidaEnCurs.main(this);
     }
+
+    /**
+     * Permet actualitzar la vista de la partida en curs (que conté el taulell)
+     * @param guanyada
+     * @param acabada
+     * @param puntActual
+     * @param caselles
+     */
     public void actualitzaPartida(boolean guanyada,boolean acabada,int puntActual, ArrayList<Partida.StructCasella> caselles){
         if(acabada){
             prepareAcabaPartida(guanyada,puntActual);
@@ -69,6 +104,12 @@ public class JugarPartidaView extends JFrame implements KeyListener{
 
 
     //Tecles
+
+    /**
+     * Equivaldria a totes les funcions "keyPressedUP, keyPressedDown" etc especificades
+     * a la 2a entrega
+     * @param event
+     */
     @Override
     public void keyPressed(KeyEvent event) {
         if(estemAPartidaEnCurs) {

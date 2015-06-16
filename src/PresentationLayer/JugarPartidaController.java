@@ -20,6 +20,16 @@ public class JugarPartidaController {
         new JugarPartidaController();
     }
 
+    /**
+     * Donat que al fer les finestres amb el GUI designer, necessitàvem una
+     * classe .java per a cada .form, hem fet que el controlador faci les crides pertinents al view
+     * per a controlar què ha de mostrar en cada moment.
+     *
+     * A més, el tractament de les accions dels botons està a cadascuna d'aquestes classes .java,
+     * per la qual cosa les funcions "pressedOK" i demés no es troben aquí sinó als respectius arxius .java.
+     * Els noms són diferents.
+     *
+     */
     public JugarPartidaController() {
         ctrlCUJugarPartida = CtrlDataFactoria.getInstance().getCtrlCUJugarPartida();
         jugarPartidaView = new JugarPartidaView(this);
@@ -30,6 +40,17 @@ public class JugarPartidaController {
         jugarPartidaView.prepareMenuPrincipal();
     }
 
+
+    /**
+     * Aquesta funció és nova, no hi era abans.
+     * Permet fer mutar la vista a la pantalla de mostraRanking
+     *
+     * @param srcIsMainMenu ens serveix per a saber si hem pitjat el botó des del
+     *                      menú principal o desde la pantalla "Partida finalitzada".
+     *                      Així al prémer "OK" en la pantalla "Ranking", tornem
+     *                      a la pantalla on érem.
+     * @throws Exception
+     */
     public void mostraRanking(boolean srcIsMainMenu) throws Exception{
         try{
             ArrayList<StructRanking> rank = ctrlCUJugarPartida.obtenirRanking();
@@ -39,15 +60,26 @@ public class JugarPartidaController {
             throw e;
         }
     }
+
+    /**
+     * Aquesta funció és nova, no hi era abans.
+     * Permet fer mutar la vista a la pantalla de mostrar la partida finalitzada.
+     */
     public void mostraPartidaFinalitzada(){
         jugarPartidaView.prepareAcabaPartida(guanyadaGuard,puntuacioGuard);
     }
+
+
     public void iniPartida(){
         Dades dades = ctrlCUJugarPartida.crearPartida();
         jugarPartidaView.preparePartida(dades.puntActual, dades.millorPunt, dades.caselles);
     }
 
-    //---AUTENTICACIÓ----
+    /**
+     * Aquesta funció és nova, no hi era abans.
+     * Permet accedir a la funció "ferAutenticació" del CtrlJugarPartida.
+     *
+     */
     public void ferAutenticacio(String txtUser, String txtPass) throws Exception{
         try{
             ctrlCUJugarPartida.FerAutenticacio(txtUser, txtPass);
@@ -56,6 +88,12 @@ public class JugarPartidaController {
         }
     }
 
+    /**
+     * Aquesta funció és nova, no hi era abans.
+     * Permet accedir a la funció "ferMoviment" del CtrlJugarPartida
+     * i fer la crida a actualizaPartida per actualitzar el taulell
+     *
+     */
     public void ferMoviment(String mov){
         DadesPartidaEnCurs dades = ctrlCUJugarPartida.ferMoviment(mov);
         guanyadaGuard = dades.guanyada;

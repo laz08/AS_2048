@@ -16,15 +16,11 @@ public class Autenticacio {
     private JPanel PanelAut;
     private JLabel errorTextField;
 
-    public void main(JFrame frame) {
-        frame.setTitle("2048 - Autentificació");
-        frame.setContentPane(this.PanelAut);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 200);
-        frame.setResizable(false);
-        frame.setVisible(true);
-    }
-
+    /**
+     * Aquesta és la vista que es mostra tot just obrir l'aplicatiu,
+     * que permet autenticar-se al sistema.
+     * @param jpcn
+     */
     public Autenticacio(JugarPartidaController jpcn){
         this.jpc = jpcn;
         errorTextField.setForeground(Color.red);
@@ -56,6 +52,21 @@ public class Autenticacio {
                 System.exit(0);
             }
         });
-
     }
+
+
+    /**
+     * El main seria l'equivalent al "showAut" del segon document.
+     * @param frame
+     */
+    public void main(JFrame frame) {
+        frame.setTitle("2048 - Autentificació");
+        frame.setContentPane(this.PanelAut);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 200);
+        frame.setResizable(false);
+        frame.setVisible(true);
+    }
+
+
 }

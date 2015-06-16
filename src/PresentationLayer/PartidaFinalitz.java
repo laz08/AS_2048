@@ -20,6 +20,12 @@ public class PartidaFinalitz {
     private JLabel estat;
 
 
+    /**
+     * Equival al "showAcabarPartida" especificada a la 2a entrega
+     * @param frame
+     * @param guanyada
+     * @param puntFinal
+     */
     public void main(JFrame frame, boolean guanyada, int puntFinal) {
         frame.setTitle("2048 - Fi Partida");
         puntsPartida.setText(Integer.toString(puntFinal));
@@ -35,6 +41,10 @@ public class PartidaFinalitz {
         frame.setVisible(true);
     }
 
+    /**
+     * Aquesta és la vista que es mostra un cop finalitzada la partida.
+     * @param jpcn
+     */
     public PartidaFinalitz(JugarPartidaController jpcn) {
         jpc = jpcn;
         error.setForeground(Color.red);
