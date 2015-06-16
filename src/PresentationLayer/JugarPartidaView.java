@@ -41,9 +41,9 @@ public class JugarPartidaView extends JFrame implements KeyListener{
         menuPrincipal.main(this);
     }
 
-    public void prepareRanking(ArrayList<StructRanking> rank){
+    public void prepareRanking(ArrayList<StructRanking> rank, boolean srcIsMainMenu){
         estemAPartidaEnCurs = false;
-        ranking.main(this, rank);
+        ranking.main(this, rank, srcIsMainMenu);
     }
 
     public void prepareAcabaPartida(boolean guanyada,int puntActual){

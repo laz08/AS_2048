@@ -30,11 +30,12 @@ public class Jugador {
 
     public StructRanking obtenirDades() {
         StructRanking sr = null;
-        if (partidesJugades.size() != 0) {
-            sr = new StructRanking();
-            sr.millorP = this.millorpuntuacio;
-            sr.nom = this.getUsername();
-        }
+        int punt = getMillorpuntuacio();
+            if(punt != 0) {
+                sr = new StructRanking();
+                sr.millorP = punt;
+                sr.nom = getUsername();
+            }
         return sr;
     }
 

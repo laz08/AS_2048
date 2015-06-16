@@ -30,10 +30,10 @@ public class JugarPartidaController {
         jugarPartidaView.prepareMenuPrincipal();
     }
 
-    public void mostraRanking() throws Exception{
+    public void mostraRanking(boolean srcIsMainMenu) throws Exception{
         try{
             ArrayList<StructRanking> rank = ctrlCUJugarPartida.obtenirRanking();
-            jugarPartidaView.prepareRanking(rank);
+            jugarPartidaView.prepareRanking(rank, srcIsMainMenu);
         }
         catch (Exception e){
             throw e;
