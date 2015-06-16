@@ -34,7 +34,7 @@ public class MenuPrincipal {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 try{
-                    jpc.mostraRanking();
+                    jpc.mostraRanking(true);
                 }
                 catch (Exception e){
                     error.setText(e.getMessage());

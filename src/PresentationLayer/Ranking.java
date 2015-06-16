@@ -17,6 +17,7 @@ public class Ranking {
     private JButton OKButton;
     private JList llistaRank;
     private DefaultListModel llistat;
+    private boolean srcIsMainMenu;
 
     private void afegirLiniesRanking(ArrayList<StructRanking> rank){
         llistat.clear();
@@ -24,7 +25,8 @@ public class Ranking {
                 llistat.addElement(rank.get(i).nom + ": " + rank.get(i).millorP);
             }
     }
-    public void main(JFrame frame, ArrayList<StructRanking> rank) {
+    public void main(JFrame frame, ArrayList<StructRanking> rank, boolean srcIsMainMenu) {
+        this.srcIsMainMenu = srcIsMainMenu;
         frame.setTitle("2048 - Ranking");
         frame.setContentPane(this.PanelRank);
         afegirLiniesRanking(rank);
@@ -40,7 +42,10 @@ public class Ranking {
         OKButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                jpc.mostraPartidaFinalitzada();
+                if(srcIsMainMenu)
+                    jpc.mostraMenuPrincipal();
+                else
+                    jpc.mostraPartidaFinalitzada();
             }
         });
     }
