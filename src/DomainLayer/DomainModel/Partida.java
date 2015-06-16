@@ -425,7 +425,7 @@ public class Partida {
     }
 
 
-
+    //afegir boolean mogut que indica true si en el moviment fet s'ha mogut alguna casella
     public ArrayList<StructCasella> preparaSeguentMoviment(boolean mogut) {
         ArrayList<Casella> cas = selCasellesNoPuntuades();
         //afegim una casella aleatoria si amb el moviment anterior les caselles s'han mogut i queden caselles no puntuades

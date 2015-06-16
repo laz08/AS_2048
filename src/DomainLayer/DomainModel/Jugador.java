@@ -28,6 +28,7 @@ public class Jugador {
         setMillorpuntuacio(millorpuntuacio);
     }
 
+    //Struct per guardar les dades de un jugador en el ranking
     public StructRanking obtenirDades() {
         StructRanking sr = null;
         //Obtenir Dades finalment no va a la clase partida. Obte la millor puntuacio desde aquesta mateixa classe
