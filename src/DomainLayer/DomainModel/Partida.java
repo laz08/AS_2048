@@ -5,6 +5,9 @@ import DomainLayer.Adapters.IAdapMissatgeria;
 import DomainLayer.DataInterface.CtrlJugador;
 import DomainLayer.Factories.CtrlDataFactoria;
 import DomainLayer.Factories.FactoriaAdap;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 
 import javax.persistence.Basic;
@@ -222,13 +225,21 @@ public class Partida {
             cas = preparaSeguentMoviment(mogut);
         }
         if (estaAcabada) {
+            SessionFactory sf = new Configuration().configure().buildSessionFactory();
+            Session session = sf.openSession();
+            session.beginTransaction();
             Jugador jugadorPartidaActual = new Jugador();
             try {
                 jugadorPartidaActual = CtrlDataFactoria.getInstance().getCtrlJugador().get(username);
             } catch (Exception e){
 
             }
-            if(puntuacio > jugadorPartidaActual.getMillorpuntuacio()) jugadorPartidaActual.setMillorpuntuacio(puntuacio);
+            if(puntuacio > jugadorPartidaActual.getMillorpuntuacio()){
+                jugadorPartidaActual.setMillorpuntuacio(puntuacio);
+                session.update(jugadorPartidaActual);
+                session.getTransaction().commit();
+                session.close();
+            }
             eliminarAssoPartidaActual(this);
         }
         DadesPartidaEnCurs dades = new DadesPartidaEnCurs(estaGuanyada, estaAcabada, puntuacio, cas);

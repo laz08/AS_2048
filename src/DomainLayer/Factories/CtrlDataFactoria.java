@@ -49,7 +49,7 @@ public class CtrlDataFactoria {
     public CtrlJugador getCtrlJugador(){
         if(ctrlJugador == null) {
             ctrlJugador = new CtrlJugadorDB();
-            usuarisIJugadorsDeProva();
+            //usuarisIJugadorsDeProva();
         }
         return ctrlJugador;
 

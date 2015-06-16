@@ -55,6 +55,10 @@ public class CtrlCUJugarPartida {
         Partida p = new Partida(idP);
         //s'emmagatzema a domini la partida
         partida = p;
+        try{
+            jugador = CtrlDataFactoria.getInstance().getCtrlJugador().get(jugador.getUsername());
+        }
+        catch (Exception e){}
         p.assignaJugadorActual(jugador);
         int millor = jugador.getMillorpuntuacio();
         ArrayList<Partida.StructCasella> caselles = p.getInfoCaselles();
