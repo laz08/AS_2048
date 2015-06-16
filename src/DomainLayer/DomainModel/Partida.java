@@ -120,7 +120,7 @@ public class Partida {
         for (int i = 0; i < caselles.length; ++i) {
             for (int j = 0; j < caselles[0].length; ++j) {
                 int punt = caselles[i][j].getNumero();
-                if (punt == 2048) return true;
+                if (punt == 16) return true;
             }
         }
         return false;
