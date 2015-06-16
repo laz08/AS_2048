@@ -56,7 +56,7 @@ public class PartidaFinalitz {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 try{
-                    jpc.mostraRanking();
+                    jpc.mostraRanking(false);
                 }
                 catch(Exception e){
                     error.setText(e.getMessage());
