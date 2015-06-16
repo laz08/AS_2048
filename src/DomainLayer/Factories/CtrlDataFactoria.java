@@ -1,5 +1,6 @@
 package DomainLayer.Factories;
 
+import DataLayer.CtrlJugadorDB;
 import DomainLayer.DataInterface.CtrlJugador;
 import DomainLayer.DataInterface.CtrlUsuari;
 import DomainLayer.DomainController.CtrlCUJugarPartida;
@@ -48,7 +49,8 @@ public class CtrlDataFactoria {
 
     public CtrlJugador getCtrlJugador(){
         if(ctrlJugador == null) {
-            //ctrlJugador =
+            ctrlJugador = new CtrlJugadorDB();
+
             usuarisIJugadorsDeProva();
         }
         return ctrlJugador;

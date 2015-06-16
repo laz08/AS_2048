@@ -1,6 +1,7 @@
 package DataLayer;
 
 
+import DomainLayer.DataInterface.CtrlJugador;
 import DomainLayer.DomainModel.Jugador;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -11,11 +12,9 @@ import java.util.List;
 
 public class CtrlJugadorDB {
 
-    public CtrlJugadorDB(){
+    public CtrlJugadorDB() implements CtrlJugador {
 
-    }
-
-    public Jugador get(String username) throws Exception{
+    public Jugador get(String username) throw Exception{
         SessionFactory sf = new Configuration().configure().buildSessionFactory();
         Session session = sf.openSession();
         Jugador j = (Jugador) session.get(Jugador.class, username);
