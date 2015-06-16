@@ -1,30 +1,15 @@
 package DomainLayer.DataInterface;
 
+import DomainLayer.DomainModel.Jugador;
 import DomainLayer.DomainModel.Usuariregistrat;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
-/**
- * Created by Miquel on 11/06/2015.
- */
-public class CtrlUsuari {
-    // Estructura de dades on guardem els usuaris
-    private LinkedList<Usuariregistrat> usuarisRegs;
 
-    public CtrlUsuari() {
-        usuarisRegs = new LinkedList<Usuariregistrat>();
-    }
-
-    public Usuariregistrat getUsuari(String userN) throws  Exception{
-        for(int i = 0; i < usuarisRegs.size(); ++i){
-            if(usuarisRegs.get(i).getUsername().equals(userN)){
-                return usuarisRegs.get(i);
-            }
-        }
-        throw new Exception("Username incorrecte");
-    }
-    public void afegeixUsuaris(ArrayList<Usuariregistrat> users){
-        usuarisRegs.addAll(users);
-    }
+public interface CtrlUsuari {
+    public Usuariregistrat get(String username) throws Exception;
+    public boolean exists(String username);
+    public List<Usuariregistrat> all();
 }

@@ -1,13 +1,15 @@
 package DataLayer;
 
+import DomainLayer.DataInterface.CtrlPartida;
 import DomainLayer.DomainModel.Jugador;
 import DomainLayer.DomainModel.Partida;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 import java.util.List;
 
-/**
- * Created by Víctor on 16/06/2015.
- */
+
 public class CtrlPartidaDB implements CtrlPartida {
 
     public CtrlPartidaDB() {
@@ -17,7 +19,7 @@ public class CtrlPartidaDB implements CtrlPartida {
     {
         SessionFactory sf = new Configuration().configure().buildSessionFactory();
         Session session = sf.openSession();
-        Partida partida = (Jugador) session.get(Partida.class, idPartida);
+        Partida partida = (Partida) session.get(Partida.class, idPartida);
         if(partida == null)
             throw new Exception("No existeix cap partida amb aquest idPartida");
         session.close();

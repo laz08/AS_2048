@@ -1,6 +1,7 @@
 package DomainLayer.Factories;
 
 import DataLayer.CtrlJugadorDB;
+import DataLayer.CtrlUsuariRegistratDB;
 import DomainLayer.DataInterface.CtrlJugador;
 import DomainLayer.DataInterface.CtrlUsuari;
 import DomainLayer.DomainController.CtrlCUJugarPartida;
@@ -50,7 +51,6 @@ public class CtrlDataFactoria {
     public CtrlJugador getCtrlJugador(){
         if(ctrlJugador == null) {
             ctrlJugador = new CtrlJugadorDB();
-
             usuarisIJugadorsDeProva();
         }
         return ctrlJugador;
@@ -59,7 +59,7 @@ public class CtrlDataFactoria {
 
     public CtrlUsuari getCtrlUsuari(){
         if(ctrlUsuari == null)
-            ctrlUsuari = new CtrlUsuari();
+            ctrlUsuari = new CtrlUsuariRegistratDB();
         return ctrlUsuari;
 
     }
@@ -77,16 +77,20 @@ public class CtrlDataFactoria {
         j.setUsername("Goku");
         j.setMillorpuntuacio(0);
         j.setEmail("miquel_x9@hotmail.com");
+        session.save(u);
+        session.save(j);
         u = new Usuariregistrat();
         u.setUsername("ThePenguin");
         u.setPwd("ThePenguin");
         u.setNom("Victor");
         u.setCognom("Jaria");
+        session.save(u);
         u = new Usuariregistrat();
         u.setUsername("OclIsUnique");
         u.setPwd("OclIsUnique");
         u.setNom("Sergi");
         u.setCognom("Orra");
+        session.save(u);
         u = new Usuariregistrat();
         j = new Jugador();
         j.setEmail("lazeru08@gmail.com");
@@ -96,6 +100,9 @@ public class CtrlDataFactoria {
         u.setPwd("LoveLinux");
         u.setNom("Laura");
         u.setCognom("Cebollero");
+        session.save(u);
+        session.save(j);
+        session.getTransaction().commit();
     }
 
 }
