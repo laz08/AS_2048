@@ -23,6 +23,8 @@ public class CtrlCULogin {
         try {
             usuariR = cu.get(userN);
             pwd = usuariR.getPwd();
+            System.out.println(pwd);
+            System.out.println(passwd);
         }
         catch(Exception e){
             throw e;
