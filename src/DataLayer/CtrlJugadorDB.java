@@ -10,11 +10,13 @@ import org.hibernate.cfg.Configuration;
 import java.util.List;
 
 
-public class CtrlJugadorDB {
+public class CtrlJugadorDB implements CtrlJugador {
 
-    public CtrlJugadorDB() implements CtrlJugador {
+    public CtrlJugadorDB() {
+    }
 
-    public Jugador get(String username) throw Exception{
+    public Jugador get(String username) throws Exception
+    {
         SessionFactory sf = new Configuration().configure().buildSessionFactory();
         Session session = sf.openSession();
         Jugador j = (Jugador) session.get(Jugador.class, username);
@@ -24,7 +26,8 @@ public class CtrlJugadorDB {
         return j;
     }
 
-    public boolean exists(String username) throws Exception{
+    public boolean exists(String username)
+    {
         SessionFactory sf = new Configuration().configure().buildSessionFactory();
         Session session = sf.openSession();
         Jugador j = (Jugador) session.get(Jugador.class, username);
