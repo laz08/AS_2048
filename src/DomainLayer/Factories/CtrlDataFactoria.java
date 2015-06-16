@@ -1,6 +1,7 @@
 package DomainLayer.Factories;
 
 import DataLayer.CtrlJugadorDB;
+import DataLayer.CtrlUsuariRegistratDB;
 import DomainLayer.DataInterface.CtrlJugador;
 import DomainLayer.DataInterface.CtrlUsuari;
 import DomainLayer.DomainController.CtrlCUJugarPartida;
@@ -50,7 +51,6 @@ public class CtrlDataFactoria {
     public CtrlJugador getCtrlJugador(){
         if(ctrlJugador == null) {
             ctrlJugador = new CtrlJugadorDB();
-
             usuarisIJugadorsDeProva();
         }
         return ctrlJugador;
@@ -59,7 +59,7 @@ public class CtrlDataFactoria {
 
     public CtrlUsuari getCtrlUsuari(){
         if(ctrlUsuari == null)
-            ctrlUsuari = new CtrlUsuari();
+            ctrlUsuari = new CtrlUsuariRegistratDB();
         return ctrlUsuari;
 
     }
@@ -96,6 +96,7 @@ public class CtrlDataFactoria {
         u.setPwd("LoveLinux");
         u.setNom("Laura");
         u.setCognom("Cebollero");
+        session.getTransaction().commit();
     }
 
 }

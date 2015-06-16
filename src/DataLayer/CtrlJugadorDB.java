@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -37,11 +38,12 @@ public class CtrlJugadorDB implements CtrlJugador {
         return true;
     }
 
-    public List<Jugador> all(){
+    public ArrayList<Jugador> all(){
         SessionFactory sf = new Configuration().configure().buildSessionFactory();
         Session session = sf.openSession();
         List<Jugador> jugadors = session.createCriteria(Jugador.class).list();
         session.close();
-        return jugadors;
+        ArrayList<Jugador> jugs = new ArrayList<>(jugadors);
+        return jugs;
     }
 }

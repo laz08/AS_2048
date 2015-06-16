@@ -1,5 +1,6 @@
 package DataLayer;
 
+import DomainLayer.DataInterface.CtrlUsuari;
 import DomainLayer.DomainModel.Jugador;
 import DomainLayer.DomainModel.Usuariregistrat;
 import DomainLayer.DomainModel.Usuariregistrat;
@@ -12,7 +13,7 @@ import java.util.List;
 /**
  * Created by SERGI on 16/06/2015.
  */
-public class CtrlUsuariRegistratDB {
+public class CtrlUsuariRegistratDB implements CtrlUsuari{
 
     public CtrlUsuariRegistratDB() {}
 
@@ -26,7 +27,7 @@ public class CtrlUsuariRegistratDB {
         return ur;
     }
 
-    public boolean exists(String username) throws Exception{
+    public boolean exists(String username){
         SessionFactory sf = new Configuration().configure().buildSessionFactory();
         Session session = sf.openSession();
         Usuariregistrat ur = (Usuariregistrat) session.get(Usuariregistrat.class, username);

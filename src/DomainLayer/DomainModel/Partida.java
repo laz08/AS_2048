@@ -152,7 +152,7 @@ public class Partida {
             String missatge = idpartida+" "+puntuacio;
             Jugador j = new Jugador();
             try{
-                j = CtrlDataFactoria.getInstance().getCtrlJugador().getJugador(username);
+                j = CtrlDataFactoria.getInstance().getCtrlJugador().get(username);
             } catch (Exception e){
 
             }
@@ -181,7 +181,7 @@ public class Partida {
     public void eliminarAssoPartidaActual(Partida p){
         Jugador j = new Jugador();
         try{
-             j = CtrlDataFactoria.getInstance().getCtrlJugador().getJugador(username);
+             j = CtrlDataFactoria.getInstance().getCtrlJugador().get(username);
         } catch (Exception e){
         }
         j.associaPartidaJugada(p);
@@ -224,7 +224,7 @@ public class Partida {
         if (estaAcabada) {
             Jugador jugadorPartidaActual = new Jugador();
             try {
-                jugadorPartidaActual = CtrlDataFactoria.getInstance().getCtrlJugador().getJugador(username);
+                jugadorPartidaActual = CtrlDataFactoria.getInstance().getCtrlJugador().get(username);
             } catch (Exception e){
 
             }

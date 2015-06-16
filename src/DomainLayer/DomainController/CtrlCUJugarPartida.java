@@ -38,7 +38,7 @@ public class CtrlCUJugarPartida {
         try {
             CtrlDataFactoria ctrlDataFactoria = CtrlDataFactoria.getInstance();
             CtrlJugador cj = ctrlDataFactoria.getCtrlJugador();
-            jugador = cj.getJugador(userN);
+            jugador = cj.get(userN);
             cuLogin.Login(userN, passwd);
 
         } catch (Exception e) {

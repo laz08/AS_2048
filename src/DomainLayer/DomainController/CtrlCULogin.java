@@ -21,7 +21,7 @@ public class CtrlCULogin {
         CtrlUsuari cu = ctrlDataFactoria.getCtrlUsuari();
         String pwd;
         try {
-            usuariR = cu.getUsuari(userN);
+            usuariR = cu.get(userN);
             pwd = usuariR.getPwd();
         }
         catch(Exception e){

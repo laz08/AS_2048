@@ -22,7 +22,7 @@ public class CtrlCURanking {
         try {
             CtrlDataFactoria ctrlDataFactoria = CtrlDataFactoria.getInstance();
             CtrlJugador cj = ctrlDataFactoria.getCtrlJugador();
-            ArrayList<Jugador> jugadors = cj.tots();
+            ArrayList<Jugador> jugadors = cj.all();
             RankingStrategy rs = new MillorPuntuacio();
             ArrayList<StructRanking> r = rs.obteRanking(jugadors);
             return r;
