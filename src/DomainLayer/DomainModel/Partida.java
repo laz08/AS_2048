@@ -147,6 +147,7 @@ public class Partida {
             this.estaGuanyada = true;
             this.estaAcabada = true;
         }
+        //A més, si no hi ha caselles no puntuades i no es pot fer moviment tambe esta acabada
         ArrayList<Casella> cas = selCasellesNoPuntuades();
         if (cas.size() == 0) {
             if (!esPotFerMoviment()) this.estaAcabada = true;
@@ -164,6 +165,7 @@ public class Partida {
         }
     }
 
+    //Aquesta funcio comprova si es pot fer moviment. Si es pot retorna true, si no false
     private boolean esPotFerMoviment() {
         boolean mov = false;
         for (int i = 0; i < caselles.length; ++i) {
@@ -192,7 +194,7 @@ public class Partida {
     }
 
     public DadesPartidaEnCurs ferMoviment(String tipusMov){
-        //modificats = new boolean[16];
+        //fem una copia de la matriu caselles abans de fer moviment
         int caselles2[][] = new int[4][4];
         for (int i = 0; i < caselles.length; ++i) {
             for (int j = 0; j < caselles.length; ++j) {
@@ -215,6 +217,7 @@ public class Partida {
         }
         comprovaPartidaPerdudaOGuanyada();
         ArrayList<StructCasella> cas = new ArrayList<>();
+        //aqui comparem amb la copia anteriorment feta per saber si s'ha mogut alguna casella
         if(!estaAcabada) {
             boolean mogut = false;
             for (int i = 0; i < caselles.length; ++i) {
@@ -234,6 +237,7 @@ public class Partida {
             } catch (Exception e){
 
             }
+            //actualitzem millor puntuacio de del jugador si cal
             if(puntuacio > jugadorPartidaActual.getMillorpuntuacio()){
                 jugadorPartidaActual.setMillorpuntuacio(puntuacio);
                 session.update(jugadorPartidaActual);
@@ -247,13 +251,13 @@ public class Partida {
 
     }
 
+    //MOVIMENTS : Els hem hagut de canviar perque els altres hi havia un bug i no funcionaven
     private void movAmunt() {
-        //Nomes vaig mirant la casella que estic i la de abaix. A les seguents iteracions del for ja mirarem les altres
-        for (int j = 0; j < caselles.length; ++j) { //No arribarem a la ultima fila perque no cal
+        for (int j = 0; j < caselles.length; ++j) { //recorregut per tota la matriu
             boolean especial = false;
             boolean primerCop = true;
             int voltes = 0;
-            while (voltes < caselles.length - 2) {  //Ja que en el cas de que hagin numeros junts primer puja un i despres el altre
+            while (voltes < caselles.length - 2) {  //En el for de dintre del WHILE agrupem tots els nombres d'importancia (amb valor) amunt. Hem de fer varies iteracions (la mesura de la colummna menys dos) perque aixo funcioni, pels casos que tots els numeros estan abaix
                 for (int i = caselles.length - 1; i > 0; --i) { //arrossegar en cas de 0's
                     if (caselles[i - 1][j].getNumero() == 0 && caselles[i][j].getNumero() != 0) {
                         int num = caselles[i][j].getNumero();
@@ -263,7 +267,7 @@ public class Partida {
                 }
                 ++voltes;
             }
-            for (int i = 0; i < caselles.length - 1; ++i) {
+            for (int i = 0; i < caselles.length - 1; ++i) { //un cop agrupats sumar o no segons el cas
                 int num = caselles[i][j].getNumero();
 
                 //Cas especial de que 4 caselles es transformen en 2
@@ -275,30 +279,28 @@ public class Partida {
                     caselles[i+1][j].setNumero(num2*2);
                     caselles[i+2][j].setNumero(0);
                     caselles[i+3][j].setNumero(0);
-                    puntuacio += (num*2 + num2*2);
+                    puntuacio += (num*2 + num2*2); //actulitzem puntuacio de la partida
                 }
-                else if (caselles[i + 1][j].getNumero() == num) { //comparem amb la de abaix
-                    caselles[i][j].setNumero(num * 2);
-                    caselles[i + 1][j].setNumero(0); //la posem a 0 i a la seguent irteracio del for ja la omplirem
-                    puntuacio += num*2;
+                else if (caselles[i + 1][j].getNumero() == num) { //comparem amb la de abaix per si son iguals
+                    caselles[i][j].setNumero(num * 2); //actualitzem el nou valor
+                    caselles[i + 1][j].setNumero(0); //la posem a 0 i a la seguent irteracio si cal ja la omplirem
+                    puntuacio += num*2; //actulitzem puntuacio de la partida
                 }
-                else if (caselles[i][j].getNumero() == 0 && caselles[i + 1][j].getNumero() != 0) {
+                else if (caselles[i][j].getNumero() == 0 && caselles[i + 1][j].getNumero() != 0) { //fem swap en cas de que sigui 0 la seguent casella
                     caselles[i][j].setNumero(caselles[i + 1][j].getNumero());
                     caselles[i+1][j].setNumero(0);
                 }
                 primerCop = false;
-                //queda el cas que els dos tinguin valor i son diferents pero no ens interesa
             }
         }
     }
 
     private void movAvall(){
-        //Nomes vaig mirant la casella que estic i la de abaix. A les seguents iteracions del for ja mirarem les altres
-        for (int j = 0; j < caselles.length; ++j) { //No arribarem a la ultima fila perque no cal
+        for (int j = 0; j < caselles.length; ++j) { //Recorregut per la matriu
             boolean especial = false;
             boolean primerCop = true;
             int voltes = 0;
-            while (voltes < caselles.length - 2) { //Ja que en el cas de que hagin numeros junts primer baixa un i despres el altre
+            while (voltes < caselles.length - 2) { //En el for de dintre del WHILE agrupem tots els nombres d'importancia (amb valor) amunt. Hem de fer varies iteracions (la mesura de la colummna menys dos) perque aixo funcioni, pels casos que tots els numeros estan adalt
                 for (int i = 0; i < caselles.length - 1; ++i) { //arrossegar en cas de 0's
                     if (caselles[i + 1][j].getNumero() == 0 && caselles[i][j].getNumero() != 0) {
                         int num = caselles[i][j].getNumero();
@@ -308,7 +310,7 @@ public class Partida {
                 }
                 ++voltes;
             }
-            for (int i = caselles.length - 1; i > 0 ; --i) {
+            for (int i = caselles.length - 1; i > 0 ; --i) { //un cop agrupats sumar o no segons el cas. Començem desde avall:
                 int num = caselles[i][j].getNumero();
 
                 //Cas especial de que 4 caselles es transformen en 2
@@ -320,28 +322,26 @@ public class Partida {
                     caselles[i - 1][j].setNumero(num2 * 2);
                     caselles[i - 2][j].setNumero(0);
                     caselles[i - 3][j].setNumero(0);
-                    puntuacio += (num*2 + num2*2);
-                } else if (caselles[i - 1][j].getNumero() == num) { //comparem amb la de abaix
-                    caselles[i][j].setNumero(num * 2);
-                    caselles[i - 1][j].setNumero(0); //la posem a 0 i a la seguent irteracio del for ja la omplirem
-                    puntuacio += num*2;
-                } else if (caselles[i][j].getNumero() == 0 && caselles[i - 1][j].getNumero() != 0) { //comparem amb la de abaix
+                    puntuacio += (num*2 + num2*2); //actulitzem puntuacio de la partida
+                } else if (caselles[i - 1][j].getNumero() == num) { //comparem amb la de amunt per si son iguals
+                    caselles[i][j].setNumero(num * 2); //actualitzem nou valor
+                    caselles[i - 1][j].setNumero(0); //la posem a 0 i a la seguent iteracio si cal ja la omplirem
+                    puntuacio += num*2; //actulitzem puntuacio de la partida
+                } else if (caselles[i][j].getNumero() == 0 && caselles[i - 1][j].getNumero() != 0) { //fem swap en cas de que sigui 0 la seguent casella
                     caselles[i][j].setNumero(caselles[i - 1][j].getNumero());
                     caselles[i - 1][j].setNumero(0);
                 }
                 primerCop = false;
-                //queda el cas que els dos tinguin valor i son diferents pero no ens interesa
             }
         }
     }
 
     private void movEsquerre(){
-        //Nomes vaig mirant la casella que estic i la de abaix. A les seguents iteracions del for ja mirarem les altres
-        for (int i = 0; i < caselles.length; ++i) {
+        for (int i = 0; i < caselles.length; ++i) { //Recorregut per la matriu
             boolean especial = false;
             boolean primerCop = true;
             int voltes = 0;
-            while (voltes < caselles.length - 2) { //Ja que en el cas de que hagin numeros junts primer mou un i despres el altre
+            while (voltes < caselles.length - 2) { //En el for de dintre del WHILE agrupem tots els nombres d'importancia (amb valor) amunt. Hem de fer varies iteracions (la mesura de la colummna menys dos) perque aixo funcioni, pels casos que tots els numeros estan a la dreta
                 for (int j = caselles.length - 1; j > 0; --j) { //arrossegar en cas de 0's
                     if (caselles[i][j - 1].getNumero() == 0 && caselles[i][j].getNumero() != 0) {
                         int num = caselles[i][j].getNumero();
@@ -351,7 +351,7 @@ public class Partida {
                 }
                 ++voltes;
             }
-            for (int j = 0; j < caselles.length - 1; ++j) {
+            for (int j = 0; j < caselles.length - 1; ++j) { //un cop agrupats sumar o no segons el cas. Començem desde l'esquerre:
                 int num = caselles[i][j].getNumero();
 
                 //Cas especial de que 4 caselles es transformen en 2
@@ -363,30 +363,28 @@ public class Partida {
                     caselles[i][j+1].setNumero(num2*2);
                     caselles[i][j+2].setNumero(0);
                     caselles[i][j+3].setNumero(0);
-                    puntuacio += (num*2 + num2*2);
+                    puntuacio += (num*2 + num2*2); //actulitzem puntuacio de la partida
                 }
-                else if (caselles[i][j+1].getNumero() == num) { //comparem amb la de abaix
-                    caselles[i][j].setNumero(num * 2);
-                    caselles[i][j+1].setNumero(0); //la posem a 0 i a la seguent irteracio del for ja la omplirem
-                    puntuacio += num*2;
+                else if (caselles[i][j+1].getNumero() == num) { //comparem amb la la dreta per si son iguals
+                    caselles[i][j].setNumero(num * 2); //actualitzem nou valor
+                    caselles[i][j+1].setNumero(0); //la posem a 0 i a la seguent iteracio si cal ja la omplirem
+                    puntuacio += num*2; //actulitzem puntuacio de la partida
                 }
-                else if (caselles[i][j].getNumero() == 0 && caselles[i][j+1].getNumero() != 0) {
+                else if (caselles[i][j].getNumero() == 0 && caselles[i][j+1].getNumero() != 0) { //fem swap en cas de que sigui 0 la seguent casella
                     caselles[i][j].setNumero(caselles[i][j+1].getNumero());
                     caselles[i][j+1].setNumero(0);
                 }
                 primerCop = false;
-                //queda el cas que els dos tinguin valor i son diferents pero no ens interesa
             }
         }
     }
 
     private void movDreta(){
-        //Nomes vaig mirant la casella que estic i la de abaix. A les seguents iteracions del for ja mirarem les altres
-        for (int i = 0; i < 4; ++i) {
+        for (int i = 0; i < 4; ++i) { //Recorregut per la matriu
             boolean especial = false;
             boolean primerCop = true;
             int voltes = 0;
-            while (voltes < caselles.length - 2) { //Ja que en el cas de que hagin numeros junts primer mou un i despres el altre
+            while (voltes < caselles.length - 2) { //En el for de dintre del WHILE agrupem tots els nombres d'importancia (amb valor) amunt. Hem de fer varies iteracions (la mesura de la colummna menys dos) perque aixo funcioni, pels casos que tots els numeros estan a la esquerre
                 for (int j = 0; j < caselles.length - 1; ++j) { //arrossegar en cas de 0's
                     if (caselles[i][j + 1].getNumero() == 0 && caselles[i][j].getNumero() != 0) {
                         int num = caselles[i][j].getNumero();
@@ -396,7 +394,7 @@ public class Partida {
                 }
                 ++voltes;
             }
-            for (int j = caselles.length - 1; j > 0 ; --j) {
+            for (int j = caselles.length - 1; j > 0 ; --j) { //un cop agrupats sumar o no segons el cas. Començem desde la dreta
                 int num = caselles[i][j].getNumero();
 
                 //Cas especial de que 4 caselles es transformen en 2
@@ -408,19 +406,18 @@ public class Partida {
                     caselles[i][j-1].setNumero(num2*2);
                     caselles[i][j-2].setNumero(0);
                     caselles[i][j-3].setNumero(0);
-                    puntuacio += (num*2 + num2*2);
+                    puntuacio += (num*2 + num2*2); //actulitzem puntuacio de la partida
                 }
-                else if (caselles[i][j-1].getNumero() == num) { //comparem amb la de abaix
-                    caselles[i][j].setNumero(num * 2);
+                else if (caselles[i][j-1].getNumero() == num) { //comparem amb la de abaix per si son iguals
+                    caselles[i][j].setNumero(num * 2); //actulitzem nou valor
                     caselles[i][j-1].setNumero(0); //la posem a 0 i a la seguent irteracio del for ja la omplirem
-                    puntuacio += num*2;
+                    puntuacio += num*2; //actulitzem puntuacio de la partida
                 }
-                else if (caselles[i][j].getNumero() == 0 && caselles[i][j-1].getNumero() != 0) {
+                else if (caselles[i][j].getNumero() == 0 && caselles[i][j-1].getNumero() != 0) { //fem swap en cas de que sigui 0 la seguent casella
                     caselles[i][j].setNumero(caselles[i][j-1].getNumero());
                     caselles[i][j-1].setNumero(0);
                 }
                 primerCop = false;
-                //queda el cas que els dos tinguin valor i son diferents pero no ens interesa
             }
         }
     }
@@ -432,8 +429,7 @@ public class Partida {
         if (mogut) {
             if (cas.size() != 0) selCasellaAleatiAssigPunt(1, cas);
         }
-        //esta en el diagrama per� crec que �s innesecari la seg�ent crida
-        //ArrayList<Casella> casNP = selCasellesNoPuntuades();
+        //Array list de casellesPuntuades el cual s'omple en aquesta funcio
         ArrayList<StructCasella> casPuntuades = new ArrayList<>();
         for (int i = 0; i < caselles.length; ++i) {
             for (int j = 0; j < caselles.length; ++j) {
