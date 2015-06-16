@@ -4,9 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-/**
- * Created by laura on 16/06/15.
- */
+
 @Entity
 public class Joc2048 {
     private int idpartida;

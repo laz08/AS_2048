@@ -15,10 +15,31 @@ public class PartidaEnCurs {
     private JLabel puntMillor;
     private int millorPuntuacio;
 
+    /**
+     * Aquesta es la vista que mostra el taulell, és a dir, la partida en curs del jugador.
+     */
     public PartidaEnCurs(JugarPartidaController jpcn) {
         jpc = jpcn;
     }
 
+    /**
+     * Equival a la funció "showPartida" de la segona entrega.
+     * @param frame
+     */
+    public void main(JFrame frame) {
+        frame.setTitle("2048");
+        frame.setContentPane(this.PanelPartCurs);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 400);
+        frame.setResizable(false);
+        frame.setVisible(true);
+    }
+
+    /**
+     * Funció nova extra que ens serveix per afegir cada casella al taulell i assignar-li
+     * el color corresponent.
+     * @param valor
+     */
     private void afegeixCasellaATaulell(int valor){
         Color bg = Color.DARK_GRAY;
         JLabel casella = new JLabel(" ");
@@ -46,11 +67,17 @@ public class PartidaEnCurs {
         taulell.add(casella);
     }
 
+    /**
+     * Funció nova per a preparar el taulell
+     * de la vista per a que s'hi puguin afegir noves caselles.
+     */
     private void preparaNouTaulell(){
         taulell.removeAll();
         taulell.setBorder(new MatteBorder(2, 2, 2, 2, Color.BLACK));
         taulell.setLayout(new GridLayout(4, 4));
     }
+
+
     public void preparePartida(int puntActual, int millorPunt, ArrayList<Partida.StructCasella> caselles){
         this.puntActual.setText(Integer.toString(puntActual));
         this.puntMillor.setText(Integer.toString(millorPunt));
@@ -65,6 +92,11 @@ public class PartidaEnCurs {
 
     }
 
+    /**
+     * Equival a la funció "actualitzarPartida" de la 2a entrega (ens hem deixat una r)
+     * @param puntAct
+     * @param caselles
+     */
     public void actualitzaPartida(int puntAct, ArrayList<Partida.StructCasella> caselles){
         this.puntActual.setText(Integer.toString(puntAct));
         if(puntAct > millorPuntuacio){
@@ -88,13 +120,6 @@ public class PartidaEnCurs {
         }
 
     }
-    public void main(JFrame frame) {
-        frame.setTitle("2048");
-        frame.setContentPane(this.PanelPartCurs);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 400);
-        frame.setResizable(false);
-        frame.setVisible(true);
-    }
+
 
 }

@@ -111,7 +111,7 @@ public class CtrlDataFactoria {
         session.save(u);
         session.save(j);
         session.getTransaction().commit();
-        
+
     }
 
 }
