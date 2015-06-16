@@ -5,7 +5,7 @@ import DomainLayer.DomainModel.Partida;
 
 import java.util.Scanner;
 
-
+//classe que servia per provar una partida en fase de desenvolupament sense fer servir interfície gràfica
 public class Main {
     private static int count_o=1;
     private static final int MOVIMENT_AVALL=count_o++;//1

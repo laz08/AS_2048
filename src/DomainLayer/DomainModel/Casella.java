@@ -1,7 +1,6 @@
 package DomainLayer.DomainModel;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
 
 /**
  * Created by laura on 15/06/15.

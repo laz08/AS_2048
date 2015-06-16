@@ -2,7 +2,6 @@ package DomainLayer.DomainModel;
 
 import ClassesAuxiliars.DadesPartidaEnCurs;
 import DomainLayer.Adapters.IAdapMissatgeria;
-import DomainLayer.DataInterface.CtrlJugador;
 import DomainLayer.Factories.CtrlDataFactoria;
 import DomainLayer.Factories.FactoriaAdap;
 import org.hibernate.Session;
@@ -24,8 +23,9 @@ public class Partida {
     private Boolean estaAcabada;
     private Boolean estaGuanyada;
     private Integer puntuacio;
-;
+    //atribut afegit per navegabilitat, composició
     private Casella caselles[][];
+    //atribut afegit per la cap de persistència
     private String username;
 
     public Partida(){
@@ -126,6 +126,8 @@ public class Partida {
         return false;
     }
 
+    //s'ha hagut de canviar la funció per poder fer que un thread enviï el mail i així aconseguir reduir el temps d'espera
+    //cal passar el destinatari, que és el mail del jugador actual, ja que el servei necessita aquesta informació
     private void enviaMissatge(String missatge, String destinatari){
         class enviaMissatgeAsync implements Runnable {
             String msg;

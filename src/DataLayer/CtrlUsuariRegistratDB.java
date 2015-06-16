@@ -1,8 +1,6 @@
 package DataLayer;
 
 import DomainLayer.DataInterface.CtrlUsuari;
-import DomainLayer.DomainModel.Jugador;
-import DomainLayer.DomainModel.Usuariregistrat;
 import DomainLayer.DomainModel.Usuariregistrat;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

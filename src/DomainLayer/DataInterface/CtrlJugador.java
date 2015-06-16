@@ -1,13 +1,12 @@
 package DomainLayer.DataInterface;
 
 import DomainLayer.DomainModel.Jugador;
-import DomainLayer.DomainModel.Usuariregistrat;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public interface CtrlJugador {
+    //retorna excepció si no existeix el jugador identificat per username
     public Jugador get(String username) throws Exception;
     public boolean exists(String username);
     public ArrayList<Jugador> all();

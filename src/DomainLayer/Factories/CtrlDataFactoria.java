@@ -13,8 +13,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import java.util.ArrayList;
-
 
 public class CtrlDataFactoria {
     private static CtrlDataFactoria ourInstance = new CtrlDataFactoria();
@@ -61,7 +59,7 @@ public class CtrlDataFactoria {
         return ctrlUsuari;
 
     }
-
+    //funció per crear els jugadors/usuaris de prova, es fa servir cada cop que s'inicia el programa
     public void usuarisIJugadorsDeProva() {
         SessionFactory sf = new Configuration().configure().buildSessionFactory();
         Session session = sf.openSession();
