@@ -4,9 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-/**
- * Created by laura on 16/06/15.
- */
+//No estava en el diagrama de persistència però cal tenir-la per poder tenir l'útlima id feta servir
 @Entity
 public class Joc2048 {
     private int idpartida;

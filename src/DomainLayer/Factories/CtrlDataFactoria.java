@@ -13,8 +13,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import java.util.ArrayList;
-
 
 public class CtrlDataFactoria {
     private static CtrlDataFactoria ourInstance = new CtrlDataFactoria();
@@ -49,7 +47,7 @@ public class CtrlDataFactoria {
     public CtrlJugador getCtrlJugador(){
         if(ctrlJugador == null) {
             ctrlJugador = new CtrlJugadorDB();
-            //usuarisIJugadorsDeProva();
+            usuarisIJugadorsDeProva();
         }
         return ctrlJugador;
 
@@ -61,13 +59,14 @@ public class CtrlDataFactoria {
         return ctrlUsuari;
 
     }
-
+    //funció per crear els jugadors/usuaris de prova, es fa servir cada cop que s'inicia el programa
     public void usuarisIJugadorsDeProva() {
         SessionFactory sf = new Configuration().configure().buildSessionFactory();
         Session session = sf.openSession();
         session.beginTransaction();
         Usuariregistrat u = new Usuariregistrat();
         Jugador j = new Jugador();
+
         u.setUsername("Goku");
         u.setPwd("Goku");
         u.setNom("Miquel");
@@ -100,7 +99,17 @@ public class CtrlDataFactoria {
         u.setCognom("Cebollero");
         session.save(u);
         session.save(j);
+        j.setEmail("cristina@essi.upc.edu");
+        j.setUsername("AS");
+        j.setMillorpuntuacio(0);
+        u.setUsername("AS");
+        u.setPwd("AS");
+        u.setNom("AS");
+        u.setCognom("Grup10");
+        session.save(u);
+        session.save(j);
         session.getTransaction().commit();
+
     }
 
 }

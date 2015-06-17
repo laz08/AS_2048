@@ -18,7 +18,7 @@ public class CtrlCasellaDB implements CtrlCasella {
     {
         SessionFactory sf = new Configuration().configure().buildSessionFactory();
         Session session = sf.openSession();
-        CasellaPK cpk = new CasellaPK();bvhv
+        CasellaPK cpk = new CasellaPK();
         cpk.setIdpartida(idPartida);
         cpk.setNumerofila(numFila);
         cpk.setNumerocolumna(numCol);

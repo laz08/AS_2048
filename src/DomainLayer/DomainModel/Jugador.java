@@ -16,6 +16,7 @@ public class Jugador {
     private String username;
     private String email;
     private Integer millorpuntuacio;
+    //atribut afegit per navegabilitat
     private ArrayList<Partida> partidesJugades;
 
     public Jugador(){
